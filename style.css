@@ -150,3 +150,53 @@
     background-color: #2ba3a5;
   }
   
+
+  /* style.css pour Mention légale style titre */
+/* On définit les compteurs */
+.niveauBody {
+  counter-reset: h2;
+}
+
+/* ---- H2 = 1., 2., 3. ---- */
+.niveauH2 {
+  counter-reset: h3; /* reset des sous-niveaux à chaque nouveau h2 */
+}
+.niveauH2::before {
+  counter-increment: h2; /* incrémente h2 */
+  content: counter(h2) ". "; /* affiche 1. */
+}
+
+/* ---- H3 = 1.1., 2.1., etc ---- */
+.niveauH3 {
+  counter-reset: h4; /* reset du niveau suivant */
+}
+.niveauH3::before {
+  counter-increment: h3; /* incrémente h3 */
+  content: counter(h2) "." counter(h3) ". "; /* affiche 1.1. */
+}
+
+/* ---- H4 = 1.1.1., 2.1.1., etc ---- */
+.niveauH4 {
+  counter-reset: h5;
+}
+.niveauH4::before {
+  counter-increment: h4;
+  content: counter(h2) "." counter(h3) "." counter(h4) ". "; /* affiche 1.1.1. */
+}
+
+
+/* Style optionnel */
+.niveauH2, .niveauH3, .niveauH4 {
+  color: #1077a0;
+}
+ 
+/* FIN style.css pour Mention légale style titre */
+
+/* ------ Style des point ------*/
+/**disc (par défaut, rond plein), circle (cercle vide), square (carré plein)et none (pas de puce) */
+
+ul {
+  list-style-type: square; /* met des carrés à la place des puces rondes */
+}
+
+/* ------ FIN Style des point ------*/
