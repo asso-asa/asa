@@ -1,1 +1,27 @@
-{"name":"","short_name":"","icons":[{"src":"https://res.cloudinary.com/dcjlu0ems/image/upload/v1744801775/Logo_ASA_favicon.png","sizes":"192x192","type":"image/png"},{"src":"https://res.cloudinary.com/dcjlu0ems/image/upload/v1744801775/Logo_ASA_favicon.png","sizes":"512x512","type":"image/png"}],"theme_color":"#00853F","background_color":"#00853F","display":"standalone"}
+{
+  "name": "Association des Sénégalais d'Amiens",
+  "short_name": "ASA",
+  "description": "Association des Sénégalais d'Amiens (ASA)",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dcjlu0ems/image/upload/v1744801775/Logo_ASA_favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/dcjlu0ems/image/upload/v1744801775/Logo_ASA_favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1077a0",
+  "background_color": "#1077a0",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "portrait",
+  "categories": ["business", "productivity"]
+
+}
