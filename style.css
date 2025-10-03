@@ -151,7 +151,7 @@
   }
   
 
-  /* style.css pour Mention légale style titre */
+/* style.css pour Mention légale style titre */
 /* On définit les compteurs */
 .niveauBody {
   counter-reset: h2;
@@ -189,7 +189,10 @@
 .niveauH2, .niveauH3, .niveauH4 {
   color: #1077a0;
 }
- 
+
+.niveauH2 {
+  margin-top: 25px;
+}
 /* FIN style.css pour Mention légale style titre */
 
 /* ------ Style des point ------*/
