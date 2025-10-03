@@ -15,7 +15,7 @@ body {
   padding-left: 0;
 }
 
-#4toc li {
+#toc555 li {
   margin: 0.25rem 0;
 }
 
@@ -30,8 +30,8 @@ body {
 }
 
 .toc-h2 { margin-left: 0; font-weight: 600; }
-.toc-h3 { margin-left: 1rem; }
-.toc-h4 { margin-left: 2rem; font-size: 0.9rem; }
+.toc-h3 { margin-left: 0.5rem; }
+.toc-h4 { margin-left: 1rem; font-size: 0.9rem; }
 
 
 /*------*/
