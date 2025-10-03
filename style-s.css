@@ -32,3 +32,16 @@ body {
 .toc-h2 { margin-left: 0; font-weight: 600; }
 .toc-h3 { margin-left: 1rem; }
 .toc-h4 { margin-left: 2rem; font-size: 0.9rem; }
+
+
+/*------*/
+h2 {
+  color: #00853F;
+}
+h3 {
+  color: #067ee0;
+}
+
+ul {
+  list-style-type: square; /* met des carrés à la place des puces rondes */
+}
