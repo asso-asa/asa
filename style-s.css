@@ -51,3 +51,10 @@ body {
 ul {
   list-style-type: square; /* met des carrés à la place des puces rondes */
 }
+
+@media (min-width: 768px) {
+  .pd-cadre {
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
+  }
+}
