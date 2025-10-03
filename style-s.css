@@ -41,6 +41,12 @@ body {
   background: #f0f0f0;
 }
 
+@media (min-width: 992px) {
+  .bg-page {
+  padding-right: 3rem ;
+  padding-left: 3rem ;
+  }
+}
 .niveauH2 {
   color: #00853F;
 }
@@ -52,9 +58,3 @@ ul {
   list-style-type: square; /* met des carrés à la place des puces rondes */
 }
 
-@media (min-width: 992px) {
-  .bg-page {
-  padding-right: 3rem !important;
-  padding-left: 3rem !important;
-  }
-}
