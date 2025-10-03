@@ -17,8 +17,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#1077a0",
-  "background_color": "#1077a0",
+  "theme_color": "#00853F",
+  "background_color": "#00853F",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone"],
   "orientation": "portrait",
