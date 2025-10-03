@@ -53,7 +53,7 @@ ul {
 }
 
 @media (min-width: 992px) {
-  .pd-cadre {
+  .bg-page {
   padding-right: 3rem !important;
   padding-left: 3rem !important;
   }
