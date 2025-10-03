@@ -1,0 +1,34 @@
+body {
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
+}
+
+#toc {
+  position: sticky;
+  top: 100px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#toc li {
+  margin: 0.25rem 0;
+}
+
+#toc a {
+  text-decoration: none;
+  color: #00853F;
+  font-size: 0.95rem;
+}
+
+#toc a:hover {
+  text-decoration: underline;
+}
+
+.toc-h2 { margin-left: 0; font-weight: 600; }
+.toc-h3 { margin-left: 1rem; }
+.toc-h4 { margin-left: 2rem; font-size: 0.9rem; }
