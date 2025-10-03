@@ -35,6 +35,12 @@ body {
 
 
 /*------*/
+/* ------  Style des  ------*/
+
+.bg-page {
+  background: #8291a3;
+}
+
 h2 {
   color: #00853F;
 }
