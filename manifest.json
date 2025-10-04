@@ -3,7 +3,7 @@
   "short_name": "ASA",
   "description": "Association des Sénégalais d'Amiens (ASA)",
   "lang": "fr",
-  "start_url": "/",
+  "start_url": "https://asso-asa.github.io/asa/",
   "scope": "/",
   "icons": [
     {
