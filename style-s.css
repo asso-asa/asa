@@ -69,3 +69,17 @@ ul {
 .bg-header {
   background-color: var(--asa-color) !important;
 }
+
+/* tableau  */
+.mon-tableau {
+  margin: 0 auto;      /* centre dans la div */
+  min-width: 400px;    /* largeur minimale */
+  border-collapse: collapse;
+}
+
+.mon-tableau th, 
+.mon-tableau td {
+  border: 1px solid #00853F;
+  padding: 10px;
+  text-align: center;
+}
