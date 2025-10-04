@@ -225,7 +225,7 @@
 
 /* Bandeau header */
 .services-header {
-  background: url('/img/background-bureau-home.jpg') center/cover no-repeat;
+  background: url('/asa/img/logotype-asa-1200x630.png') center/cover no-repeat;
   height: 40vh;
   display: flex;
   align-items: center;
