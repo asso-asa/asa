@@ -232,7 +232,7 @@
 }
 
 
-.html-404, .body-404, .body-index {
+.html-404, .body-404, .body-index, .html-index {
   height: 100%;          /* Important : le body doit occuper tout l’écran */
   margin: 0;
   display: flex;
