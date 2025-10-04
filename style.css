@@ -195,6 +195,63 @@
 }
 /* FIN style.css pour Mention légale style titre */
 
+
+/* -----   style.css pour page 404 --------------------------- */
+.corps-404 {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+.h1-404 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 3em;
+  color: #1077a0;
+}
+.retour-404 {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #1077a0;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* -------- FIN style.css pour page 404-------------------------- */
+
+
+/* style.css pour page page MENTIONS LEGALES  --------- */
+
+/* Bandeau header */
+.services-header {
+  background: url('/img/background-bureau-home.jpg') center/cover no-repeat;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.services-header h1 {
+  font-size: 3rem;
+}
+
+.services-header p {
+  font-size: 1.25rem;
+}
+
+/* Images des EXPERTISES */
+section img {
+  max-height: 300px;
+  object-fit: cover;
+}
+
+
+/* FIN style.css pour page MENTIONS LEGALES  --------- */
+
+
+
 /* ------ Style des point ------*/
 /**disc (par défaut, rond plein), circle (cercle vide), square (carré plein)et none (pas de puce) */
 
