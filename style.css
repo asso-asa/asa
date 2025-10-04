@@ -3,6 +3,12 @@
   --asa-color: #00853F;
 }
 /* --- FIN VARIABLES ----*/
+html, body {
+  height: 100%;          /* Important : le body doit occuper tout l’écran */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 
 /*  --------*/
 .confirmation-body {
