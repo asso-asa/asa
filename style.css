@@ -225,8 +225,8 @@
 
 /* Bandeau header */
 .about-header {
-  background: url('/asa/img/img_logo_ASA.jpg') center/cover no-repeat;
-  height: 40vh;
+  background: url('/asa/img/logotype-asa-1200x630.png') center/cover no-repeat;
+  height: 35vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -240,13 +240,6 @@
 .about-header p {
   font-size: 1.25rem;
 }
-
-/* Images des Mention legales */
-section img {
-  max-height: 300px;
-  object-fit: cover;
-}
-
 
 /* FIN style.css pour page MENTIONS LEGALES -----  */
 
