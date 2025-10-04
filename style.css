@@ -3,12 +3,6 @@
   --asa-color: #00853F;
 }
 /* --- FIN VARIABLES ----*/
-html, body {
-  height: 100%;          /* Important : le body doit occuper tout l’écran */
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
 
 /*  --------*/
 .confirmation-body {
@@ -237,14 +231,8 @@ html, body {
   border-radius: 5px;
 }
 
-/*.html-404, .body-404 {
-  height: 100%;          /* Important : le body doit occuper tout l’écran *
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}*/
 
-html, body {
+.html-404, .body-404, .body-index {
   height: 100%;          /* Important : le body doit occuper tout l’écran */
   margin: 0;
   display: flex;
