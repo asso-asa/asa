@@ -241,6 +241,8 @@
 
 
 /* -------- FIN style.css pour page 404-------------------------- */
+
+/* idex occuper toute la hauteur*/
 .corps-index {
   flex: 1;               /* Cette partie prend tout l’espace restant */
   display: flex;
