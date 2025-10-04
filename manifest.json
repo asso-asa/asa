@@ -7,12 +7,12 @@
   "scope": "/",
   "icons": [
     {
-      "src": "asso-asa/asa/img/logotype-asa-192x192.png",
+      "src": "https://asso-asa.github.io/asa/img/logotype-asa-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "asso-asa/asa/img/logotype-asa-512x512.png",
+      "src": "https://asso-asa.github.io/asa/img/logotype-asa-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
