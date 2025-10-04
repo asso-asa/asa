@@ -202,6 +202,12 @@
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 50px;
+  flex: 1;               /* Cette partie prend tout l’espace restant */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Centrage horizontal */
+  justify-content: center; /* Centrage vertical */
+  text-align: center;
 }
 .h1-404 {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -217,6 +223,14 @@
   text-decoration: none;
   border-radius: 5px;
 }
+
+.html-404, .body-404 {
+  height: 100%;          /* Important : le body doit occuper tout l’écran */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* -------- FIN style.css pour page 404-------------------------- */
 
