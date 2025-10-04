@@ -1,10 +1,8 @@
-/*  ----- ----/**/
+/*  ----- VARIABLES ----/**/
 :root {
   --asa-color: #00853F;
 }
-
-
-/* -------*/
+/* --- FIN VARIABLES ----*/
 
 /*  --------*/
 .confirmation-body {
@@ -269,8 +267,7 @@
 
 
 /* ------ Style des point ------*/
-/**disc (par défaut, rond plein), circle (cercle vide), square (carré plein)et none (pas de puce) */
-
+/*disc (par défaut, rond plein), circle (cercle vide), square (carré plein)et none (pas de puce) */
 ul {
   list-style-type: square; /* met des carrés à la place des puces rondes */
 }
@@ -282,4 +279,10 @@ ul {
 
 .bg-page {
   background: #d5dbe2;
+}
+
+/* -----*/
+
+.bg-header {
+  background-color: var(--asa-color);
 }
