@@ -67,19 +67,19 @@ ul {
 /* -----*/
 
 .bg-header {
-  background-color: var(--asa-color) !important;
+  background-color: var(--asa-color);
 }
 
 /* tableau  */
 .mon-tableau {
   margin: 0 auto;      /* centre dans la div */
-  min-width: 400px;    /* largeur minimale */
+  min-width: 250px;    /* largeur minimale */
   border-collapse: collapse;
 }
 
 .mon-tableau th, 
 .mon-tableau td {
-  border: 1px solid #00853F;
+  border2: 1px solid var(--asa-color);
   padding: 10px;
   text-align: center;
 }
