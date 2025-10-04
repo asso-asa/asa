@@ -4,7 +4,7 @@
   "description": "Association des Sénégalais d'Amiens (ASA)",
   "lang": "fr",
   "start_url": "https://asso-asa.github.io/asa/",
-  "scope": "/",
+  "scope": "/asa/",
   "icons": [
     {
       "src": "https://asso-asa.github.io/asa/img/logotype-asa-192x192.png",
