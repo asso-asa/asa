@@ -1,3 +1,9 @@
+/*  ----- VARIABLES ----/**/
+:root {
+  --asa-color: #00853F;
+}
+/* --- FIN VARIABLES ----*/
+
 body {
   scroll-behavior: smooth;
   font-family: "Inter", sans-serif;
@@ -58,3 +64,8 @@ ul {
   list-style-type: square; /* met des carrés à la place des puces rondes */
 }
 
+/* -----*/
+
+.bg-header {
+  background-color: var(--asa-color);
+}
