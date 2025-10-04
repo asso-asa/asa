@@ -221,11 +221,11 @@
 /* -------- FIN style.css pour page 404-------------------------- */
 
 
-/* style.css pour page page MENTIONS LEGALES  --------- */
+/* ----  style.css pour page  MENTIONS LEGALES -----  */
 
 /* Bandeau header */
-.services-header {
-  background: url('/asa/img/logotype-asa-1200x630.png') center/cover no-repeat;
+.about-header {
+  background: url('/asa/img/img_logo_ASA.jpg') center/cover no-repeat;
   height: 40vh;
   display: flex;
   align-items: center;
@@ -233,22 +233,22 @@
   text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
-.services-header h1 {
+.about-header h1 {
   font-size: 3rem;
 }
 
-.services-header p {
+.about-header p {
   font-size: 1.25rem;
 }
 
-/* Images des EXPERTISES */
+/* Images des Mention legales */
 section img {
   max-height: 300px;
   object-fit: cover;
 }
 
 
-/* FIN style.css pour page MENTIONS LEGALES  --------- */
+/* FIN style.css pour page MENTIONS LEGALES -----  */
 
 
 
