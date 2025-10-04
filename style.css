@@ -1,3 +1,12 @@
+/*  ----- ----/**/
+:root {
+  --asa-color: #00853F;
+}
+
+
+/* -------*/
+
+/*  --------*/
 .confirmation-body {
     margin: 0;
     padding: 0;
@@ -212,13 +221,13 @@
 .h1-404 {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 3em;
-  color: #00853F;
+  color: var(--asa-color);
 }
 .retour-404 {
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
-  background: #00853F;
+  background: var(--asa-color);
   color: white;
   text-decoration: none;
   border-radius: 5px;
