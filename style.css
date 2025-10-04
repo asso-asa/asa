@@ -241,8 +241,11 @@
 
 
 /* -------- FIN style.css pour page 404-------------------------- */
-
-
+.corps-index {
+  flex: 1;               /* Cette partie prend tout l’espace restant */
+  display: flex;
+  flex-direction: column;
+}
 /* ----  style.css pour page  MENTIONS LEGALES -----  */
 
 /* Bandeau header */
