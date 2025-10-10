@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Associations Sénégalaises</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-3">
+  <!-- Barre de navigation -->
+  <nav class="navbar navbar-dark bg-dark mb-3">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Associations Sénégalaises en France</span>
+    </div>
+  </nav>
+
+  <!-- Barre de recherche -->
+  <div class="mb-3">
+    <input id="search" type="text" class="form-control" placeholder="Rechercher par ville...">
+  </div>
+
+  <!-- Accordéons -->
+  <div class="accordion" id="accordionAssociations"></div>
+
+  <script>
+    const API_URL = "TON_URL_GOOGLE_APPS_SCRIPT"; // à remplacer
+
+    async function loadData() {
+      const response = await fetch(API_URL);
+      const data = await response.json();
+      renderAccordion(data);
+
+      // Filtrage
+      document.getElementById("search").addEventListener("input", (e) => {
+        const term = e.target.value.toLowerCase();
+        const filtered = data.filter(item => item.Ville.toLowerCase().includes(term));
+        renderAccordion(filtered);
+      });
+    }
+
+    function renderAccordion(data) {
+      const container = document.getElementById("accordionAssociations");
+      container.innerHTML = "";
+      data.forEach((item, index) => {
+        container.innerHTML += `
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading${index}">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}">
+                ${item.Association}
+              </button>
+            </h2>
+            <div id="collapse${index}" class="accordion-collapse collapse" data-bs-parent="#accordionAssociations">
+              <div class="accordion-body">
+                <p><b>Ville:</b> ${item.Ville}</p>
+                <p><b>Email:</b> ${item.Email || "N/A"}</p>
+                <p><b>Téléphone:</b> ${item.Telephone || "N/A"}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    loadData();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
