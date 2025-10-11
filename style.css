@@ -231,14 +231,16 @@
   border-radius: 5px;
 }
 
-
- html, body {
-  height: 100%;          /* Important : le body doit occuper tout l’écran .html-404, .body-404, .body-index, .html-index, */
+html, body {
+  height: 100%;          /* Important : le body doit occuper tout l’écran */
   margin: 0;
   display: flex;
   flex-direction: column;
 }
 
+main {
+  flex: 1; /* ← Cela force le main à occuper tout l’espace libre */
+}
 
 /* -------- FIN style.css pour page 404-------------------------- */
 
