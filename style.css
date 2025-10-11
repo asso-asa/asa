@@ -232,8 +232,8 @@
 }
 
 
-.html-404, .body-404, .body-index, .html-index {
-  height: 100%;          /* Important : le body doit occuper tout l’écran */
+ html, body {
+  height: 100%;          /* Important : le body doit occuper tout l’écran .html-404, .body-404, .body-index, .html-index, */
   margin: 0;
   display: flex;
   flex-direction: column;
