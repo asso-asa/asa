@@ -294,3 +294,12 @@ ul {
 .bg-header {
   background-color: var(--asa-color);
 }
+
+/*---------------- ACCORDEON -----------------------*/
+
+.accordion-body a {
+  word-wrap: break-word;      /* ancienne syntaxe */
+  overflow-wrap: break-word;  /* syntaxe moderne */
+  display: inline-block;
+  max-width: 100%;
+}
