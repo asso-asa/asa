@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Associations Sénégalaises en France · ASA L'Association</title>
+    <title>Annuaire des Associations Sénégalaises en France · ASA L'Association</title>
 
     <!-- SEO -->
-    <meta name="description" content="Association des Sénégalais d’Amiens (ASA) : Associations Sénégalaises en France · octobre 2025.">
+    <meta name="description" content="Annuaire des Association des Sénégalais d’Amiens (ASA) : Associations Sénégalaises en France · octobre 2025.">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://asso-asa.github.io/asa/annuaire-des-associations-senegalaises-en-france.html">
 
@@ -27,7 +27,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Associations Sénégalaises en France · ASA L'Association">
+    <meta property="og:title" content="Annuaire des Associations Sénégalaises en France · ASA L'Association">
     <meta property="og:description" content="Association des Sénégalais d’Amiens (ASA).">
     <meta property="og:image" content="https://asso-asa.github.io/asa/img/logotype-asa-1200x630.png">
     <meta property="og:url" content="https://asa.org/">
@@ -36,7 +36,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Associations Sénégalaises en France · ASA L'Association">
+    <meta name="twitter:title" content="Annuaire des Associations Sénégalaises en France · ASA L'Association">
     <meta name="twitter:description" content="Association des Sénégalais d’Amiens (ASA)">
     <meta name="twitter:image" content="https://asso-asa.github.io/asa/img/logotype-asa-1200x630.png">
 
@@ -146,6 +146,7 @@
               <div class="accordion-body bg-body-secondary">
                 <p><b>Département:</b> ${item.Departement || "N/A"}</p>
                 <p><b>Ville:</b> ${item.Ville || "N/A"}</p> 
+                <p><b>Président·e:</b> ${item.Presidence || "N/A"}</p>
                 <p><b>Email:</b> 
                   ${item.Email 
                     ? `<a href="mailto:${item.Email}" target="_blank">${item.Email}</a>` 
@@ -171,7 +172,7 @@
                     ? `<a href="${item.Site_internet}" target="_blank">${item.Site_internet}</a>` 
                     : "N/A"}
                 </p>
-                <p><b>Dernière Mise à jour des données:</b> ${item.Date_de_derniere_Maj || "N/A"}</p>
+                <p><b>Dernière mise à jour:</b> ${item.Date_de_derniere_Maj || "N/A"}</p>
               </div>
             </div>
           </div>
