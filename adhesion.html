@@ -109,4 +109,31 @@
 
     <!-- Script léger pour gestion visuelle (pas de fetch) -->
     <script>
-      const form = do
+      const form = document.getElementById('asaForm');
+      const submitBtn = document.querySelector('.btn-submit');
+      const loadingMsg = document.getElementById('loadingMessage');
+      const prenomInput = document.getElementById('prenom');
+      const nomInput = document.getElementById('nom');
+
+      // Capitalisation prénom
+      prenomInput.addEventListener('input', function() {
+        this.value = this.value
+          .toLowerCase()
+          .split(' ')
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' ');
+      });
+
+      // Nom en majuscules
+      nomInput.addEventListener('input', function() {
+        this.value = this.value.toUpperCase();
+      });
+
+      // Afficher "Envoi en cours…" pendant soumission native
+      form.addEventListener('submit', () => {
+        submitBtn.disabled = true;
+        loadingMsg.style.display = 'block';
+      });
+    </script>
+  </body>
+</html>
