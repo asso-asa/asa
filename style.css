@@ -4,6 +4,93 @@
 }
 /* --- FIN VARIABLES ----*/
 
+/*--------------------- PAGE FORMULAIRE D'ADHESION --------------------------------------*/
+
+body {
+  font-family: Roboto,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #e2e8f0 ;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.mon-titre {
+  font-family: 'Comic Sans MS', Roboto, Montserrat, sans-serif;
+  color: #00853F;
+  font-weight: bold!important;
+}
+
+@media (min-width: 992px) {
+  .mon-image {
+    width: 50%; /* ou une taille fixe comme 300px */
+    height: auto;
+  }
+}
+
+.form-container {
+  justify-content: space-between;
+  padding-bottom: 5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  max-width: 800px;
+  color: #2c3e50;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: bold!important;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+.btn-submit {
+  background-color: #30cfd0;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #2ba3a5;
+}
+.copyright {
+  color: #8E9A9E;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+}
+
+/*--------------------- FIN PAGE FORMULAIRE D'ADHESION --------------------------------------*/
+
+
 /*  --------*/
 .confirmation-body {
     margin: 0;
