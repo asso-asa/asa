@@ -33,9 +33,7 @@
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- reCAPTCHA v3 -->
-    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY" async defer></script>
+    
   </head>
 
   <body>
@@ -180,10 +178,6 @@
 
         try {
           const data = new FormData(form);
-
-          // reCAPTCHA v3 (action = 'adhesion_submit')
-          const token = await grecaptcha.execute("6LfqfeQrAAAAABC1bFYAv2G19y7RLMc5vaXspmhy", { action: "adhesion_submit" });
-          data.append("g-recaptcha-response", token);
 
           // Envoi vers Apps Script Web App
           const response = await fetch(form.action, {
