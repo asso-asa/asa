@@ -166,7 +166,7 @@
 
       // Soumission
       form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+       // e.preventDefault();
 
         const submitButton = form.querySelector(".btn-submit");
         const originalText = submitButton.textContent;
@@ -176,14 +176,14 @@
         submitButton.textContent = "Envoi en cours…";
         loading.style.display = "block";
 
-        try {
+       /** //try {
           const data = new FormData(form);
 
           // Envoi vers Apps Script Web App
           const response = await fetch(form.action, {
             method: "POST",
             body: data,
-          });
+          });**/
 
           // Si le Web App renvoie JSON : { result: "success" | "error", message: "..."}
           const result = await response.json();
