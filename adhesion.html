@@ -182,7 +182,7 @@
           const data = new FormData(form);
 
           // reCAPTCHA v3 (action = 'adhesion_submit')
-          const token = await grecaptcha.execute("YOUR_RECAPTCHA_SITE_KEY", { action: "adhesion_submit" });
+          const token = await grecaptcha.execute("6LfqfeQrAAAAABC1bFYAv2G19y7RLMc5vaXspmhy", { action: "adhesion_submit" });
           data.append("g-recaptcha-response", token);
 
           // Envoi vers Apps Script Web App
