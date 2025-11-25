@@ -1,5 +1,9 @@
+# Standard Jekyll / GitHub Pages
+url: "https://asso-asa.github.io" # Le domaine racine
+baseurl: "/asa"                   # Le nom du dossier du projet (sans slash à la fin)
+
 title: "ASA l'Association"
 description: "ASA - Association des Sénégalais d'Amiens."
-url: "https://asso-asa.github.io/asa/" 
+
 plugins:
   - jekyll-sitemap
