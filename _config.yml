@@ -1,0 +1,5 @@
+title: "ASA l'Association"
+description: "ASA - Association des Sénégalais d'Amiens."
+url: "https://asso-asa.github.io/asa/" 
+plugins:
+  - jekyll-sitemap

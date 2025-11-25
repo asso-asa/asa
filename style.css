@@ -1,6 +1,7 @@
 /*  ----- VARIABLES ----/**/
 :root {
   --asa-color: #00853F;
+  --asa-color-two: #10a9e6;
 }
 /* --- FIN VARIABLES ----*/
 
@@ -281,7 +282,7 @@ textarea {
 
 /* Style optionnel */
 .niveauH2, .niveauH3, .niveauH4 {
-  color: #1077a0;
+  color: var(--asa-color)
 }
 
 .niveauH2 {
@@ -390,3 +391,71 @@ ul {
   display: inline-block;
   max-width: 100%;
 }
+
+
+/*--------- LES LIENS INTERNES avec classe .internal-link -------- */
+
+.internal-link {
+  color: var(--asa-color);
+  text-decoration: none;
+}
+
+.internal-link:hover {
+  color: var(--asa-color-two);
+  text-decoration: underline !important;            /* soulignement */
+  -webkit-text-decoration-color: var(--asa-color-two) !important;
+  text-decoration-color: var(--asa-color-two) !important;
+  text-underline-offset: 0.375em !important;
+}
+
+/* Survol : changer couleur du texte + icône */
+.external-link:hover::after {
+  background-color:var(--asa-color-two);
+}
+
+/*--------- FIN LES LIENS INTERNES avec classe .internal-link -------- */
+
+/* ===============================
+   ICÔNE POUR LES LIENS AVEC CLASSE .external-link
+   =============================== */
+
+.external-link {
+  position: relative;
+  color: var(--asa-color);
+  text-decoration: none;
+}
+
+.external-link:hover {
+  color: var(--asa-color-two);
+  text-decoration: underline !important;            /* soulignement */
+  -webkit-text-decoration-color: var(--asa-color-two) !important;
+  text-decoration-color: var(--asa-color-two) !important;
+  text-underline-offset: 0.375em !important;
+}
+
+/* Ajout automatique d'une icône après le texte */
+.external-link::after {
+  --icon-size: 0.9rem;         /* Taille de l’icône */
+  --icon-color: currentColor;  /* Même couleur que le texte */
+  content: "";                 /* Obligatoire pour afficher le pseudo-élément */
+  display: inline-block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  margin-left: 0.3rem;
+  background-color: var(--icon-color);
+
+  /* Icône SVG du lien externe (inline base64 pour éviter les fichiers externes) */
+  -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="black" stroke-width="2" d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6Zm11-3v8h-2V6.4l-7.8 7.8-1.4-1.4L17.6 5H13V3h8Z"/></svg>');
+  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="black" stroke-width="2" d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6Zm11-3v8h-2V6.4l-7.8 7.8-1.4-1.4L17.6 5H13V3h8Z"/></svg>');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  vertical-align: middle;
+}
+
+/* Survol : changer couleur du texte + icône */
+.external-link:hover::after {
+  background-color:var(--asa-color-two);
+}
+/* FIN ===============================
+   ICÔNE POUR LES LIENS AVEC CLASSE .external-link
+   =============================== */
