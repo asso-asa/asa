@@ -1,3 +1,7 @@
+---
+title: Plan du site
+permalink: /plan-du-site-2/
+---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO -->
-    <title>Accueil · ASA l'Association</title>
-    <meta name="description" content="Association des Sénégalais d'Amiens (ASA) : Projet de révision des Statuts · octobre 2025.">
+    <title>Plan du Site · ASA l'Association</title>
+    <meta name="description" content="Plan du Site de l'Association des Sénégalais d'Amiens (ASA).">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://asso-asa.github.io/asa/index.html">
 
@@ -27,8 +31,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Accueil · ASA l'Association">
-    <meta property="og:description" content="Association des Sénégalais d'Amiens (ASA).">
+    <meta property="og:title" content="Plan du Site · ASA l'Association">
+    <meta property="og:description" content="Plan du Site de l'Association des Sénégalais d'Amiens (ASA).">
     <meta property="og:image" content="https://asso-asa.github.io/asa/img/logotype-asa-1200x630.png">
     <meta property="og:url" content="https://asso-asa.github.io/asa/">
     <meta property="og:type" content="website">
@@ -36,8 +40,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Accueil · ASA l'Association">
-    <meta name="twitter:description" content="Association des Sénégalais d'Amiens (ASA)">
+    <meta name="twitter:title" content="Plan du Site · ASA l'Association">
+    <meta name="twitter:description" content="Plan du Site de l'Association des Sénégalais d'Amiens (ASA).">
     <meta name="twitter:image" content="https://asso-asa.github.io/asa/img/logotype-asa-1200x630.png">
 
     <!--  Icône utilisée quand un utilisateur ajoute la page à son écran d'accueil sur un iPhone/iPad. -->
@@ -70,7 +74,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
                   <li class="nav-item"><a class="nav-link" href="/asa/">Accueil</a></li>
-                  <li class="nav-item"><a class="nav-link active" href="/asa/statuts">Statuts</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="/asa/projet-statuts">Projet Statuts</a></li>
                   <li class="nav-item"><a class="nav-link active" href="/asa/adhesion">Adhésion</a></li>
                   <li class="nav-item"><a class="nav-link active" href="/asa/annuaire">Annuaire</a></li>
                   <li class="nav-item"><a class="nav-link active" href="/asa/contact">Contact</a></li>
@@ -94,6 +98,24 @@
       <div class="text-center">
       <p>ASA · Association des Sénégalais d'Amiens</p>
       </div>
+      <h1 class="mb-4 text-center">Plan du Site</h1>
+
+
+      <main class="container" style="padding: 2rem;">
+          <h1>Sitemap de l'ASA</h1>
+          <p>Voici la liste complète des pages du site.</p>
+
+          <ul>
+              {% assign all_pages = site.pages | sort: 'url' %}
+              {% for page in all_pages %}
+                  {% if page.title and page.url != "/plan-du-site/" %}
+                      <li>
+                          <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+                      </li>
+                  {% endif %}
+              {% endfor %}
+          </ul>
+      </main>
 
     </div>
   </div>
