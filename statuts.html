@@ -50,23 +50,10 @@ title: Statuts de l'Association des Sénégalais d'Amiens (ASA)
     <link rel="manifest" href="/asa/manifest.json">
 
     <!-- CSS externe -->
-    <link rel="stylesheet" href="/asa/style-s.css">
+    <link rel="stylesheet" href="/style-s.css">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Un peu de style pour que le PDF prenne toute la place disponible */
-        .pdf-container {
-            width: 100%;
-            height: 100vh; /* 100% de la hauteur de l'écran */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        embed {
-            border: 1px solid #ccc;
-        }
-    </style>
 
 </head>
 <body>
@@ -105,42 +92,24 @@ title: Statuts de l'Association des Sénégalais d'Amiens (ASA)
     </div>
     </header>
 
-    <div class="container my-5">
-    <div class="row">
-        <!-- Sommaire -->
-        <aside class="col-lg-3 d-none d-lg-block py-5">
-        <div id="toc" class="border-start ps-3">
-            <h5>Sommaire</h5>
-        </div>
-        </aside>
-
-        <!-- Contenu -->
-        <main class="col-lg-9 bg-page py-5 shadow rounded">
-
-
-    <div class="pdf-container">
-        <h1>Mon Document PDF</h1>
+    <div class="container my-5x pdf-container">
+        <h1>Statuts de l'Association des Sénégalais d'Amiens (ASA)</h1>
         
         <embed 
             src="doc/statuts-asa.pdf" 
             type="application/pdf" 
-            width="80%" 
-            height="800px" 
+            width="100%" 
+            height2="800px" 
+            height="100%"
         />
 
         <p>
             Votre navigateur ne supporte pas l'affichage PDF ? 
-            <a href="doc/statuts-asa.pdf" target="_blank">Cliquez ici pour le télécharger.</a>
+            <a href="doc/statuts-asa.pdf" target="_blank">Cliquez ici pour télécharger les statuts.</a>
         </p>
     </div>
-
-</body>
-</html>         
-
-
-        </main>
-    </div>
-    </div>
+<!-- Div sans contenu pour ajouter de l'espace en bas de la page -->
+<div style="height: 150px;"></div>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-3 text-center">
