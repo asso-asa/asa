@@ -100,48 +100,20 @@ permalink: /plan-du-site/
         <h1 class="mb-2 text-center">Plan du Site</h1>
       </div>
 
-      <!-------------------------------- 1 ------------------------------>
-      <section class="container mt-5">
-        <div class="u-mobile-container m-lg-5 c-lg-14">
+      <main class="container py-3 mb-5">
+        <p>Pour naviguer facilement sur le site, voici un aperçu de toutes les pages disponibles</p>
 
-        <section id="sitemap">            
-            <div class="sitemap-container">
-                <div class="sitemap-column pb-4">
-                    <h2>Explorer</h2>
-                    <ul>
-                        <li class="internal-link"><a href="/asa/" class="internal-link">Accueil</a></li>
-                        <li class="internal-link"><a href="/asa/annuaire" class="internal-link">Annuaire</a></li>
-                        <li class="internal-link"><a href="/asa/statuts" class="internal-link">Statuts de l'Association</a></li>
-                        <li class="internal-link"><a href="/asa/contact" class="internal-link">Nous contacter</a></li>
-                    </ul>
-                </div>
-
-                <div class="sitemap-column pb-4">
-                    <h2>Formulaires</h2>
-                    <ul>
-                        <li class="internal-link"><a href="/asa/adhesion" class="internal-link">Demande d'Adhésion</a></li>
-                        <li class="internal-link"><a href="/asa/attestation-hebergement" class="internal-link">Demande d'Attestation d'hébergement</a></li>
-                    </ul>
-                </div>
-
-                <div class="sitemap-column pb-4">
-                    <h2>À propos du site</h2>
-                    <ul>
-                        <li class="internal-link"><a href="/asa/mentions-legales" class="internal-link">Mentions légales</a></li>
-                        <li class="internal-link"><a href="/asa/politique-de-confidentialite-et-cookies" class="internal-link">Politique de confidentialité & Cookies</a></li>
-                        <li class="internal-link"><a href="/asa/plan-du-site" class="internal-link">Plan du site</a></li>
-                        <li class="internal-link"><a href="/asa/sitemap" class="internal-link">Sitemap</a></li>
-                        <li class="internal-link"><a href="/asa/sitemap.xml" class="internal-link">Sitemap (XML)</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-
-        </div>
-
-      </section>
-
+          <ul>
+              {% assign all_pages = site.pages | sort: 'url' %}
+              {% for page in all_pages %}
+                  {% if page.title and page.url != "/plan-du-site/" %}
+                      <li>
+                          <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+                      </li>
+                  {% endif %}
+              {% endfor %}
+          </ul>
+      </main>
 
     </div>
   </div>
