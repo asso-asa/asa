@@ -1,183 +1,616 @@
 ---
-title: Mentions legales
+title: Mentions légales
+permalink: /mentions-legales/
 ---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions legales · ASA l'Association</title>
 
-    <!-- SEO -->
-    <meta name="description" content="Les Mentions legales du site web de l'Association des Sénégalais d'Amiens (ASA)">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://senegalais-amiens.fr/mentions-legales">
+    <!-- ============================ SEO ============================ -->
+    <title>Mentions légales — Association des Sénégalais d'Amiens (ASA)</title>
+    <meta name="description" content="Éditeur, directeur de publication, hébergeur et conditions d'utilisation du site de l'Association des Sénégalais d'Amiens.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://senegalais-amiens.fr/mentions-legales/">
 
     <!-- Favicon -->
+    <link rel="icon" href="/favicon.png" type="image/png"/>
     <link rel="icon" href="/img/favicon-32x32.png" sizes="32x32" type="image/png"/>
     <link rel="icon" href="/img/favicon-16x16.png" sizes="16x16" type="image/png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo-asa-180x180.png">
 
-    <!-- Couleur de la barre du navigateur (Android) -->
-    <meta name="theme-color" content="#00853F">
-
-    <!-- Theme color adaptative (mode clair/sombre) -->
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#00853F">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
-    
-    <!-- Pour Safari iOS (mode web app) -->
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#043B22">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Mentions legales · ASA l'Association">
-    <meta property="og:description" content="Les Mentions legales du site web de l'Association des Sénégalais d'Amiens (ASA)">
+    <!-- ======================== Open Graph ========================= -->
+    <meta property="og:site_name" content="ASA · Association des Sénégalais d'Amiens">
+    <meta property="og:title" content="Mentions légales — Association des Sénégalais d'Amiens">
+    <meta property="og:description" content="Éditeur, directeur de publication, hébergeur et conditions d'utilisation du site.">
     <meta property="og:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
-    <meta property="og:url" content="https://asso.com/">
+    <meta property="og:image:alt" content="Logotype de l'Association des Sénégalais d'Amiens">
+    <!-- ATTENTION : l'ancienne page avait « https://asso.com/ » ici -->
+    <meta property="og:url" content="https://senegalais-amiens.fr/mentions-legales/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mentions legales · ASA l'Association">
-    <meta name="twitter:description" content="Les Mentions legales du site web de l'Association des Sénégalais d'Amiens (ASA)">
+    <meta name="twitter:title" content="Mentions légales — Association des Sénégalais d'Amiens">
+    <meta name="twitter:description" content="Éditeur, directeur de publication, hébergeur et conditions d'utilisation du site.">
     <meta name="twitter:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
 
-    <!--  Icône utilisée quand un utilisateur ajoute la page à son écran d'accueil sur un iPhone/iPad. -->
-    <link rel="apple-touch-icon" sizes="180x180"
-    href="/img/logo-asa-180x180.png">
-    
-    <!-- Web App Manifest -->
     <link rel="manifest" href="/manifest.json">
 
-    <!-- Bootstrap CSS -->
+    <!-- ===================== Polices Google ======================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- CSS personnalisé -->
     <link rel="stylesheet" href="/style.css">
 
+    <!-- =============================================================
+         BLOC 1 — CSS commun (4e copie…). Voir mes notes : ça doit
+         partir dans _layouts/default.html.
+         ============================================================= -->
+    <style>
+    :root{
+      --asa-vert:      #00853F;
+      --asa-vert-nuit: #043B22;
+      --asa-or:        #FCD116;
+      --asa-rouge:     #E31B23;
+      --asa-sable:     #FAF6EE;
+      --asa-encre:     #14261C;
+      --asa-gris:      #5B6B61;
+      --asa-display: "Bricolage Grotesque", system-ui, sans-serif;
+      --asa-texte:   "Karla", system-ui, -apple-system, sans-serif;
+    }
+    body{ font-family: var(--asa-texte); color: var(--asa-encre); background: var(--asa-sable); -webkit-font-smoothing: antialiased; }
+    h1,h2,h3,.asa-display{ font-family: var(--asa-display); font-weight:800; letter-spacing:-.02em; line-height:1.08; }
+
+    .asa-skip{ position:absolute; left:-999px; top:0; z-index:2000; background:var(--asa-vert-nuit); color:#fff; padding:.75rem 1.25rem; border-radius:0 0 .5rem 0; }
+    .asa-skip:focus{ left:0; }
+
+    .asa-bande{ height:6px; background: linear-gradient(to right, var(--asa-vert) 0 33.34%, var(--asa-or) 33.34% 66.67%, var(--asa-rouge) 66.67% 100%); }
+    .asa-bande--fine{ height:4px; width:64px; border-radius:2px; }
+
+    .asa-nav{ background:#fff; border-bottom:1px solid rgba(20,38,28,.08); }
+    .asa-nav .nav-link{ font-weight:500; color:var(--asa-encre); padding-inline:.9rem; position:relative; }
+    .asa-nav .nav-link:hover{ color:var(--asa-vert); }
+    .asa-nav .nav-link[aria-current="page"]{ color:var(--asa-vert); font-weight:700; }
+    .asa-nav .nav-link[aria-current="page"]::after{ content:""; position:absolute; left:.9rem; right:.9rem; bottom:.15rem; height:2px; background:var(--asa-or); }
+
+    .asa-btn{ display:inline-block; font-weight:700; text-decoration:none; padding:.85rem 1.6rem; border-radius:999px; border:2px solid transparent; transition: transform .15s ease, background-color .15s ease, color .15s ease; }
+    .asa-btn:hover{ transform: translateY(-2px); }
+    .asa-btn--or{ background:var(--asa-or); color:var(--asa-encre); }
+    .asa-btn--or:hover{ background:#ffe14d; color:var(--asa-encre); }
+    .asa-btn--ghost{ border-color: rgba(255,255,255,.5); color:#fff; }
+    .asa-btn--ghost:hover{ background:#fff; color: var(--asa-vert-nuit); }
+    .asa-btn--vert{ background:var(--asa-vert); color:#fff; }
+    .asa-btn--vert:hover{ background:#046b33; color:#fff; }
+    .asa-btn--vertline{ border-color:var(--asa-vert); color:var(--asa-vert); }
+    .asa-btn--vertline:hover{ background:var(--asa-vert); color:#fff; }
+
+    .asa-section{ padding-block: clamp(3rem, 7vw, 5.5rem); }
+
+    .asa-footer{ background:var(--asa-encre); color:rgba(255,255,255,.7); }
+    .asa-footer a{ color:rgba(255,255,255,.85); text-decoration:none; }
+    .asa-footer a:hover{ color:var(--asa-or); text-decoration:underline; }
+    .asa-footer h2{ font-size:.8rem; text-transform:uppercase; letter-spacing:.14em; color:var(--asa-or); font-weight:700; margin-bottom:.9rem; }
+    .asa-footer ul{ list-style:none; padding:0; margin:0; }
+    .asa-footer li{ margin-bottom:.45rem; font-size:.95rem; }
+
+    a:focus-visible, button:focus-visible{ outline:3px solid var(--asa-or); outline-offset:3px; border-radius:2px; }
+
+    .asa-entete{
+      background: radial-gradient(120% 120% at 12% 0%, #0A5C33 0%, var(--asa-vert-nuit) 65%);
+      color:#fff; padding-block: clamp(2.5rem, 6vw, 4.25rem);
+    }
+    .asa-entete h1{ font-size: clamp(1.9rem, 4.6vw, 3rem); margin-bottom:.9rem; max-width:20ch; }
+    .asa-entete p{ color: rgba(255,255,255,.85); max-width:56ch; line-height:1.6; margin:0; }
+
+    .asa-fil{ font-size:.88rem; }
+    .asa-fil ol{ list-style:none; display:flex; flex-wrap:wrap; gap:.4rem; padding:0; margin:0 0 1.5rem; }
+    .asa-fil a{ color: rgba(255,255,255,.75); text-decoration:none; }
+    .asa-fil a:hover{ color: var(--asa-or); }
+    .asa-fil li[aria-current]{ color: rgba(255,255,255,.5); }
+    </style>
+
+    <!-- =============================================================
+         BLOC 2 — CSS « page de document », identique à statuts.html.
+         ============================================================= -->
+    <style>
+    .asa-sommaire{
+      position: sticky; top: 90px;
+      background:#fff; border:1px solid rgba(20,38,28,.09);
+      border-radius:1rem; padding:1.4rem 1.25rem;
+      max-height: calc(100vh - 120px); overflow-y:auto;
+    }
+    .asa-sommaire h2{ font-size:.78rem; text-transform:uppercase; letter-spacing:.16em; color:var(--asa-vert); margin-bottom:1rem; }
+    .asa-sommaire ol{ list-style:none; padding:0; margin:0; }
+    .asa-sommaire > ol > li{ margin-bottom:1rem; }
+    .asa-sommaire .asa-titre-partie{ font-family:var(--asa-display); font-weight:600; font-size:.9rem; display:block; margin-bottom:.4rem; color:var(--asa-encre); }
+    .asa-sommaire ol ol{ border-left:2px solid rgba(20,38,28,.1); padding-left:.8rem; }
+    .asa-sommaire ol ol li{ margin-bottom:.15rem; }
+    .asa-sommaire a{
+      display:block; font-size:.9rem; line-height:1.4; padding:.22rem 0;
+      color:var(--asa-gris); text-decoration:none;
+      border-left:2px solid transparent; margin-left:-.82rem; padding-left:.8rem;
+    }
+    .asa-sommaire a:hover{ color:var(--asa-vert); }
+    .asa-sommaire a.est-actif{ color:var(--asa-vert); font-weight:700; border-left-color:var(--asa-vert); }
+
+    .asa-document{ background:#fff; border-radius:1.25rem; overflow:hidden; border:1px solid rgba(20,38,28,.09); }
+    .asa-document__corps{ padding: clamp(1.5rem, 4vw, 3rem); }
+
+    .asa-partie{ margin-top:3.25rem; scroll-margin-top:100px; }
+    .asa-partie:first-of-type{ margin-top:0; }
+    .asa-partie > h2{
+      font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+      padding-bottom:.7rem; margin-bottom:1.75rem;
+      border-bottom:3px solid var(--asa-or);
+    }
+    .asa-partie > h2 .asa-numero-partie{
+      display:block; font-family:var(--asa-texte); font-weight:700;
+      font-size:.74rem; letter-spacing:.16em; text-transform:uppercase;
+      color:var(--asa-vert); margin-bottom:.4rem;
+    }
+
+    .asa-article{ margin-bottom:2.25rem; scroll-margin-top:100px; }
+    .asa-article h3{ font-size:1.08rem; font-weight:600; margin-bottom:.75rem; }
+    .asa-article p, .asa-article li{ font-size:1rem; line-height:1.72; color:#2A3B32; }
+    .asa-article p{ margin-bottom:.85rem; }
+    .asa-article ul{ padding-left:1.15rem; margin-bottom:.9rem; }
+    .asa-article ul li{ margin-bottom:.4rem; }
+    .asa-article ul li::marker{ color:var(--asa-vert); }
+
+    /* Fiche d'identité de l'éditeur : liste de définitions */
+    .asa-fiche{ margin:0; }
+    .asa-fiche > div{
+      display:grid; grid-template-columns: 13rem 1fr; gap:.5rem 1.25rem;
+      padding:.8rem 0; border-top:1px solid rgba(20,38,28,.1);
+    }
+    .asa-fiche > div:last-child{ border-bottom:1px solid rgba(20,38,28,.1); }
+    .asa-fiche dt{ font-weight:700; font-size:.92rem; color:var(--asa-vert-nuit); }
+    .asa-fiche dd{ margin:0; font-size:.97rem; line-height:1.6; color:#2A3B32; }
+    .asa-fiche a{ color:var(--asa-vert); }
+    @media (max-width: 575.98px){
+      .asa-fiche > div{ grid-template-columns:1fr; gap:.15rem; }
+    }
+
+    /* Encadré d'avertissement / information importante */
+    .asa-cle{
+      background:var(--asa-sable); border-left:4px solid var(--asa-or);
+      border-radius:0 .6rem .6rem 0; padding:.9rem 1.1rem; margin:1.1rem 0;
+      font-size:.95rem; line-height:1.6;
+    }
+    .asa-cle strong{ color:var(--asa-vert-nuit); }
+    .asa-cle p:last-child{ margin-bottom:0; }
+
+
+    .asa-maj{ font-size:.9rem; color:var(--asa-gris); margin-top:2.5rem;
+              padding-top:1.5rem; border-top:1px solid rgba(20,38,28,.12); }
+
+    @media print{
+      .asa-nav, .asa-footer, .asa-sommaire, .asa-skip, .asa-fil, .asa-bande{ display:none !important; }
+      body{ background:#fff; color:#000; font-size:11pt; }
+      .asa-entete{ background:#fff !important; color:#000 !important; padding-block:0; }
+      .asa-entete p{ color:#000 !important; }
+      .asa-document{ border:none; }
+      .asa-document__corps{ padding:0; }
+      .asa-section{ padding-block:0; }
+      .asa-article{ break-inside: avoid; }
+      a{ color:#000; text-decoration:none; }
+    }
+    @media (prefers-reduced-motion: reduce){ .asa-btn:hover{ transform:none; } }
+    </style>
 </head>
-<body class="niveauBody">
+<body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div class="container">
-        <!-- Logo -->
-        <a class="navbar-brand" href="/">
-            <img src="/img/logo-asa-asso.svg" alt="ASA" width="auto" height="50">
-        </a>
+  <a class="asa-skip" href="#contenu">Aller au contenu principal</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="/">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link active" href="/statuts">Statuts</a></li>
-                <li class="nav-item"><a class="nav-link active" href="/adhesion">Adhésion</a></li>
-                <li class="nav-item"><a class="nav-link active" href="/annuaire">Annuaire</a></li>                
-                <li class="nav-item"><a class="nav-link active" href="/contact">Contact</a></li>
-            </ul>
-        </div>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="about-header text-white text-center d-flex align-items-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Mentions légales</h1>
-            <p class="lead">ASA – Mentions légales</p>
-        </div>
-    </header>
-
-    <!-------------------------------- 1 ------------------------------>
-    <section class="container mt-5">
-      <div class="u-mobile-container m-lg-5 c-lg-14">
-
-        <h2 class="h2 pt-2 niveauH2">Informations légales</h2>
-        <h3 class="h3 pt-2 niveauH3">Éditeur du site</h3>
-
-          <ul>
-            <li><strong>Association des Sénégalais d'Amiens (ASA)</strong><br>
-              Association loi 1901 déclarée en préfecture de la Somme.</li>
-            <li><strong>Président</strong> : M. Massamba Mb</li>
-            <li><strong>Siège social</strong> : Amiens (80), France</li>
-            <li><strong>Adresse e-mail</strong> : <a href="mailto:associationsenegalaisdamiens@gmail.com" class="internal-link">associationsenegalaisdamiens@gmail.com</a></li>
-          </ul>
-
-        <h3 class="h3 pt-2 niveauH3">Responsable de la publication</h3>
-          <p><strong>M. Massamba Mb</strong>, en qualité de Président de l'association.</p>
-
-        <h3 class="h3 pt-2 niveauH3">Hébergeur du site</h3>
-          <p>
-            <strong>GitHub Inc.</strong><br>
-            88 Colin P Kelly Jr St<br>
-            San Francisco, CA 94107<br>
-            États-Unis<br>
-            Téléphone : +1 408-749-2010
-          </p>
-
-        <h2 class="h2 pt-2 niveauH2">Conditions générales d'utilisation</h2>
-
-        <h3 class="h3 pt-2 niveauH3">Objet et accès au site</h3>
-          <p>Le présent document constitue les Conditions générales d'utilisation (CGU) du site internet accessible à l’adresse asa-amiens.fr (ci-après dénommé <strong>« le Site »</strong>).</p>
-          <p>En accédant, naviguant ou utilisant le Site, l'utilisateur (ci-après <strong>« l’Utilisateur »</strong>) reconnaît avoir pris connaissance des présentes conditions et les accepter sans réserve.</p>
-          <p>L’Association des Sénégalais d'Amiens se réserve le droit de refuser l’accès au Site à tout Utilisateur ne respectant pas ces dispositions.</p>
-          <p>L’Association se réserve le droit de modifier, suspendre ou interrompre temporairement ou définitivement tout ou partie du Site, notamment pour des opérations de maintenance ou d’amélioration. Les présentes mentions légales peuvent être modifiées à tout moment, les nouvelles dispositions s’appliquant dès leur mise en ligne.</p>
-
-        <h3 class="h3 pt-2 niveauH3">Droit applicable et juridiction compétente</h3>
-          <p>Le Site et les présentes conditions sont soumis au droit français.</p>
-          <p>Tout litige relatif à leur interprétation ou à leur exécution relève de la compétence exclusive des tribunaux français.</p>
-          <p>La langue officielle du Site et des relations avec l’Utilisateur est le français.</p>
-
-        <h3 class="h3 pt-2 niveauH3">Propriété intellectuelle et crédits</h3>
-          <p>L’ensemble du contenu du Site (notamment les textes, logos, graphismes, photographies, vidéos, icônes) est protégé par la législation française relative à la propriété intellectuelle.</p>
-          <p>Sauf mention contraire, ces éléments sont la propriété de l’Association des Sénégalais d'Amiens. Toute reproduction, représentation, modification ou exploitation, totale ou partielle, du Site ou de son contenu sans autorisation écrite préalable de l’Association est interdite.</p>
-          <p><strong>Crédits visuels :</strong> Certains visuels proviennent de banques d’images libres de droits sous licence d’utilisation adaptée. Leur utilisation respecte les conditions fixées par les plateformes concernées.</p>
-
-        <h3 class="h3 pt-2 niveauH3">Responsabilité</h3>
-          <p>L’Association des Sénégalais d'Amiens met tout en œuvre pour garantir la fiabilité des informations publiées. Toutefois, des erreurs ou omissions peuvent survenir. L’Utilisateur reconnaît utiliser les informations du Site sous sa seule responsabilité.</p>
-          <p>Le Site peut contenir des liens hypertextes vers des sites tiers. L’Association décline toute responsabilité quant au contenu de ces sites ou aux services proposés.</p>
-          <p>Le téléchargement de documents depuis le Site s’effectue aux risques de l’Utilisateur. L’Association ne peut être tenue responsable de tout dommage, perte de données ou contamination virale qui pourrait en résulter.</p>
-
-        <h3 class="h3 pt-2 niveauH3">Données personnelles et cookies</h3>
-          <p>
-          L’Association invite l’Utilisateur à consulter sa page dédiée
-          <strong>« Politique de confidentialité & cookies »</strong>, accessible au lien suivant :
-          <a href="/politique-de-confidentialite-et-cookies" class="internal-link">Politique de confidentialité & cookies</a>.
-          </p>
-          <p>
-          Cette page décrit la manière dont l’Association collecte, utilise et protège les données personnelles
-          de l’Utilisateur, conformément à la réglementation en vigueur en France et dans l’Union européenne.
-          </p>
-       
-              
-        </div>
-    </section>
-
-        
-  <!--  Section -->
-  <section id="contact" class="py-5">
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar navbar-expand-lg asa-nav sticky-top" aria-label="Navigation principale">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-
-        </div>
+      <a class="navbar-brand py-2" href="/">
+        <img src="/img/logo-asa-asso.svg" alt="Association des Sénégalais d'Amiens — accueil" height="46">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navPrincipale" aria-controls="navPrincipale"
+              aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navPrincipale">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="/statuts/">Statuts</a></li>
+          <li class="nav-item"><a class="nav-link" href="/annuaire">Annuaire</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="asa-btn asa-btn--vert" href="/adhesion">Adhérer</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-light pt-5">
-   
-    <!-- Bas du footer -->
-    <div class="bg-secondary text-center py-3 mt-4">
-      <div class="container d-flex flex-column flex-md-row justify-content-center align-items-center">
-        <p class="mb-0">© 2026 ASA | <a href="/mentions-legales" class="text-light text-decoration-none">Mentions légales</a> | <a href="/plan-du-site" class="text-light text-decoration-none">Plan du site</a></p>
+  <main id="contenu">
+
+    <!-- ===================== EN-TÊTE ===================== -->
+    <header class="asa-entete">
+      <div class="container">
+        <nav class="asa-fil" aria-label="Fil d'Ariane">
+          <ol>
+            <li><a href="/">Accueil</a></li>
+            <li aria-hidden="true">›</li>
+            <li aria-current="page">Mentions légales</li>
+          </ol>
+        </nav>
+        <div class="asa-bande asa-bande--fine mb-4"></div>
+        <h1>Mentions légales</h1>
+        <p>
+          Qui édite ce site, qui l'héberge, et dans quelles conditions il
+          s'utilise. Informations publiées en application de la loi du
+          21 juin 2004 pour la confiance dans l'économie numérique.
+        </p>
       </div>
+    </header>
+
+    <!-- ===================== DOCUMENT ===================== -->
+    <section class="asa-section">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+
+          <!-- ---------- Sommaire ---------- -->
+          <div class="col-lg-4 d-none d-lg-block">
+            <nav class="asa-sommaire" id="sommaire" aria-label="Sommaire des mentions légales">
+              <h2>Sommaire</h2>
+              <ol>
+                <li>
+                  <span class="asa-titre-partie">1 — Informations légales</span>
+                  <ol>
+                    <li><a href="#editeur">Éditeur du site</a></li>
+                    <li><a href="#publication">Directeur de la publication</a></li>
+                    <li><a href="#hebergeur">Hébergeur</a></li>
+                  </ol>
+                </li>
+                <li>
+                  <span class="asa-titre-partie">2 — Conditions d'utilisation</span>
+                  <ol>
+                    <li><a href="#objet">Objet et accès au site</a></li>
+                    <li><a href="#propriete">Propriété intellectuelle</a></li>
+                    <li><a href="#responsabilite">Responsabilité</a></li>
+                    <li><a href="#droit">Droit applicable</a></li>
+                  </ol>
+                </li>
+                <li>
+                  <span class="asa-titre-partie">3 — Données personnelles</span>
+                  <ol>
+                    <li><a href="#donnees">Ce que nous collectons</a></li>
+                    <li><a href="#cookies">Cookies et services tiers</a></li>
+                    <li><a href="#droits">Vos droits</a></li>
+                  </ol>
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <!-- ---------- Corps ---------- -->
+          <div class="col-lg-8">
+            <article class="asa-document">
+              <div class="asa-bande"></div>
+              <div class="asa-document__corps">
+
+                <!-- ============ 1. INFORMATIONS LÉGALES ============ -->
+                <section class="asa-partie" id="informations" aria-labelledby="titre-1">
+                  <h2 id="titre-1"><span class="asa-numero-partie">Partie 1</span>Informations légales</h2>
+
+                  <div class="asa-article" id="editeur">
+                    <h3>Éditeur du site</h3>
+                    <dl class="asa-fiche">
+                      <div>
+                        <dt>Dénomination</dt>
+                        <dd>Association des Sénégalais d'Amiens (ASA)</dd>
+                      </div>
+                      <div>
+                        <dt>Forme juridique</dt>
+                        <dd>Association régie par la loi du 1<sup>er</sup> juillet 1901,
+                            déclarée en préfecture de la Somme.</dd>
+                      </div>
+                      <div>
+                        <dt>Numéro RNA</dt>
+                        <!-- À COMPLÉTER : numéro W80xxxxxxx figurant sur le récépissé de préfecture -->
+                        <dd>W80&nbsp;xxx&nbsp;xxx</dd>
+                      </div>
+                      <div>
+                        <dt>Siège social</dt>
+                        <!-- À COMPLÉTER : adresse postale complète -->
+                        <dd>Amiens (80), France</dd>
+                      </div>
+                      <div>
+                        <dt>Adresse e-mail</dt>
+                        <dd><a href="mailto:associationsenegalaisdamiens@gmail.com">associationsenegalaisdamiens@gmail.com</a></dd>
+                      </div>
+                    </dl>
+
+                  </div>
+
+                  <div class="asa-article" id="publication">
+                    <h3>Directeur de la publication</h3>
+                    <!-- À VÉRIFIER : voir mes notes, ce nom ne correspond pas aux statuts -->
+                    <p>Le/la Président·e de l'association en exercice, conformément à
+                       l'article 14 des <a href="/statuts/">statuts</a>.</p>
+
+                  </div>
+
+                  <div class="asa-article" id="hebergeur">
+                    <h3>Hébergeur</h3>
+                    <dl class="asa-fiche">
+                      <div>
+                        <dt>Raison sociale</dt>
+                        <dd>GitHub, Inc.</dd>
+                      </div>
+                      <div>
+                        <dt>Adresse</dt>
+                        <dd>88 Colin P. Kelly Jr. Street<br>
+                            San Francisco, CA 94107<br>
+                            États-Unis</dd>
+                      </div>
+                      <div>
+                        <dt>Téléphone</dt>
+                        <dd>+1 877 448 4820</dd>
+                      </div>
+                      <div>
+                        <dt>Site</dt>
+                        <dd><a href="https://github.com" rel="noopener">github.com</a></dd>
+                      </div>
+                    </dl>
+                  </div>
+                </section>
+
+                <!-- ============ 2. CONDITIONS D'UTILISATION ============ -->
+                <section class="asa-partie" id="conditions" aria-labelledby="titre-2">
+                  <h2 id="titre-2"><span class="asa-numero-partie">Partie 2</span>Conditions générales d'utilisation</h2>
+
+                  <div class="asa-article" id="objet">
+                    <h3>Objet et accès au site</h3>
+                    <p>Les présentes conditions régissent l'utilisation du site accessible à
+                       l'adresse <strong>senegalais-amiens.fr</strong> (ci-après « le Site »),
+                       édité par l'Association des Sénégalais d'Amiens.</p>
+                    <p>En accédant au Site, en y naviguant ou en l'utilisant, l'utilisateur
+                       reconnaît avoir pris connaissance des présentes conditions et les
+                       accepter sans réserve.</p>
+                    <p>L'Association se réserve le droit de refuser l'accès au Site à tout
+                       utilisateur qui n'en respecterait pas les dispositions.</p>
+                    <p>L'Association peut modifier, suspendre ou interrompre tout ou partie du
+                       Site, notamment pour des opérations de maintenance ou d'amélioration.
+                       Les présentes mentions peuvent être modifiées à tout moment, les
+                       nouvelles dispositions s'appliquant dès leur mise en ligne.</p>
+                  </div>
+
+                  <div class="asa-article" id="propriete">
+                    <h3>Propriété intellectuelle et crédits</h3>
+                    <p>L'ensemble du contenu du Site — textes, logotype, graphismes,
+                       photographies, vidéos, icônes — est protégé par la législation
+                       française relative à la propriété intellectuelle.</p>
+                    <p>Sauf mention contraire, ces éléments sont la propriété de l'Association
+                       des Sénégalais d'Amiens. Toute reproduction, représentation,
+                       modification ou exploitation, totale ou partielle, sans autorisation
+                       écrite préalable de l'Association est interdite.</p>
+                    <p><strong>Crédits visuels.</strong> Certains visuels proviennent de
+                       banques d'images libres de droits. Leur utilisation respecte les
+                       licences fixées par les plateformes concernées.</p>
+                    <p><strong>Ressources techniques.</strong> Le Site utilise le cadriciel
+                       Bootstrap (licence MIT) et des polices distribuées par Google Fonts
+                       (licence SIL Open Font).</p>
+                  </div>
+
+                  <div class="asa-article" id="responsabilite">
+                    <h3>Responsabilité</h3>
+                    <p>L'Association met tout en œuvre pour garantir la fiabilité des
+                       informations publiées. Des erreurs ou omissions peuvent néanmoins
+                       survenir : l'utilisateur reconnaît utiliser ces informations sous sa
+                       seule responsabilité.</p>
+                    <p>Le Site peut contenir des liens vers des sites tiers. L'Association
+                       décline toute responsabilité quant à leur contenu ou aux services
+                       qu'ils proposent.</p>
+                    <p>Le téléchargement de documents depuis le Site s'effectue aux risques de
+                       l'utilisateur. L'Association ne peut être tenue responsable d'un
+                       dommage, d'une perte de données ou d'une contamination virale qui en
+                       résulterait.</p>
+                    <div class="asa-cle">
+                      <p><strong>Seul le document signé fait foi.</strong> Les statuts publiés
+                         en version consultable sur ce site sont fournis pour information.
+                         En cas de divergence, la version PDF signée déposée en préfecture
+                         prévaut.</p>
+                    </div>
+                  </div>
+
+                  <div class="asa-article" id="droit">
+                    <h3>Droit applicable et juridiction compétente</h3>
+                    <p>Le Site et les présentes conditions sont soumis au droit français.</p>
+                    <p>Tout litige relatif à leur interprétation ou à leur exécution relève de
+                       la compétence exclusive des tribunaux français.</p>
+                    <p>La langue officielle du Site et des relations avec l'utilisateur est le
+                       français.</p>
+                  </div>
+                </section>
+
+                <!-- ============ 3. DONNÉES PERSONNELLES ============ -->
+                <section class="asa-partie" id="rgpd" aria-labelledby="titre-3">
+                  <h2 id="titre-3"><span class="asa-numero-partie">Partie 3</span>Données personnelles et cookies</h2>
+
+                  <div class="asa-article" id="donnees">
+                    <h3>Ce que nous collectons</h3>
+                    <p>Le Site ne collecte aucune donnée personnelle à l'insu de l'utilisateur.
+                       La seule collecte a lieu lorsqu'une personne remplit volontairement le
+                       <a href="/contact">formulaire de contact</a>.</p>
+                    <dl class="asa-fiche">
+                      <div>
+                        <dt>Données recueillies</dt>
+                        <dd>Prénom, nom, adresse e-mail, téléphone (facultatif), département
+                            de résidence, objet et contenu du message.</dd>
+                      </div>
+                      <div>
+                        <dt>Finalité</dt>
+                        <dd>Répondre à la demande et, le cas échéant, traiter un dossier
+                            d'adhésion ou une demande d'accompagnement.</dd>
+                      </div>
+                      <div>
+                        <dt>Base légale</dt>
+                        <dd>Le consentement de la personne, recueilli par une case à cocher
+                            avant l'envoi du formulaire.</dd>
+                      </div>
+                      <div>
+                        <dt>Destinataires</dt>
+                        <dd>Les seuls membres du Bureau de l'ASA en charge du suivi des
+                            demandes. Aucune donnée n'est vendue, louée ou cédée à des tiers.</dd>
+                      </div>
+                      <div>
+                        <dt>Sous-traitant</dt>
+                        <dd>Google Ireland Limited, pour l'acheminement des messages et leur
+                            archivage (Google&nbsp;Workspace, Apps&nbsp;Script, Sheets).</dd>
+                      </div>
+                      <div>
+                        <dt>Durée de conservation</dt>
+                        <!-- À ARBITRER : voir mes notes -->
+                        <dd>Trois ans à compter du dernier échange, puis suppression.</dd>
+                      </div>
+                    </dl>
+                  </div>
+
+                  <div class="asa-article" id="cookies">
+                    <h3>Cookies et services tiers</h3>
+                    <p>Le Site ne dépose <strong>aucun cookie de mesure d'audience ni de
+                       publicité</strong>. Aucune bannière de consentement n'est donc
+                       nécessaire.</p>
+                    <p>Deux services tiers sont néanmoins sollicités par le navigateur lors de
+                       l'affichage des pages, et reçoivent à cette occasion l'adresse IP du
+                       visiteur :</p>
+                    <ul>
+                      <li><strong>jsDelivr</strong>, pour la distribution du cadriciel
+                          Bootstrap ;</li>
+                      <li><strong>Google Fonts</strong>, pour le chargement des polices de
+                          caractères.</li>
+                    </ul>
+
+                  </div>
+
+                  <div class="asa-article" id="droits">
+                    <h3>Vos droits</h3>
+                    <p>Conformément au Règlement général sur la protection des données et à la
+                       loi Informatique et Libertés, toute personne dispose d'un droit d'accès,
+                       de rectification, d'effacement, de limitation et d'opposition sur les
+                       données la concernant, ainsi que du droit de retirer son consentement à
+                       tout moment.</p>
+                    <p>Ces droits s'exercent par simple demande adressée à
+                       <a href="mailto:associationsenegalaisdamiens@gmail.com">associationsenegalaisdamiens@gmail.com</a>,
+                       ou par courrier au siège de l'association.</p>
+                    <p>En cas de réponse insatisfaisante, une réclamation peut être déposée
+                       auprès de la Commission nationale de l'informatique et des libertés
+                       (CNIL), 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 —
+                       <a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>.</p>
+                  </div>
+                </section>
+
+                <p class="asa-maj">
+                  Dernière mise à jour : <time datetime="2026-07-24">24 juillet 2026</time>.
+                </p>
+
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== PIED DE PAGE ===================== -->
+  <footer class="asa-footer pt-5 pb-4">
+    <div class="asa-bande" style="margin-top:-3rem; margin-bottom:3rem;"></div>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <img src="/img/logo-asa-asso.svg" alt="" height="52" class="mb-3">
+          <p style="font-size:.95rem; line-height:1.6; max-width:38ch;">
+            Association des Sénégalais d'Amiens — association loi 1901,
+            siège social à Amiens (80).
+          </p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2>L'association</h2>
+          <ul>
+            <li><a href="/statuts/">Statuts</a></li>
+            <li><a href="/adhesion">Adhésion</a></li>
+            <li><a href="/annuaire">Annuaire</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2>Informations</h2>
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/mentions-legales/">Mentions légales</a></li>
+            <li><a href="/plan-du-site">Plan du site</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h2>Nous écrire</h2>
+          <ul>
+            <li><a href="mailto:associationsenegalaisdamiens@gmail.com">associationsenegalaisdamiens@gmail.com</a></li>
+            <li><a href="#">WhatsApp de l'association</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mb-0 pt-4 mt-4" style="border-top:1px solid rgba(255,255,255,.12); font-size:.9rem;">
+        © <span id="annee">2026</span> Association des Sénégalais d'Amiens (ASA)
+      </p>
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- ===================== SCRIPTS ===================== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/script.js"></script>
+  <script>
+  (function(){
+    var annee = document.getElementById('annee');
+    if (annee) annee.textContent = new Date().getFullYear();
+
+    // Surlignage de la section courante dans le sommaire
+    var liens = document.querySelectorAll('#sommaire a[href^="#"]');
+    if (!liens.length || !('IntersectionObserver' in window)) return;
+
+    var parId = {};
+    liens.forEach(function(lien){ parId[lien.getAttribute('href').slice(1)] = lien; });
+
+    var sections = document.querySelectorAll('.asa-article[id]');
+    var visibles = new Set();
+
+    function rafraichir(){
+      liens.forEach(function(l){ l.classList.remove('est-actif'); });
+      for (var i = 0; i < sections.length; i++){
+        if (visibles.has(sections[i].id)){
+          var lien = parId[sections[i].id];
+          if (lien) lien.classList.add('est-actif');
+          break;
+        }
+      }
+    }
+
+    var observateur = new IntersectionObserver(function(entrees){
+      entrees.forEach(function(entree){
+        if (entree.isIntersecting) visibles.add(entree.target.id);
+        else visibles.delete(entree.target.id);
+      });
+      rafraichir();
+    }, { rootMargin: '-90px 0px -60% 0px' });
+
+    sections.forEach(function(s){ observateur.observe(s); });
+  })();
+  </script>
 </body>
 </html>
