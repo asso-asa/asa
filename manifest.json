@@ -3,16 +3,16 @@
   "short_name": "ASA",
   "description": "Association des Sénégalais d'Amiens (ASA)",
   "lang": "fr",
-  "start_url": "https://asso-asa.github.io/asa/",
-  "scope": "/asa/",
+  "start_url": "https://senegalais-amiens.fr",
+  "scope": "/",
   "icons": [
     {
-      "src": "https://asso-asa.github.io/asa/img/logotype-asa-192x192.png",
+      "src": "https://senegalais-amiens.fr/img/logotype-asa-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://asso-asa.github.io/asa/img/logotype-asa-512x512.png",
+      "src": "https://senegalais-amiens.fr/img/logotype-asa-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

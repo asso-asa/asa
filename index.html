@@ -3,107 +3,669 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO -->
-    <title>Accueil · ASA l'Association</title>
-    <meta name="description" content="Association des Sénégalais d'Amiens (ASA) : Projet de révision des Statuts · octobre 2025.">
+
+    <!-- ============================ SEO ============================ -->
+    <title>Association des Sénégalais d'Amiens (ASA) — Entraide et culture</title>
+    <meta name="description" content="L'ASA réunit la communauté sénégalaise de la Somme, de l'Oise et de l'Aisne : entraide, actions solidaires, culture et événements à Amiens.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://senegalais-amiens.fr/">
 
     <!-- Favicon -->
-    <link rel="icon" href="/asa/favicon.png" type="image/png"/>     
-    <link rel="icon" href="/asa/img/favicon-32x32.png" sizes="32x32" type="image/png"/>
-    <link rel="icon" href="/asa/img/favicon-16x16.png" sizes="16x16" type="image/png"/>
+    <link rel="icon" href="/favicon.png" type="image/png"/>
+    <link rel="icon" href="/img/favicon-32x32.png" sizes="32x32" type="image/png"/>
+    <link rel="icon" href="/img/favicon-16x16.png" sizes="16x16" type="image/png"/>
+    <!-- ATTENTION : l'ancienne page pointait vers /img/TILBILO-logo-180x180.png (reste d'un autre projet) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/asa-logo-180x180.png">
 
-    <!-- Couleur de la barre du navigateur (Android) -->
-    <meta name="theme-color" content="#00853F">
-
-    <!-- Theme color adaptative (mode clair/sombre) -->
+    <!-- Couleur de la barre du navigateur -->
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#00853F">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#043B22">
 
-    <!-- Pour Safari iOS (mode web app) -->
+    <!-- Safari iOS (mode web app) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Accueil · ASA l'Association">
-    <meta property="og:description" content="Association des Sénégalais d'Amiens (ASA).">
-    <meta property="og:image" content="https://asso-asa.github.io/asa/img/logotype-asa-1200x630.png">
-    <meta property="og:url" content="https://senegalais-amiens.fr">
+    <!-- ======================== Open Graph ========================= -->
+    <meta property="og:site_name" content="ASA · Association des Sénégalais d'Amiens">
+    <meta property="og:title" content="Association des Sénégalais d'Amiens (ASA)">
+    <meta property="og:description" content="Entraide, solidarité et culture sénégalaise à Amiens et dans les Hauts-de-France. Association loi 1901 ouverte à tous ceux qui ont un lien avec le Sénégal.">
+    <meta property="og:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
+    <meta property="og:image:alt" content="Logotype de l'Association des Sénégalais d'Amiens">
+    <meta property="og:url" content="https://senegalais-amiens.fr/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
 
-    <!-- Twitter Card -->
+    <!-- ======================== Twitter Card ======================= -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Accueil · ASA l'Association">
-    <meta name="twitter:description" content="Association des Sénégalais d'Amiens (ASA)">
-    <meta name="twitter:image" content="https://asso-asa.github.io/asa/img/logotype-asa-1200x630.png">
-
-    <!--  Icône utilisée quand un utilisateur ajoute la page à son écran d'accueil sur un iPhone/iPad. -->
-    <link rel="apple-touch-icon" sizes="180x180"
-    href="/asa/img/TILBILO-logo-180x180.png">
+    <meta name="twitter:title" content="Association des Sénégalais d'Amiens (ASA)">
+    <meta name="twitter:description" content="Entraide, solidarité et culture sénégalaise à Amiens et dans les Hauts-de-France.">
+    <meta name="twitter:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
 
     <!-- Web App Manifest -->
-    <link rel="manifest" href="/asa/manifest.json">
+    <link rel="manifest" href="/manifest.json">
 
-    <!-- CSS externe -->
-    <link rel="stylesheet" href="/asa/style.css">
+    <!-- ===================== Polices Google ======================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap AVANT la feuille du site, pour que style.css puisse surcharger -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- =============================================================
+         CSS spécifique ASA
+         À DÉPLACER dans /style.css une fois validé (gardé ici pour
+         que tu puisses tester la page d'un seul bloc).
+         ============================================================= -->
+    <style>
+    :root{
+      /* Palette dérivée du drapeau sénégalais */
+      --asa-vert:      #00853F;   /* vert du drapeau, déjà ta theme-color */
+      --asa-vert-nuit: #043B22;   /* fonds sombres */
+      --asa-or:        #FCD116;   /* jaune du drapeau */
+      --asa-rouge:     #E31B23;   /* rouge du drapeau, usage strictement ponctuel */
+      --asa-sable:     #FAF6EE;   /* fond clair, chaleureux */
+      --asa-encre:     #14261C;   /* texte */
+      --asa-gris:      #5B6B61;   /* texte secondaire */
+
+      --asa-display: "Bricolage Grotesque", system-ui, sans-serif;
+      --asa-texte:   "Karla", system-ui, -apple-system, sans-serif;
+    }
+
+    body{
+      font-family: var(--asa-texte);
+      color: var(--asa-encre);
+      background: var(--asa-sable);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,h2,h3,.asa-display{
+      font-family: var(--asa-display);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+    }
+
+    /* --- Lien d'évitement (accessibilité clavier) --- */
+    .asa-skip{
+      position:absolute; left:-999px; top:0; z-index:2000;
+      background: var(--asa-vert-nuit); color:#fff;
+      padding:.75rem 1.25rem; border-radius:0 0 .5rem 0;
+    }
+    .asa-skip:focus{ left:0; }
+
+    /* --- Signature graphique : la bande téranga (vert / or / rouge) --- */
+    .asa-bande{
+      height: 6px;
+      background: linear-gradient(to right,
+        var(--asa-vert) 0 33.34%,
+        var(--asa-or)   33.34% 66.67%,
+        var(--asa-rouge) 66.67% 100%);
+    }
+    .asa-bande--fine{ height: 4px; width: 64px; border-radius: 2px; }
+
+    /* --- Navigation --- */
+    .asa-nav{
+      background: #fff;
+      border-bottom: 1px solid rgba(20,38,28,.08);
+    }
+    .asa-nav .nav-link{
+      font-weight: 500;
+      color: var(--asa-encre);
+      padding-inline: .9rem;
+      position: relative;
+    }
+    .asa-nav .nav-link:hover{ color: var(--asa-vert); }
+    .asa-nav .nav-link[aria-current="page"]{
+      color: var(--asa-vert);
+      font-weight: 700;
+    }
+    .asa-nav .nav-link[aria-current="page"]::after{
+      content:""; position:absolute; left:.9rem; right:.9rem; bottom:.15rem;
+      height:2px; background: var(--asa-or);
+    }
+
+    /* --- Héro --- */
+    .asa-hero{
+      background:
+        radial-gradient(120% 90% at 15% 0%, #0A5C33 0%, var(--asa-vert-nuit) 62%);
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .asa-hero__inner{ padding-block: clamp(3.5rem, 9vw, 7rem); position:relative; z-index:2; }
+    .asa-hero h1{
+      font-size: clamp(2.4rem, 6.2vw, 4.5rem);
+      max-width: 16ch;
+      margin-bottom: 1.25rem;
+    }
+    .asa-hero h1 em{
+      font-style: normal;
+      color: var(--asa-or);
+    }
+    .asa-hero__chapo{
+      font-size: clamp(1.05rem, 1.9vw, 1.3rem);
+      line-height: 1.6;
+      max-width: 56ch;
+      color: rgba(255,255,255,.86);
+    }
+    /* Étoile filigrane du drapeau, décorative */
+    .asa-hero__etoile{
+      position:absolute; right:-6%; top:50%; transform:translateY(-50%);
+      width: min(46vw, 520px); opacity:.06; z-index:1; pointer-events:none;
+    }
+
+    /* --- Boutons --- */
+    .asa-btn{
+      display:inline-block; font-weight:700; text-decoration:none;
+      padding:.85rem 1.6rem; border-radius:999px; border:2px solid transparent;
+      transition: transform .15s ease, background-color .15s ease, color .15s ease;
+    }
+    .asa-btn:hover{ transform: translateY(-2px); }
+    .asa-btn--or{ background: var(--asa-or); color: var(--asa-encre); }
+    .asa-btn--or:hover{ background:#ffe14d; color: var(--asa-encre); }
+    .asa-btn--ghost{ border-color: rgba(255,255,255,.5); color:#fff; }
+    .asa-btn--ghost:hover{ background:#fff; color: var(--asa-vert-nuit); }
+    .asa-btn--vert{ background: var(--asa-vert); color:#fff; }
+    .asa-btn--vert:hover{ background:#046b33; color:#fff; }
+    .asa-btn--vertline{ border-color: var(--asa-vert); color: var(--asa-vert); }
+    .asa-btn--vertline:hover{ background: var(--asa-vert); color:#fff; }
+
+    /* --- Bandeau de repères sous le héro --- */
+    .asa-reperes{
+      background: var(--asa-encre);
+      color: rgba(255,255,255,.9);
+      font-size: .95rem;
+    }
+    .asa-reperes ul{
+      list-style:none; margin:0; padding: .9rem 0;
+      display:flex; flex-wrap:wrap; gap: .5rem 2.25rem; justify-content:center;
+    }
+    .asa-reperes li{ display:flex; align-items:center; gap:.55rem; }
+
+    /* --- Sections --- */
+    .asa-section{ padding-block: clamp(3rem, 7vw, 5.5rem); }
+    .asa-section--blanc{ background:#fff; }
+    .asa-section--vert{ background: var(--asa-vert-nuit); color:#fff; }
+    .asa-eyebrow{
+      font-size:.78rem; text-transform:uppercase; letter-spacing:.16em;
+      font-weight:700; color: var(--asa-vert); margin-bottom:.75rem;
+    }
+    .asa-section--vert .asa-eyebrow{ color: var(--asa-or); }
+    .asa-h2{ font-size: clamp(1.75rem, 3.6vw, 2.6rem); margin-bottom:1rem; }
+    .asa-chapo{ color: var(--asa-gris); font-size:1.06rem; line-height:1.7; max-width:62ch; }
+    .asa-section--vert .asa-chapo{ color: rgba(255,255,255,.8); }
+
+    /* --- Cartes « missions » --- */
+    .asa-mission{
+      background: var(--asa-sable);
+      border-left: 4px solid var(--asa-vert);
+      border-radius: 0 .75rem .75rem 0;
+      padding: 1.5rem 1.5rem 1.6rem;
+      height: 100%;
+    }
+    .asa-mission h3{ font-size:1.14rem; font-weight:600; margin-bottom:.55rem; }
+    .asa-mission p{ color: var(--asa-gris); font-size:.97rem; line-height:1.6; margin:0; }
+    /* Rotation discrète des couleurs du drapeau sur la tranche des cartes */
+    .asa-mission--or{ border-left-color: var(--asa-or); }
+    .asa-mission--rouge{ border-left-color: var(--asa-rouge); }
+
+    /* --- Cartes « qui peut adhérer » --- */
+    .asa-membre{
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: .9rem;
+      padding: 1.4rem;
+      height:100%;
+    }
+    .asa-membre h3{ font-size:1.05rem; font-weight:600; margin-bottom:.5rem; color: var(--asa-or); }
+    .asa-membre p{ font-size:.94rem; line-height:1.6; color: rgba(255,255,255,.78); margin:0; }
+
+    /* --- Vie associative --- */
+    .asa-organe{ padding: 1.25rem 0; border-top: 1px solid rgba(20,38,28,.12); }
+    .asa-organe:last-child{ border-bottom: 1px solid rgba(20,38,28,.12); }
+    .asa-organe dt{ font-family: var(--asa-display); font-weight:600; font-size:1.06rem; }
+    .asa-organe dd{ color: var(--asa-gris); margin:.3rem 0 0; font-size:.97rem; line-height:1.6; }
+
+    /* --- Appel final --- */
+    .asa-cta{
+      background: var(--asa-vert);
+      color:#fff;
+      border-radius: 1.25rem;
+      padding: clamp(2rem, 5vw, 3.25rem);
+    }
+    .asa-cta h2{ font-size: clamp(1.6rem, 3.2vw, 2.35rem); }
+
+    /* --- Pied de page --- */
+    .asa-footer{ background: var(--asa-encre); color: rgba(255,255,255,.7); }
+    .asa-footer a{ color: rgba(255,255,255,.85); text-decoration:none; }
+    .asa-footer a:hover{ color: var(--asa-or); text-decoration:underline; }
+    .asa-footer h2{ font-size:.8rem; text-transform:uppercase; letter-spacing:.14em;
+                    color: var(--asa-or); font-weight:700; margin-bottom:.9rem; }
+    .asa-footer ul{ list-style:none; padding:0; margin:0; }
+    .asa-footer li{ margin-bottom:.45rem; font-size:.95rem; }
+
+    /* --- Focus visible partout --- */
+    a:focus-visible, button:focus-visible{
+      outline: 3px solid var(--asa-or);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* --- Apparition au défilement --- */
+    .asa-reveal{ opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .asa-reveal.est-visible{ opacity:1; transform:none; }
+    @media (prefers-reduced-motion: reduce){
+      .asa-reveal{ opacity:1; transform:none; transition:none; }
+      .asa-btn:hover{ transform:none; }
+    }
+    </style>
+
+    <!-- =============================================================
+         Données structurées : aide Google à comprendre qu'il s'agit
+         d'une association locale (utile pour le référencement local).
+         ============================================================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "Association des Sénégalais d'Amiens",
+      "alternateName": "ASA",
+      "url": "https://senegalais-amiens.fr/",
+      "logo": "https://senegalais-amiens.fr/img/logo-asa-asso.svg",
+      "description": "Association loi 1901 réunissant les Sénégalais et les personnes liées au Sénégal résidant dans la Somme, l'Oise et l'Aisne. Entraide, actions solidaires, accompagnement et promotion des cultures sénégalaises.",
+      "foundingLocation": { "@type": "Place", "name": "Amiens, France" },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Somme (80)" },
+        { "@type": "AdministrativeArea", "name": "Oise (60)" },
+        { "@type": "AdministrativeArea", "name": "Aisne (02)" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Amiens",
+        "postalCode": "80000",
+        "addressCountry": "FR"
+      }
+    }
+    </script>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-      <div class="container">
-          <!-- Logo -->
-          <a class="navbar-brand" href="/asa/">
-          <img src="/asa/img/logo-asa-asso.svg" alt="Tilbilo" width="auto" height="50">
-          </a>
+  <!-- Lien d'évitement : premier élément focusable de la page -->
+  <a class="asa-skip" href="#contenu">Aller au contenu principal</a>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar navbar-expand-lg asa-nav sticky-top" aria-label="Navigation principale">
+    <div class="container">
+      <a class="navbar-brand py-2" href="/">
+        <img src="/img/logo-asa-asso.svg" alt="Association des Sénégalais d'Amiens — accueil" height="46">
+      </a>
 
-          <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
-                  <li class="nav-item"><a class="nav-link" href="/asa/">Accueil</a></li>
-                  <li class="nav-item"><a class="nav-link active" href="/asa/statuts">Statuts</a></li>
-                  <li class="nav-item"><a class="nav-link active" href="/asa/adhesion">Adhésion</a></li>
-                  <li class="nav-item"><a class="nav-link active" href="/asa/annuaire">Annuaire</a></li>
-                  <li class="nav-item"><a class="nav-link active" href="/asa/contact">Contact</a></li>
-              </ul>
-          </div>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navPrincipale" aria-controls="navPrincipale"
+              aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navPrincipale">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <!-- aria-current="page" uniquement sur la page courante -->
+          <li class="nav-item"><a class="nav-link" href="/" aria-current="page">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="/statuts">Statuts</a></li>
+          <li class="nav-item"><a class="nav-link" href="/annuaire">Annuaire</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="asa-btn asa-btn--vert" href="/adhesion">Adhérer</a>
+          </li>
+        </ul>
       </div>
+    </div>
   </nav>
 
-  <!-- Header -->
-  <header class="py-4 bg-header text-white text-center">
-    <div class="container">
-      <p class="lead">Association des Sénégalais d'Amiens (ASA)</p>
-      <img src="/asa/img/logo-asa-asso.svg" alt="Logo ASA" class="mb-5" style="height:100px;">
+  <main id="contenu">
 
+    <!-- ===================== HÉRO ===================== -->
+    <header class="asa-hero">
+      <!-- Étoile du drapeau, purement décorative -->
+      <svg class="asa-hero__etoile" viewBox="0 0 24 24" fill="#FCD116" aria-hidden="true" focusable="false">
+        <path d="M12 1.6l3.1 7.1 7.7.6-5.8 5.1 1.7 7.5L12 17.9 5.3 21.9l1.7-7.5L1.2 9.3l7.7-.6z"/>
+      </svg>
+
+      <div class="container asa-hero__inner">
+        <div class="asa-bande asa-bande--fine mb-4"></div>
+
+        <h1>La <em>téranga</em> a une adresse à Amiens.</h1>
+
+        <p class="asa-hero__chapo">
+          L'Association des Sénégalais d'Amiens réunit celles et ceux qui vivent
+          dans la Somme, l'Oise ou l'Aisne et qui ont un lien avec le Sénégal —
+          par la nationalité, la famille, la culture ou le travail.
+          On s'entraide, on se retrouve, et on fait vivre ici ce qu'on a
+          appris là-bas.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a class="asa-btn asa-btn--or" href="/adhesion">Devenir membre</a>
+          <a class="asa-btn asa-btn--ghost" href="#missions">Découvrir nos actions</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Bandeau de repères (faits vérifiables, tirés des statuts) ===== -->
+    <div class="asa-reperes">
+      <div class="container">
+        <ul>
+          <li aria-hidden="true">●</li>
+          <li>Association loi 1901</li>
+          <li>Siège à Amiens (80)</li>
+          <li>Somme · Oise · Aisne</li>
+          <li>Statuts révisés en octobre 2025</li>
+        </ul>
+      </div>
     </div>
-  </header>
 
-  <div class="container my-5 corps-index">
-    <div class="xx">
-      <!-- Contenu -->
-      <div class="text-center">
-      <p>ASA · Association des Sénégalais d'Amiens</p>
+    <!-- ===================== QUI SOMMES-NOUS ===================== -->
+    <section class="asa-section asa-section--blanc" aria-labelledby="titre-asso">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-6 asa-reveal">
+            <p class="asa-eyebrow">L'association</p>
+            <h2 class="asa-h2" id="titre-asso">Une communauté, pas un guichet.</h2>
+            <p class="asa-chapo">
+              L'ASA est née d'un constat simple : arriver, s'installer ou vieillir
+              loin du Sénégal se fait mieux à plusieurs. L'association rassemble
+              des familles, des travailleurs, des étudiants, des retraités —
+              toutes les générations de la communauté sénégalaise de la région,
+              ainsi que celles et ceux qui lui sont liés.
+            </p>
+            <p class="asa-chapo mt-3">
+              Elle est déclarée sous le régime de la loi du 1<sup>er</sup> juillet 1901,
+              entièrement bénévole, et ses statuts ont été révisés en Assemblée
+              générale extraordinaire le 12 octobre 2025.
+            </p>
+            <a class="asa-btn asa-btn--vertline mt-4" href="/statuts">Lire les statuts</a>
+          </div>
+
+          <div class="col-lg-6 asa-reveal">
+            <!-- REMPLACER par une vraie photo de la vie associative (voir mes notes) -->
+            <img src="/img/asa-vie-associative.jpg"
+                 alt="Membres de l'ASA réunis lors d'un événement de l'association à Amiens"
+                 class="img-fluid rounded-4 shadow-sm w-100"
+                 loading="lazy" width="720" height="540">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MISSIONS (article 2 des statuts) ===================== -->
+    <section class="asa-section asa-section--blanc pt-0" id="missions" aria-labelledby="titre-missions">
+      <div class="container">
+        <div class="asa-bande asa-bande--fine mb-4"></div>
+        <p class="asa-eyebrow">Nos missions</p>
+        <h2 class="asa-h2" id="titre-missions">Ce à quoi l'ASA s'engage</h2>
+        <p class="asa-chapo mb-5">
+          Six missions inscrites noir sur blanc à l'article 2 de nos statuts.
+          Elles guident chaque action que nous menons.
+        </p>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 asa-reveal">
+            <article class="asa-mission">
+              <h3>Solidarité et action sociale</h3>
+              <p>Soutenir les membres de la communauté sénégalaise d'Amiens
+                 confrontés à des situations de précarité, par des actions
+                 concrètes d'entraide.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 asa-reveal">
+            <article class="asa-mission asa-mission--or">
+              <h3>Accompagnement des étudiants</h3>
+              <p>Épauler les étudiantes et étudiants sénégalais dans leur parcours
+                 universitaire : intégration, réussite et épanouissement personnel.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 asa-reveal">
+            <article class="asa-mission asa-mission--rouge">
+              <h3>Liens entre générations</h3>
+              <p>Relier les cohortes successives d'étudiants et les anciens
+                 installés dans la région, pour construire de vrais réseaux
+                 d'entraide qui durent.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 asa-reveal">
+            <article class="asa-mission">
+              <h3>Vie universitaire et culturelle</h3>
+              <p>Organiser conférences, débats, visites, voyages et rencontres
+                 qui nourrissent la cohésion sociale et le dialogue interculturel.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 asa-reveal">
+            <article class="asa-mission asa-mission--or">
+              <h3>Insertion professionnelle</h3>
+              <p>Mettre en place des dispositifs d'accompagnement vers l'emploi,
+                 y compris pour préparer un retour et une intégration
+                 professionnelle au Sénégal.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 asa-reveal">
+            <article class="asa-mission asa-mission--rouge">
+              <h3>Cultures sénégalaises</h3>
+              <p>Promouvoir et transmettre les cultures du Sénégal sous toutes
+                 leurs formes, à travers des activités artistiques et culturelles.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUI PEUT ADHÉRER ===================== -->
+    <section class="asa-section asa-section--vert" aria-labelledby="titre-membres">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-5 asa-reveal">
+            <div class="asa-bande asa-bande--fine mb-4"></div>
+            <p class="asa-eyebrow">Adhésion</p>
+            <h2 class="asa-h2" id="titre-membres">L'ASA est ouverte, largement.</h2>
+            <p class="asa-chapo">
+              Deux conditions, et c'est tout : être de nationalité sénégalaise
+              <strong>ou</strong> entretenir des liens culturels, familiaux ou
+              professionnels avec le Sénégal ; et résider dans la Somme (80),
+              l'Oise (60) ou l'Aisne (02).
+            </p>
+            <p class="asa-chapo mt-3">
+              La cotisation se règle entre le 1<sup>er</sup> septembre et le
+              31 décembre. Son montant est fixé chaque année par le Conseil
+              d'administration et ne peut jamais dépasser 1 % du SMIC brut mensuel.
+            </p>
+            <a class="asa-btn asa-btn--or mt-4" href="/adhesion">Rejoindre l'ASA</a>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="row g-4">
+              <div class="col-sm-6 asa-reveal">
+                <div class="asa-membre">
+                  <h3>Membre adhérent</h3>
+                  <p>Le statut de base. Cotisation annuelle, droit de vote plein
+                     en Assemblée générale et éligibilité aux instances.</p>
+                </div>
+              </div>
+              <div class="col-sm-6 asa-reveal">
+                <div class="asa-membre">
+                  <h3>Membre adhérent étudiant</h3>
+                  <p>Mêmes droits et mêmes règles, sur présentation d'une carte
+                     d'étudiant à jour ou d'un certificat de scolarité.</p>
+                </div>
+              </div>
+              <div class="col-sm-6 asa-reveal">
+                <div class="asa-membre">
+                  <h3>Membre bienfaiteur</h3>
+                  <p>Pour un don annuel d'au moins quatre fois la cotisation.
+                     Voix consultative en Assemblée générale.</p>
+                </div>
+              </div>
+              <div class="col-sm-6 asa-reveal">
+                <div class="asa-membre">
+                  <h3>Membre d'honneur</h3>
+                  <p>Les anciens présidents de droit, et toute personne distinguée
+                     par l'Assemblée générale. Exempté de cotisation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VIE ASSOCIATIVE ===================== -->
+    <section class="asa-section" aria-labelledby="titre-fonctionnement">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-5 asa-reveal">
+            <div class="asa-bande asa-bande--fine mb-4"></div>
+            <p class="asa-eyebrow">Fonctionnement</p>
+            <h2 class="asa-h2" id="titre-fonctionnement">Qui décide quoi</h2>
+            <p class="asa-chapo">
+              Toutes les fonctions sont bénévoles et gratuites : seuls les frais
+              engagés pour l'association sont remboursés, sur justificatifs, et
+              présentés chaque année à l'Assemblée générale.
+            </p>
+          </div>
+
+          <div class="col-lg-7 asa-reveal">
+            <dl class="mb-0">
+              <div class="asa-organe">
+                <dt>Assemblée générale</dt>
+                <dd>L'organe décisionnel. Elle réunit tous les membres et se tient
+                    chaque année en janvier. Seuls les membres adhérents votent ;
+                    les décisions s'imposent à tous, y compris aux absents.</dd>
+              </div>
+              <div class="asa-organe">
+                <dt>Conseil d'administration</dt>
+                <dd>De 5 à 15 administrateurs élus pour un an. Il dirige
+                    l'association, fixe le montant de la cotisation et se réunit
+                    au moins tous les six mois.</dd>
+              </div>
+              <div class="asa-organe">
+                <dt>Bureau</dt>
+                <dd>De 2 à 7 membres, dont obligatoirement un président et un
+                    trésorier — deux fonctions incompatibles. Le président est élu
+                    directement par l'Assemblée générale.</dd>
+              </div>
+              <div class="asa-organe">
+                <dt>Commissions</dt>
+                <dd>Créées pour porter les missions de l'article 2. Chacune est
+                    présidée par un délégué issu du Conseil d'administration et
+                    ouverte aux membres de l'association.</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== APPEL FINAL ===================== -->
+    <section class="asa-section pt-0" aria-labelledby="titre-cta">
+      <div class="container">
+        <div class="asa-cta text-center asa-reveal">
+          <h2 class="mb-3" id="titre-cta">Vous venez d'arriver dans la région ?</h2>
+          <p class="mb-4 mx-auto" style="max-width:56ch; color:rgba(255,255,255,.9); line-height:1.7;">
+            Écrivez-nous, même sans être encore adhérent. Quelqu'un est déjà passé
+            par là et pourra vous répondre.
+          </p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center">
+            <a class="asa-btn asa-btn--or" href="/contact">Nous contacter</a>
+            <a class="asa-btn asa-btn--ghost" href="/adhesion">Adhérer en ligne</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== PIED DE PAGE ===================== -->
+  <footer class="asa-footer pt-5 pb-4">
+    <div class="asa-bande" style="margin-top:-3rem; margin-bottom:3rem;"></div>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <img src="/img/logo-asa-asso.svg" alt="" height="52" class="mb-3">
+          <p style="font-size:.95rem; line-height:1.6; max-width:38ch;">
+            Association des Sénégalais d'Amiens — association loi 1901,
+            siège social à Amiens (80).
+          </p>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h2>L'association</h2>
+          <ul>
+            <li><a href="/statuts">Statuts</a></li>
+            <li><a href="/adhesion">Adhésion</a></li>
+            <li><a href="/annuaire">Annuaire</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h2>Informations</h2>
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+            <li><a href="/plan-du-site">Plan du site</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4">
+          <h2>Nous écrire</h2>
+          <ul>
+            <!-- À COMPLÉTER : adresse e-mail réelle de l'association -->
+            <li><a href="mailto:contact@senegalais-amiens.fr">contact@senegalais-amiens.fr</a></li>
+            <!-- À COMPLÉTER ou À SUPPRIMER : réseaux sociaux réels -->
+            <li><a href="#">WhatsApp de l'association</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
       </div>
 
+      <p class="mb-0 pt-4 mt-4" style="border-top:1px solid rgba(255,255,255,.12); font-size:.9rem;">
+        © <span id="annee">2026</span> Association des Sénégalais d'Amiens (ASA)
+      </p>
     </div>
-  </div>
-
-  <footer class="bg-dark text-light py-3 text-center">
-    <p class="mb-0">© 2026 ASA | <a href="/asa/mentions-legales" class="text-light text-decoration-none">Mentions légales</a> | <a href="/asa/plan-du-site" class="text-light text-decoration-none">Plan du site</a></p>
   </footer>
 
-  <!-- JS externe -->
-  <script src="script.js"></script>
+  <!-- ===================== SCRIPTS ===================== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/script.js"></script>
+  <script>
+    // Année du copyright, mise à jour automatiquement
+    document.getElementById('annee').textContent = new Date().getFullYear();
+
+    // Apparition progressive des blocs au défilement.
+    // Si l'utilisateur a désactivé les animations, on affiche tout d'emblée.
+    (function(){
+      var blocs = document.querySelectorAll('.asa-reveal');
+      var animationsReduites = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (animationsReduites || !('IntersectionObserver' in window)) {
+        blocs.forEach(function(b){ b.classList.add('est-visible'); });
+        return;
+      }
+
+      var observateur = new IntersectionObserver(function(entrees){
+        entrees.forEach(function(entree){
+          if (entree.isIntersecting) {
+            entree.target.classList.add('est-visible');
+            observateur.unobserve(entree.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      blocs.forEach(function(b){ observateur.observe(b); });
+    })();
+  </script>
 </body>
 </html>
