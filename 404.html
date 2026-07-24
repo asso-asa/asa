@@ -1,97 +1,333 @@
+---
+permalink: /404.html
+---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page introuvable  · ASA l'Association</title>
 
-    <!-- SEO -->
-    <meta name="description" content="Page introuvable  · ASA l'Association - Ass des Sénégalais d'Amiens.">
-    <meta name="robots" content="follow, noindex">
-    <link rel="canonical" href="https://senegalais-amiens.fr/404">
+    <title>Page introuvable — Association des Sénégalais d'Amiens (ASA)</title>
+    <meta name="description" content="Cette page n'existe pas ou a été déplacée. Retrouvez l'essentiel du site de l'Association des Sénégalais d'Amiens.">
+
+    <!-- Une page d'erreur ne doit jamais être indexée -->
+    <meta name="robots" content="noindex, follow">
+
+    <!-- PAS de <link rel="canonical"> ici : cette page est servie sur des URL
+         variables (toutes les adresses cassées du site). Un canonical figé
+         indiquerait à Google que chaque URL erronée « est » la page /404,
+         ce qui brouille l'indexation. Idem pour og:url, retiré volontairement. -->
 
     <!-- Favicon -->
+    <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="icon" href="/img/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/img/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo-asa-180x180.png">
 
-    <!-- Couleur de la barre du navigateur (Android) -->
-    <meta name="theme-color" content="#00853F">
-
-    <!-- Theme color adaptative (mode clair/sombre) -->
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#00853F">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
-    
-    <!-- Pour Safari iOS (mode web app) -->
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#043B22">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Page introuvable  · ASA l'Association">
-    <meta property="og:description" content="Page introuvable  · ASA l'Association - Ass des Sénégalais d'Amiens.">
-    <meta property="og:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
-    <meta property="og:url" content="https://senegalais-amiens.fr">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_FR">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Page introuvable  · ASA l'Association">
-    <meta name="twitter:description" content="Page introuvable  · ASA l'Association - Ass des Sénégalais d'Amiens.">
-    <meta name="twitter:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
-
-    <!--  Icône utilisée quand un utilisateur ajoute la page à son écran d’accueil sur un iPhone/iPad. -->
-    <link rel="apple-touch-icon" sizes="180x180"
-    href="/img/logo-asa-180x180.png">
-    
-    <!-- Web App Manifest -->
     <link rel="manifest" href="/manifest.json">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- CSS personnalisé -->
-    <link rel="stylesheet" href="/style.css">
+    <!-- ===================== Polices Google ======================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style-v2.css">
+
+    <style>
+    /* =============================================================
+       BLOC COMMUN — identique aux autres pages.
+       Destination finale : _layouts/default.html
+       ============================================================= */
+    :root{
+      --asa-vert:      #00853F;
+      --asa-jaune:     #FDEF42;
+      --asa-rouge:     #E31B23;
+      --asa-vert-nuit:   #043B22;
+      --asa-vert-fonce:  #046B33;
+      --asa-jaune-sombre:#E8D400;
+      --asa-sable:       #FAF7EF;
+      --asa-encre:       #14261C;
+      --asa-gris:        #5B6B61;
+      --asa-display: "Bricolage Grotesque", system-ui, sans-serif;
+      --asa-texte:   "Karla", system-ui, -apple-system, sans-serif;
+    }
+
+    html{ overflow-x: clip; }
+    body{ overflow-x: clip; max-width:100%; }
+    img, svg, video, iframe{ max-width:100%; height:auto; }
+    h1, h2, h3, p, li, dd, a{ overflow-wrap: break-word; }
+
+    body{ font-family: var(--asa-texte); color: var(--asa-encre); background: var(--asa-sable); -webkit-font-smoothing: antialiased; }
+    h1,h2,h3,h4{ font-family: var(--asa-display); font-weight:800; letter-spacing:-.02em; line-height:1.1; }
+
+    .asa-skip{ position:absolute; left:-999px; top:0; z-index:2000; background:var(--asa-vert-nuit); color:#fff; padding:.75rem 1.25rem; border-radius:0 0 .5rem 0; }
+    .asa-skip:focus{ left:0; }
+
+    .asa-bande{ height:6px; width:100%;
+      background: linear-gradient(to right, var(--asa-vert) 0 33.34%, var(--asa-jaune) 33.34% 66.67%, var(--asa-rouge) 66.67% 100%); }
+    .asa-bande--fine{ height:4px; width:64px; border-radius:2px; }
+
+    .asa-nav{ background:#fff; border-bottom:1px solid rgba(20,38,28,.08); }
+    .asa-nav .nav-link{ font-weight:500; color:var(--asa-encre); padding-inline:.9rem; position:relative; }
+    .asa-nav .nav-link:hover{ color:var(--asa-vert); }
+
+    .asa-btn{ display:inline-block; font-weight:700; text-decoration:none; text-align:center;
+              padding:.85rem 1.5rem; border-radius:999px; border:2px solid transparent;
+              transition: transform .15s ease, background-color .15s ease, color .15s ease; }
+    .asa-btn:hover{ transform: translateY(-2px); }
+    .asa-btn--jaune{ background:var(--asa-jaune); color:var(--asa-encre); }
+    .asa-btn--jaune:hover{ background:var(--asa-jaune-sombre); color:var(--asa-encre); }
+    .asa-btn--vert{ background:var(--asa-vert); color:#fff; }
+    .asa-btn--vert:hover{ background:var(--asa-vert-fonce); color:#fff; }
+    .asa-btn--vertline{ border-color:var(--asa-vert); color:var(--asa-vert); }
+    .asa-btn--vertline:hover{ background:var(--asa-vert); color:#fff; }
+    @media (max-width: 400px){ .asa-btn{ display:block; width:100%; } }
+
+    .asa-eyebrow{ font-size:.78rem; text-transform:uppercase; letter-spacing:.16em; font-weight:700; color:var(--asa-vert); margin-bottom:.75rem; }
+
+    .asa-footer{ background:var(--asa-encre); color:rgba(255,255,255,.7); }
+    .asa-footer a{ color:rgba(255,255,255,.85); text-decoration:none; }
+    .asa-footer a:hover{ color:var(--asa-jaune); text-decoration:underline; }
+    .asa-footer h2{ font-size:.8rem; text-transform:uppercase; letter-spacing:.14em; color:var(--asa-jaune); font-weight:700; margin-bottom:.9rem; }
+    .asa-footer ul{ list-style:none; padding:0; margin:0; }
+    .asa-footer li{ margin-bottom:.45rem; font-size:.95rem; }
+
+    a:focus-visible, button:focus-visible{ outline:3px solid var(--asa-jaune); outline-offset:3px; border-radius:2px; }
+    @media (prefers-reduced-motion: reduce){ .asa-btn:hover{ transform:none; } }
+    </style>
+
+    <style>
+    /* =============================================================
+       CSS PROPRE À LA PAGE 404
+       ============================================================= */
+
+    /* La page occupe au minimum toute la hauteur de l'écran, pour que
+       le pied de page ne remonte pas au milieu sur grand écran. */
+    body{ display:flex; flex-direction:column; min-height:100vh; }
+    .asa-404{ flex:1 0 auto; display:flex; align-items:center;
+              padding-block: clamp(2.5rem, 8vw, 5rem); }
+
+    /* Le nombre 404 rempli par la bande tricolore.
+       Repli en vert plein si background-clip:text n'est pas géré. */
+    .asa-404__nombre{
+      font-family: var(--asa-display);
+      font-weight: 800;
+      font-size: clamp(5rem, 20vw, 11rem);
+      line-height: .85;
+      letter-spacing: -.05em;
+      margin: 0 0 1rem;
+      color: var(--asa-vert);
+    }
+    @supports (background-clip: text) or (-webkit-background-clip: text){
+      .asa-404__nombre{
+        background: linear-gradient(105deg,
+          var(--asa-vert) 0 32%, var(--asa-jaune-sombre) 44% 56%, var(--asa-rouge) 68% 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    }
+
+    .asa-404 h1{ font-size: clamp(1.6rem, 4.5vw, 2.5rem); margin-bottom:1rem; }
+    .asa-404__texte{ color: var(--asa-gris); font-size:1.05rem; line-height:1.75; max-width:52ch; }
+    .asa-404__actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.75rem; }
+
+    /* Liste des destinations utiles */
+    .asa-pistes{ list-style:none; padding:0; margin:0; }
+    .asa-pistes li + li{ margin-top:.6rem; }
+    .asa-piste{
+      display:flex; gap:1rem; align-items:center;
+      background:#fff; border:1px solid rgba(20,38,28,.09);
+      border-radius:.85rem; padding:.95rem 1.1rem;
+      text-decoration:none; color:inherit;
+      transition: border-color .15s ease, transform .15s ease;
+    }
+    .asa-piste:hover{ border-color:var(--asa-vert); transform:translateX(3px); color:inherit; }
+    .asa-piste__fleche{
+      flex:0 0 auto; width:2.1rem; height:2.1rem; border-radius:.55rem;
+      background:var(--asa-sable); color:var(--asa-vert);
+      display:grid; place-items:center; font-weight:800; font-size:1rem;
+    }
+    .asa-piste b{ display:block; font-family:var(--asa-display); font-size:1rem; font-weight:600; }
+    .asa-piste span{ font-size:.88rem; color:var(--asa-gris); line-height:1.4; }
+
+    .asa-404__aide{
+      margin-top:1.75rem; padding-top:1.25rem;
+      border-top:1px solid rgba(20,38,28,.12);
+      font-size:.92rem; color:var(--asa-gris); line-height:1.65;
+    }
+    .asa-404__aide a{ color:var(--asa-vert); font-weight:600; }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div class="container">
-            <!-- Logo -->
-            <a class="navbar-brand" href="/">
-            <img src="/img/logo-asa-asso.svg" alt="Tilbilo" width="auto" height="50">
-            </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+  <a class="asa-skip" href="#contenu">Aller au contenu principal</a>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="/">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/statuts">Statuts</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/adhesion">Adhésion</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/annuaire">Annuaire</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="corps-404">
-        <p class="h1-404">Erreur 404</p>
-        <h1 class="h4">Page introuvable</h1>
-        <p> <strong>Oups !</strong> La page que vous cherchez n’existe plus ou a été déplacée.</p>
-        <a class="retour-404" href="/">Retour à l'accueil</a>
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar navbar-expand-lg asa-nav" aria-label="Navigation principale">
+    <div class="container">
+      <a class="navbar-brand py-2" href="/">
+        <img src="/img/logo-asa-asso.svg" alt="Association des Sénégalais d'Amiens — accueil" height="46">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navPrincipale" aria-controls="navPrincipale"
+              aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navPrincipale">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <!-- Aucun aria-current ici : la page 404 ne correspond à aucune
+               entrée du menu. -->
+          <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="/qui-sommes-nous/">L'association</a></li>
+          <li class="nav-item"><a class="nav-link" href="/agenda/">Agenda</a></li>
+          <li class="nav-item"><a class="nav-link" href="/annuaire">Annuaire</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="asa-btn asa-btn--vert" href="/adhesion">Adhérer</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-3 text-center">
-    <p class="mb-0">© 2026 ASA | <a href="/mentions-legales" class="text-light text-decoration-none">Mentions légales</a> | <a href="/plan-du-site" class="text-light text-decoration-none">Plan du site</a></p>
-    </footer>
+  </nav>
 
-    <!-- JS externe -->
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
+  <main id="contenu" class="asa-404">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+
+        <!-- ---------- Message ---------- -->
+        <div class="col-lg-6">
+          <div class="asa-bande asa-bande--fine mb-4"></div>
+          <p class="asa-404__nombre" aria-hidden="true">404</p>
+          <p class="asa-eyebrow">Erreur 404</p>
+          <h1>Cette page a pris la route sans nous</h1>
+          <p class="asa-404__texte">
+            L'adresse que vous avez suivie n'existe pas, ou plus. Elle a peut-être
+            été renommée, ou le lien contenait une coquille. Rien de grave : tout
+            le reste du site est toujours là.
+          </p>
+          <div class="asa-404__actions">
+            <a class="asa-btn asa-btn--vert" href="/">Retour à l'accueil</a>
+            <a class="asa-btn asa-btn--vertline" href="/contact">Signaler le problème</a>
+          </div>
+        </div>
+
+        <!-- ---------- Destinations utiles ---------- -->
+        <div class="col-lg-6">
+          <h2 class="h5 mb-3" style="font-weight:600;">Vous cherchiez peut-être&nbsp;:</h2>
+          <ul class="asa-pistes">
+            <li>
+              <a class="asa-piste" href="/qui-sommes-nous/">
+                <span class="asa-piste__fleche" aria-hidden="true">→</span>
+                <span>
+                  <b>Qui sommes-nous</b>
+                  <span>Notre histoire, le bureau et les commissions</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="asa-piste" href="/agenda/">
+                <span class="asa-piste__fleche" aria-hidden="true">→</span>
+                <span>
+                  <b>Agenda</b>
+                  <span>Les prochains rendez-vous de l'association</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="asa-piste" href="/adhesion">
+                <span class="asa-piste__fleche" aria-hidden="true">→</span>
+                <span>
+                  <b>Adhérer</b>
+                  <span>Conditions, cotisation et démarche à suivre</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="asa-piste" href="/statuts/">
+                <span class="asa-piste__fleche" aria-hidden="true">→</span>
+                <span>
+                  <b>Statuts</b>
+                  <span>Le texte intégral, et le PDF signé</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="asa-piste" href="/contact">
+                <span class="asa-piste__fleche" aria-hidden="true">→</span>
+                <span>
+                  <b>Contact</b>
+                  <span>Écrire au bureau de l'association</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+
+          <p class="asa-404__aide">
+            Vous êtes arrivé ici depuis un lien publié par l'ASA&nbsp;?
+            <a href="/contact">Dites-le-nous</a> — c'est de notre faute, pas de la
+            vôtre, et nous le corrigerons.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===================== PIED DE PAGE ===================== -->
+  <footer class="asa-footer">
+    <div class="asa-bande"></div>
+    <div class="container pt-5 pb-4">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <img src="/img/logo-asa-asso.svg" alt="" height="52" class="mb-3">
+          <p style="font-size:.95rem; line-height:1.6; max-width:38ch;">
+            Association des Sénégalais d'Amiens — association loi 1901,
+            siège social à Amiens (80). Somme, Oise et Aisne.
+          </p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2>L'association</h2>
+          <ul>
+            <li><a href="/qui-sommes-nous/">Qui sommes-nous</a></li>
+            <li><a href="/statuts/">Statuts</a></li>
+            <li><a href="/adhesion">Adhésion</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2>Informations</h2>
+          <ul>
+            <li><a href="/agenda/">Agenda</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/mentions-legales/">Mentions légales</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h2>Nous écrire</h2>
+          <ul>
+            <li><a href="mailto:contact@senegalais-amiens.fr">contact@senegalais-amiens.fr</a></li>
+            <li><a href="https://instagram.com/association.senegalais.amiens" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com/association.senegalais.amiens" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mb-0 pt-4 mt-4" style="border-top:1px solid rgba(255,255,255,.12); font-size:.9rem;">
+        © <span id="annee">2026</span> ASA • Association des Sénégalais d'Amiens
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/script.js"></script>
+  <script>
+    var annee = document.getElementById('annee');
+    if (annee) annee.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
