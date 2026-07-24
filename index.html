@@ -78,7 +78,15 @@ permalink: /
        ============================================================= */
     html{ overflow-x: clip; }
     body{ overflow-x: clip; max-width: 100%; }
-    img, svg, video, iframe{ max-width: 100%; height: auto; }
+    /* Garde-fou : rien ne dépasse la largeur du conteneur */
+    img, svg, video, iframe{ max-width: 100%; }
+
+    /* Images de contenu : le ratio est préservé */
+    .asa-section img, .asa-hero img, .asa-entete img{ height: auto; }
+
+    /* Logos : la hauteur est imposée, la largeur suit */
+    .navbar-brand img{ height: 46px; width: auto; }
+    .asa-footer img{ height: 52px; width: auto; }
     /* Aucun mot long (URL, adresse e-mail) ne doit pouvoir élargir la page */
     h1, h2, h3, p, li, dd, a{ overflow-wrap: break-word; }
 
