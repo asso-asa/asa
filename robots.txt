@@ -1,0 +1,17 @@
+# =============================================================
+# robots.txt — senegalais-amiens.fr
+# Association des Sénégalais d'Amiens (ASA)
+#
+# =============================================================
+
+# -------------------------------------------------------------
+# Règle générale : tout le site est ouvert aux moteurs.
+# Les pages qui ne doivent pas apparaître dans les résultats
+# (annuaire, confirmations, 404) portent déjà une balise
+# <meta name="robots" content="noindex"> dans leur code HTML.
+# -------------------------------------------------------------
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://senegalais-amiens.fr/sitemap.xml
