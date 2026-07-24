@@ -10,9 +10,10 @@ permalink: /qui-sommes-nous/
 
     <!-- ============================ SEO ============================ -->
     <title>Qui sommes-nous — Association des Sénégalais d'Amiens (ASA)</title>
-    <meta name="description" content="Notre histoire, nos valeurs, le bureau et les commissions de l'Association des Sénégalais d'Amiens. Une association bénévole ouverte à toute la communauté.">
+    <meta name="description" content="Notre histoire, nos valeurs, le bureau, le conseil d'administration et les commissions de l'Association des Sénégalais d'Amiens.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://senegalais-amiens.fr/qui-sommes-nous">
+    <!-- Barre oblique finale : doit correspondre EXACTEMENT au permalink ci-dessus -->
+    <link rel="canonical" href="https://senegalais-amiens.fr/qui-sommes-nous/">
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.png" type="image/png"/>
@@ -31,7 +32,7 @@ permalink: /qui-sommes-nous/
     <meta property="og:description" content="Notre histoire, nos valeurs et les bénévoles qui font vivre l'association.">
     <meta property="og:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
     <meta property="og:image:alt" content="Logotype de l'Association des Sénégalais d'Amiens">
-    <meta property="og:url" content="https://senegalais-amiens.fr/qui-sommes-nous">
+    <meta property="og:url" content="https://senegalais-amiens.fr/qui-sommes-nous/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
 
@@ -181,8 +182,10 @@ permalink: /qui-sommes-nous/
 
     /* --- Cartes du bureau ---
        Conçues pour fonctionner SANS photo : un monogramme prend le
-       relais. Voir la carte d'exemple en commentaire pour la version
-       avec photographie. */
+       relais. Pour ajouter une photo, remplacez le contenu de
+       .asa-personne__portrait par :
+           <img src="/img/bureau/prenom-nom.jpg" alt="">
+       Format conseillé : carré, 400 × 400 px, visage centré. */
     .asa-personne{
       background:#fff; border:1px solid rgba(20,38,28,.09);
       border-radius:1rem; padding:1.6rem 1.25rem; height:100%;
@@ -200,10 +203,7 @@ permalink: /qui-sommes-nous/
       letter-spacing:.02em;
       border:3px solid var(--asa-jaune);
     }
-    .asa-personne__portrait img{
-      width:100%; height:100%; object-fit:cover; display:block;
-    }
-    /* Variantes de couleur du monogramme, pour éviter la monotonie */
+    .asa-personne__portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
     .asa-personne--v2 .asa-personne__portrait{ background:var(--asa-vert); border-color:#fff; }
     .asa-personne--v3 .asa-personne__portrait{ background:var(--asa-rouge); border-color:var(--asa-jaune); }
 
@@ -215,6 +215,41 @@ permalink: /qui-sommes-nous/
     }
     .asa-personne h3{ font-size:1.06rem; font-weight:600; margin:0 0 .45rem; }
     .asa-personne p{ font-size:.92rem; color:var(--asa-gris); line-height:1.55; margin:0; }
+
+    /* --- Conseil d'administration ---
+       Traitement volontairement plus léger que le bureau : les
+       administrateurs sont listés, pas mis en vedette, et plusieurs
+       d'entre eux figurent déjà dans les cartes du bureau ci-dessus. */
+    .asa-admin{
+      display:flex; gap:.9rem; align-items:center;
+      background:#fff; border:1px solid rgba(20,38,28,.09);
+      border-radius:.85rem; padding:.9rem 1rem; height:100%;
+    }
+    .asa-admin__mono{
+      flex:0 0 auto; width:2.9rem; height:2.9rem; border-radius:50%;
+      display:grid; place-items:center; overflow:hidden;
+      background:var(--asa-sable); color:var(--asa-vert-nuit);
+      font-family:var(--asa-display); font-weight:800; font-size:.92rem;
+      border:2px solid var(--asa-vert);
+    }
+    .asa-admin__mono img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .asa-admin__nom{ font-family:var(--asa-display); font-weight:600; font-size:.99rem;
+                     display:block; line-height:1.25; }
+    .asa-admin__note{ font-size:.82rem; color:var(--asa-gris); display:block; margin-top:.15rem; }
+    .asa-admin__badge{
+      display:inline-block; font-size:.66rem; font-weight:800;
+      text-transform:uppercase; letter-spacing:.09em;
+      background:var(--asa-jaune); color:var(--asa-encre);
+      border-radius:999px; padding:.15rem .5rem; margin-top:.3rem;
+    }
+
+    /* Encadré explicatif bureau / conseil d'administration */
+    .asa-note{
+      background:var(--asa-sable); border-left:4px solid var(--asa-vert);
+      border-radius:0 .6rem .6rem 0; padding:1rem 1.2rem;
+      font-size:.95rem; line-height:1.65; color:#2A3B32;
+    }
+    .asa-note p:last-child{ margin-bottom:0; }
 
     /* --- Commissions --- */
     .asa-commission{
@@ -270,7 +305,7 @@ permalink: /qui-sommes-nous/
       <div class="collapse navbar-collapse" id="navPrincipale">
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link" href="/qui-sommes-nous" aria-current="page">L'association</a></li>
+          <li class="nav-item"><a class="nav-link" href="/qui-sommes-nous/" aria-current="page">L'association</a></li>
           <li class="nav-item"><a class="nav-link" href="/agenda">Agenda</a></li>
           <li class="nav-item"><a class="nav-link" href="/annuaire">Annuaire</a></li>
           <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
@@ -325,7 +360,6 @@ permalink: /qui-sommes-nous/
               l'administration, mais pour que l'entraide continue même quand
               ceux qui la portaient s'en vont.
             </p>
-
           </div>
 
           <div class="col-lg-6 asa-reveal">
@@ -346,7 +380,7 @@ permalink: /qui-sommes-nous/
                    premier partenariat institutionnel…</p>
               </li>
               <li>
-                <b><span class="asa-remplir">Octobre 2025</span> — Des statuts révisés</b>
+                <b>Octobre 2025 — Des statuts révisés</b>
                 <p>L'Assemblée générale extraordinaire adopte de nouveaux statuts.
                    <a href="/statuts/">Consulter les statuts</a></p>
               </li>
@@ -404,13 +438,7 @@ permalink: /qui-sommes-nous/
       </div>
     </section>
 
-    <!-- ===================== LE BUREAU =====================
-         GABARIT. Les cartes fonctionnent sans photo grâce au
-         monogramme (initiales). Pour ajouter une photo, remplacez
-         le contenu de .asa-personne__portrait par :
-             <img src="/img/bureau/prenom-nom.jpg" alt="">
-         Format conseillé : carré, 400 × 400 px, visage centré.
-         ================================================== -->
+    <!-- ===================== LE BUREAU ===================== -->
     <section class="asa-section asa-section--blanc" aria-labelledby="titre-bureau">
       <div class="container">
         <p class="asa-eyebrow">L'équipe</p>
@@ -459,10 +487,10 @@ permalink: /qui-sommes-nous/
           <div class="col-6 col-lg-3 asa-reveal">
             <article class="asa-personne">
               <div class="asa-personne__portrait" aria-hidden="true">
-                <span class="asa-remplir">PN</span>
+                <span class="asa-remplir">AS</span>
               </div>
-              <p class="asa-personne__role">Secrétaire général·e</p>
-              <h3><span class="asa-remplir">Prénom NOM</span></h3>
+              <p class="asa-personne__role">Secrétaire général</p>
+              <h3><span class="asa-remplir">A. SENE</span></h3>
             </article>
           </div>
 
@@ -489,8 +517,112 @@ permalink: /qui-sommes-nous/
           </div>
 
         </div>
+      </div>
+    </section>
 
+    <!-- ===================== CONSEIL D'ADMINISTRATION =====================
+         NOUVEAU. Sept administrateurs.
+         Traitement graphique volontairement plus léger que le bureau :
+         plusieurs de ces personnes figurent déjà en cartes ci-dessus,
+         il ne faut pas les mettre deux fois en vedette.
 
+         Pour ajouter une photo, remplacer le contenu de .asa-admin__mono
+         par : <img src="/img/bureau/prenom-nom.jpg" alt="">
+         ================================================================= -->
+    <section class="asa-section" aria-labelledby="titre-ca">
+      <div class="container">
+        <div class="asa-bande asa-bande--fine mb-4"></div>
+        <p class="asa-eyebrow">Gouvernance</p>
+        <h2 class="asa-h2" id="titre-ca">Le conseil d'administration</h2>
+        <p class="asa-chapo mb-4">
+          Sept administrateurs, élus pour un an par l'Assemblée générale. C'est
+          le conseil qui oriente l'association, fixe le montant de la cotisation
+          et se réunit au moins deux fois par an.
+        </p>
+
+        <div class="row g-3 g-lg-4 mb-4">
+
+          <div class="col-sm-6 col-lg-4 asa-reveal">
+            <div class="asa-admin">
+              <span class="asa-admin__mono" aria-hidden="true"><span class="asa-remplir">MM</span></span>
+              <span>
+                <span class="asa-admin__nom"><span class="asa-remplir">Massamba MBAYE</span></span>
+                <span class="asa-admin__badge">Administrateur — Président</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 asa-reveal">
+            <div class="asa-admin">
+              <span class="asa-admin__mono" aria-hidden="true"><span class="asa-remplir">PN</span></span>
+              <span>
+                <span class="asa-admin__nom"><span class="asa-remplir">Prénom NOM</span></span>
+                <span class="asa-admin__badge">Bureau — Trésorier</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 asa-reveal">
+            <div class="asa-admin">
+              <span class="asa-admin__mono" aria-hidden="true"><span class="asa-remplir">PN</span></span>
+              <span>
+                <span class="asa-admin__nom"><span class="asa-remplir">Prénom NOM</span></span>
+                <span class="asa-admin__badge">Bureau — Secrétaire</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 asa-reveal">
+            <div class="asa-admin">
+              <span class="asa-admin__mono" aria-hidden="true"><span class="asa-remplir">GF</span></span>
+              <span>
+                <span class="asa-admin__nom"><span class="asa-remplir">G. FALL</span></span>
+                <span class="asa-admin__note">Déléguée à la commission <span class="asa-remplir">Organisation</span></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 asa-reveal">
+            <div class="asa-admin">
+              <span class="asa-admin__mono" aria-hidden="true"><span class="asa-remplir">AD</span></span>
+              <span>
+                <span class="asa-admin__nom"><span class="asa-remplir">A. DIÉYE</span></span>
+                <span class="asa-admin__note">Déléguée à la commission <span class="asa-remplir">Relations extérieures</span></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 asa-reveal">
+            <div class="asa-admin">
+              <span class="asa-admin__mono" aria-hidden="true"><span class="asa-remplir">PN</span></span>
+              <span>
+                <span class="asa-admin__nom"><span class="asa-remplir">Prénom NOM</span></span>
+                <span class="asa-admin__note">Administratrice</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 asa-reveal">
+            <div class="asa-admin">
+              <span class="asa-admin__mono" aria-hidden="true"><span class="asa-remplir">PN</span></span>
+              <span>
+                <span class="asa-admin__nom"><span class="asa-remplir">Prénom NOM</span></span>
+                <span class="asa-admin__note">Administrateur</span>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="asa-note asa-reveal">
+          <p><strong>Bureau et conseil d'administration, quelle différence ?</strong></p>
+          <p>Les membres de l'Assemblée générale élisent le conseil
+             d'administration et le président. Le conseil désigne ensuite en son
+             sein les autres membres du bureau. Autrement dit : <strong>tous les
+             membres du bureau siègent au conseil d'administration</strong>, mais
+             tous les administrateurs ne sont pas au bureau. Les mandats sont
+             d'un an et renouvelables.</p>
+        </div>
       </div>
     </section>
 
@@ -623,8 +755,8 @@ permalink: /qui-sommes-nous/
         <div class="asa-cta text-center asa-reveal">
           <h2 class="mb-3" id="titre-cta">Envie de faire partie de l'équipe&nbsp;?</h2>
           <p class="mb-4 mx-auto" style="max-width:54ch; color:rgba(255,255,255,.92); line-height:1.7;">
-            Les postes du bureau se renouvellent chaque année en janvier, et les
-            commissions accueillent des bénévoles toute l'année.
+            Les postes du bureau et du conseil se renouvellent chaque année en
+            janvier, et les commissions accueillent des bénévoles toute l'année.
           </p>
           <div class="d-flex flex-wrap gap-3 justify-content-center">
             <a class="asa-btn asa-btn--jaune" href="/adhesion">Adhérer</a>
@@ -651,7 +783,8 @@ permalink: /qui-sommes-nous/
         <div class="col-6 col-lg-2">
           <h2>L'association</h2>
           <ul>
-            <li><a href="/association/">Qui sommes-nous</a></li>
+            <!-- CORRIGÉ : pointait vers /association/, qui n'existe plus -->
+            <li><a href="/qui-sommes-nous/">Qui sommes-nous</a></li>
             <li><a href="/statuts/">Statuts</a></li>
             <li><a href="/adhesion">Adhésion</a></li>
           </ul>
@@ -667,9 +800,10 @@ permalink: /qui-sommes-nous/
         <div class="col-lg-4">
           <h2>Nous écrire</h2>
           <ul>
+            <!-- À HARMONISER avec l'adresse indiquée dans les mentions légales -->
             <li><a href="mailto:contact@senegalais-amiens.fr">contact@senegalais-amiens.fr</a></li>
-            <li><a href="https://instagram.com/association.senegalais.amiens">Instagram</a></li>
-            <li><a href="https://facebook.com/association.senegalais.amiens">Facebook</a></li>
+            <li><a href="https://instagram.com/association.senegalais.amiens" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com/association.senegalais.amiens" rel="noopener">Facebook</a></li>
           </ul>
         </div>
       </div>
