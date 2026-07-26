@@ -1,0 +1,568 @@
+---
+title: Adhérer à l'ASA
+permalink: /adhesion
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============================ SEO ============================ -->
+    <title>Adhérer à l'Association des Sénégalais d'Amiens (ASA)</title>
+    <meta name="description" content="Rejoignez l'Association des Sénégalais d'Amiens : conditions, catégories de membres et formulaire d'adhésion en ligne. Ouvert à toute la communauté.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://senegalais-amiens.fr/adhesion">
+
+    <!-- NB : Google Tag Manager a été retiré. Voir mes notes : il déposait
+         des cookies, en contradiction avec la page Mentions légales. -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.png" type="image/png"/>
+    <link rel="icon" href="/img/favicon-32x32.png" sizes="32x32" type="image/png"/>
+    <link rel="icon" href="/img/favicon-16x16.png" sizes="16x16" type="image/png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo-asa-180x180.png">
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#00853F">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#043B22">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ======================== Open Graph ========================= -->
+    <meta property="og:site_name" content="ASA · Association des Sénégalais d'Amiens">
+    <meta property="og:title" content="Adhérer à l'Association des Sénégalais d'Amiens">
+    <meta property="og:description" content="Conditions, catégories de membres et formulaire d'adhésion en ligne.">
+    <meta property="og:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
+    <meta property="og:image:alt" content="Logotype de l'Association des Sénégalais d'Amiens">
+    <meta property="og:url" content="https://senegalais-amiens.fr/adhesion">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Adhérer à l'Association des Sénégalais d'Amiens">
+    <meta name="twitter:description" content="Conditions, catégories de membres et formulaire d'adhésion en ligne.">
+    <meta name="twitter:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
+
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- ===================== Polices Google ======================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap AVANT la feuille du site -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Feuille unique et partagée : plus aucun bloc <style> commun ici -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- =============================================================
+         CSS PROPRE À LA PAGE ADHÉSION
+         (tout le reste vient de style-v2.css)
+         ============================================================= -->
+    <style>
+    /* Groupes de champs */
+    .asa-groupe{ border:none; padding:0; margin:0 0 1.75rem; }
+    .asa-groupe legend{
+      font-family:var(--asa-display); font-weight:600; font-size:1.05rem;
+      float:none; width:auto; padding:0; margin-bottom:1rem;
+      color:var(--asa-vert-nuit);
+    }
+
+    /* Choix de la catégorie : cartes radio */
+    .asa-choix{ display:grid; gap:.75rem; }
+    .asa-choix label{
+      display:flex; gap:.8rem; align-items:flex-start;
+      border:1.5px solid rgba(20,38,28,.16); border-radius:.75rem;
+      padding:.9rem 1rem; cursor:pointer; margin:0; font-weight:400;
+      transition: border-color .15s ease, background-color .15s ease;
+    }
+    .asa-choix label:hover{ border-color:var(--asa-vert); }
+    .asa-choix input{ margin-top:.2rem; flex:0 0 auto; accent-color:var(--asa-vert); }
+    .asa-choix input:checked + .asa-choix__texte{ color:var(--asa-vert-nuit); }
+    .asa-choix label:has(input:checked){ border-color:var(--asa-vert); background:rgba(0,133,63,.05); }
+    .asa-choix__texte b{ display:block; font-family:var(--asa-display); font-weight:600; font-size:.98rem; }
+    .asa-choix__texte span{ font-size:.88rem; color:var(--asa-gris); line-height:1.5; }
+
+    /* Bloc conditionnel (étudiant), masqué par défaut */
+    .asa-conditionnel[hidden]{ display:none; }
+
+    /* Encadré d'information (cotisation, paiement) */
+    .asa-info{
+      background:var(--asa-sable); border-left:4px solid var(--asa-jaune);
+      border-radius:0 .7rem .7rem 0; padding:1.1rem 1.3rem; margin-bottom:1.5rem;
+    }
+    .asa-info h3{ font-size:1rem; font-weight:600; margin:0 0 .5rem; }
+    .asa-info p{ font-size:.94rem; line-height:1.6; color:#2A3B32; margin:0 0 .5rem; }
+    .asa-info p:last-child{ margin-bottom:0; }
+    </style>
+</head>
+<body>
+
+  <a class="asa-skip" href="#contenu">Aller au contenu principal</a>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar navbar-expand-lg asa-nav sticky-top" aria-label="Navigation principale">
+    <div class="container">
+      <a class="navbar-brand py-2" href="/">
+        <img src="/img/logo-asa-asso.svg" alt="Association des Sénégalais d'Amiens — accueil" height="46">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navPrincipale" aria-controls="navPrincipale"
+              aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navPrincipale">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="/qui-sommes-nous/">L'association</a></li>
+          <li class="nav-item"><a class="nav-link" href="/agenda/">Agenda</a></li>
+          <li class="nav-item"><a class="nav-link" href="/annuaire/">Annuaire</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="asa-btn asa-btn--vert" href="/adhesion" aria-current="page">Adhérer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="contenu">
+
+    <!-- ===================== EN-TÊTE ===================== -->
+    <header class="asa-entete">
+      <div class="container">
+        <nav class="asa-fil" aria-label="Fil d'Ariane">
+          <ol>
+            <li><a href="/">Accueil</a></li>
+            <li aria-hidden="true">›</li>
+            <li aria-current="page">Adhésion</li>
+          </ol>
+        </nav>
+        <div class="asa-bande asa-bande--fine mb-4"></div>
+        <h1>Rejoindre l'ASA</h1>
+        <p>
+          Adhérer, c'est rejoindre un réseau d'entraide et donner à l'association
+          les moyens d'agir. Remplissez ce formulaire : un membre du bureau vous
+          recontacte pour finaliser votre adhésion.
+        </p>
+      </div>
+    </header>
+
+    <!-- ===================== ADHÉSION ===================== -->
+    <section class="asa-section" aria-labelledby="titre-form">
+      <div class="container">
+        <div class="row g-5">
+
+          <!-- ---------- Colonne gauche : conditions et avantages ---------- -->
+          <div class="col-lg-5">
+            <p class="asa-eyebrow">Avant de commencer</p>
+            <h2 class="asa-h2" id="titre-conditions">Qui peut adhérer</h2>
+            <p class="asa-chapo mb-4">
+              Deux conditions, inscrites à l'article 6 des statuts : avoir un lien
+              avec le Sénégal (nationalité, famille, culture ou travail), et
+              résider dans la Somme, l'Oise ou l'Aisne.
+            </p>
+
+            <div class="asa-info">
+              <h3>La cotisation</h3>
+              <!-- À COMPLÉTER : montants réels votés par le Conseil d'administration -->
+              <p>
+                Montant annuel : <strong><span class="asa-remplir">00 €</span></strong>
+                (<span class="asa-remplir">00 €</span> pour les étudiants).
+                À régler entre le 1<sup>er</sup> septembre et le 31 décembre.
+              </p>
+              <p>
+                Les statuts plafonnent la cotisation à 1 % du SMIC brut mensuel.
+                Elle finance les événements, les aides d'urgence et le matériel.
+              </p>
+            </div>
+
+            <div class="asa-info">
+              <h3>Comment régler</h3>
+              <!-- À COMPLÉTER ou À SUPPRIMER selon les moyens réellement proposés -->
+              <p>
+                Le paiement se fait après validation de votre demande&nbsp;:
+                <span class="asa-remplir">virement, espèces ou autre — à préciser</span>.
+                Les coordonnées vous seront communiquées par le bureau.
+              </p>
+            </div>
+
+            <h2 class="asa-h2 mt-5" id="titre-categories" style="font-size:1.4rem;">Les catégories de membres</h2>
+            <ul class="asa-avantages" style="margin-top:.75rem;">
+              <!-- Cette liste hérite d'un style pensé pour fond vert : ici on la
+                   remet en couleurs sombres via un style en ligne minimal. -->
+              <li style="color:var(--asa-encre);"><span style="color:var(--asa-gris);"><strong style="color:var(--asa-encre);">Adhérent —</strong> le statut de base : droit de vote plein et éligibilité.</span></li>
+              <li style="color:var(--asa-encre);"><span style="color:var(--asa-gris);"><strong style="color:var(--asa-encre);">Adhérent étudiant —</strong> mêmes droits, sur présentation d'un justificatif de scolarité.</span></li>
+              <li style="color:var(--asa-encre);"><span style="color:var(--asa-gris);"><strong style="color:var(--asa-encre);">Bienfaiteur —</strong> pour un don d'au moins quatre fois la cotisation ; voix consultative.</span></li>
+            </ul>
+          </div>
+
+          <!-- ---------- Colonne droite : formulaire ---------- -->
+          <div class="col-lg-7">
+            <div class="asa-formulaire">
+              <div class="asa-bande"></div>
+              <div class="asa-formulaire__corps">
+                <h2 class="asa-h2" id="titre-form" style="font-size:1.5rem;">Demande d'adhésion</h2>
+                <p style="color:var(--asa-gris); font-size:.95rem; margin-bottom:1.75rem;">
+                  Les champs marqués d'un astérisque <span style="color:var(--asa-rouge);">*</span> sont obligatoires.
+                </p>
+
+                <div id="statut" class="asa-statut" role="status" aria-live="polite" hidden></div>
+
+                <form id="formAdhesion" novalidate>
+
+                  <!-- ===== Identité ===== -->
+                  <fieldset class="asa-groupe">
+                    <legend>Vous</legend>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="asa-champ" data-champ>
+                          <label for="prenom">Prénom <span class="asa-obligatoire">*</span></label>
+                          <input type="text" id="prenom" name="prenom" maxlength="55"
+                                 autocomplete="given-name" required aria-describedby="err-prenom">
+                          <p class="asa-erreur" id="err-prenom">Merci d'indiquer votre prénom.</p>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="asa-champ" data-champ>
+                          <label for="nom">Nom <span class="asa-obligatoire">*</span></label>
+                          <input type="text" id="nom" name="nom" maxlength="55"
+                                 autocomplete="family-name" required aria-describedby="err-nom">
+                          <p class="asa-erreur" id="err-nom">Merci d'indiquer votre nom.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="asa-champ" data-champ>
+                          <label for="email">Adresse e-mail <span class="asa-obligatoire">*</span></label>
+                          <input type="email" id="email" name="email" maxlength="120"
+                                 autocomplete="email" inputmode="email" required aria-describedby="err-email">
+                          <p class="asa-erreur" id="err-email">Cette adresse e-mail ne semble pas valide.</p>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="asa-champ" data-champ>
+                          <label for="telephone">Téléphone <span class="asa-obligatoire">*</span></label>
+                          <input type="tel" id="telephone" name="telephone" maxlength="25"
+                                 autocomplete="tel" inputmode="tel" required aria-describedby="err-telephone">
+                          <p class="asa-erreur" id="err-telephone">Merci d'indiquer un numéro.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- ===== Résidence (condition d'éligibilité) ===== -->
+                  <fieldset class="asa-groupe">
+                    <legend>Où vous habitez</legend>
+                    <div class="row">
+                      <div class="col-sm-7">
+                        <div class="asa-champ" data-champ>
+                          <label for="ville">Ville <span class="asa-obligatoire">*</span></label>
+                          <input type="text" id="ville" name="ville" maxlength="80"
+                                 autocomplete="address-level2" required aria-describedby="err-ville">
+                          <p class="asa-erreur" id="err-ville">Merci d'indiquer votre ville.</p>
+                        </div>
+                      </div>
+                      <div class="col-sm-5">
+                        <div class="asa-champ" data-champ>
+                          <label for="departement">Département <span class="asa-obligatoire">*</span></label>
+                          <select id="departement" name="departement" required aria-describedby="err-departement">
+                            <option value="">Choisir…</option>
+                            <option value="80">Somme (80)</option>
+                            <option value="60">Oise (60)</option>
+                            <option value="02">Aisne (02)</option>
+                            <option value="autre">Autre département</option>
+                          </select>
+                          <p class="asa-erreur" id="err-departement">Merci de choisir un département.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p style="font-size:.85rem; color:var(--asa-gris); margin:-.4rem 0 0;">
+                      L'adhésion est ouverte aux résidents de la Somme, l'Oise et
+                      l'Aisne. Hors de ces départements, écrivez-nous d'abord.
+                    </p>
+                  </fieldset>
+
+                  <!-- ===== Lien avec le Sénégal (condition d'éligibilité) ===== -->
+                  <fieldset class="asa-groupe">
+                    <legend>Votre lien avec le Sénégal</legend>
+                    <div class="asa-champ" data-champ>
+                      <label for="lien" class="visually-hidden">Nature du lien avec le Sénégal <span class="asa-obligatoire">*</span></label>
+                      <select id="lien" name="lien" required aria-describedby="err-lien">
+                        <option value="">Choisir…</option>
+                        <option value="nationalite">Je suis de nationalité sénégalaise</option>
+                        <option value="famille">J'ai des liens familiaux avec le Sénégal</option>
+                        <option value="culture">J'ai des liens culturels avec le Sénégal</option>
+                        <option value="professionnel">J'ai des liens professionnels avec le Sénégal</option>
+                      </select>
+                      <p class="asa-erreur" id="err-lien">Merci de préciser votre lien avec le Sénégal.</p>
+                    </div>
+                  </fieldset>
+
+                  <!-- ===== Catégorie de membre ===== -->
+                  <fieldset class="asa-groupe">
+                    <legend>Votre adhésion <span class="asa-obligatoire">*</span></legend>
+                    <div class="asa-choix" data-champ role="radiogroup" aria-describedby="err-categorie">
+                      <label>
+                        <input type="radio" name="categorie" value="adherent" required>
+                        <span class="asa-choix__texte">
+                          <b>Membre adhérent</b>
+                          <span>Le statut de base. Droit de vote et éligibilité.</span>
+                        </span>
+                      </label>
+                      <label>
+                        <input type="radio" name="categorie" value="etudiant">
+                        <span class="asa-choix__texte">
+                          <b>Membre adhérent étudiant</b>
+                          <span>Tarif réduit, sur présentation d'un justificatif de scolarité.</span>
+                        </span>
+                      </label>
+                      <label>
+                        <input type="radio" name="categorie" value="bienfaiteur">
+                        <span class="asa-choix__texte">
+                          <b>Membre bienfaiteur</b>
+                          <span>Un don de soutien d'au moins quatre fois la cotisation.</span>
+                        </span>
+                      </label>
+                    </div>
+                    <p class="asa-erreur" id="err-categorie" style="margin-top:.5rem;">Merci de choisir une catégorie.</p>
+
+                    <!-- Bloc affiché seulement si « étudiant » est coché -->
+                    <div class="asa-conditionnel mt-3" id="blocEtudiant" hidden>
+                      <div class="asa-champ" data-champ>
+                        <label for="etablissement">Votre établissement</label>
+                        <input type="text" id="etablissement" name="etablissement" maxlength="120"
+                               placeholder="Université de Picardie, UniLaSalle…">
+                        <span class="asa-aide">
+                          Nous vous indiquerons par e-mail comment transmettre
+                          votre justificatif de scolarité.
+                        </span>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- ===== Message libre ===== -->
+                  <div class="asa-champ" data-champ>
+                    <label for="message">Un mot pour le bureau <span class="asa-aide">Facultatif</span></label>
+                    <textarea id="message" name="message" maxlength="2000"
+                              placeholder="Une question, une compétence à proposer, une commission qui vous intéresse…"></textarea>
+                  </div>
+
+                  <!-- Pot de miel + horodatage (anti-robots) -->
+                  <div class="asa-pot-de-miel" aria-hidden="true">
+                    <label for="siteWeb">Ne pas remplir</label>
+                    <input type="text" id="siteWeb" name="siteWeb" tabindex="-1" autocomplete="off">
+                  </div>
+                  <input type="hidden" name="ouvertureLe" id="ouvertureLe">
+
+                  <!-- Consentement RGPD -->
+                  <div class="asa-consentement" id="blocConsentement">
+                    <input type="checkbox" id="consentement" name="consentement" value="oui" required
+                           aria-describedby="err-consentement">
+                    <label for="consentement">
+                      J'accepte que l'ASA conserve ces informations pour gérer mon
+                      adhésion. Elles ne sont ni vendues ni transmises à des tiers.
+                      Voir la <a href="/mentions-legales/">politique de confidentialité</a>.
+                      <span class="asa-obligatoire">*</span>
+                    </label>
+                  </div>
+                  <p class="asa-erreur" id="err-consentement" style="margin-top:-.9rem; margin-bottom:1.25rem;">
+                    Votre accord est nécessaire pour traiter la demande.
+                  </p>
+
+                  <button type="submit" class="asa-btn asa-btn--vert asa-envoyer w-100" id="boutonEnvoyer">
+                    Envoyer ma demande d'adhésion
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== PIED DE PAGE ===================== -->
+  <footer class="asa-footer">
+    <div class="asa-bande"></div>
+    <div class="container pt-5 pb-4">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <img src="/img/logo-asa-asso.svg" alt="" height="52" class="mb-3">
+          <p style="font-size:.95rem; line-height:1.6; max-width:38ch;">
+            Association des Sénégalais d'Amiens — association loi 1901,
+            siège social à Amiens (80). Somme, Oise et Aisne.
+          </p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2>L'association</h2>
+          <ul>
+            <li><a href="/qui-sommes-nous/">Qui sommes-nous</a></li>
+            <li><a href="/statuts/">Statuts</a></li>
+            <li><a href="/adhesion">Adhésion</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2>Informations</h2>
+          <ul>
+            <li><a href="/agenda/">Agenda</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/mentions-legales/">Mentions légales</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h2>Nous écrire</h2>
+          <ul>
+            <li><a href="mailto:contact@senegalais-amiens.fr">contact@senegalais-amiens.fr</a></li>
+            <li><a href="https://instagram.com/association.senegalais.amiens" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com/association.senegalais.amiens" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mb-0 pt-4 mt-4" style="border-top:1px solid rgba(255,255,255,.12); font-size:.9rem;">
+        © <span id="annee">2026</span> ASA • Association des Sénégalais d'Amiens
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/script.js"></script>
+
+  <script>
+  /* =============================================================
+     ENVOI DE LA DEMANDE D'ADHÉSION VERS GOOGLE APPS SCRIPT
+     Même méthode que la page contact : fetch + FormData (pas de JSON,
+     donc pas de requête préliminaire CORS qui échouerait).
+     ============================================================= */
+
+  // À REMPLACER par l'URL du déploiement Apps Script dédié à l'adhésion.
+  // Se termine par /exec. NE PAS réutiliser l'URL du formulaire de contact :
+  // les deux écrivent dans des feuilles différentes.
+  var URL_ADHESION = 'https://script.google.com/macros/s/REMPLACER_PAR_TON_ID_DE_DEPLOIEMENT/exec';
+
+  (function(){
+    var formulaire  = document.getElementById('formAdhesion');
+    var bouton      = document.getElementById('boutonEnvoyer');
+    var statut      = document.getElementById('statut');
+    var blocConsent = document.getElementById('blocConsentement');
+    var errConsent  = document.getElementById('err-consentement');
+    var errCateg    = document.getElementById('err-categorie');
+    var blocEtudiant= document.getElementById('blocEtudiant');
+
+    var annee = document.getElementById('annee');
+    if (annee) annee.textContent = new Date().getFullYear();
+
+    document.getElementById('ouvertureLe').value = Date.now();
+    errConsent.style.display = 'none';
+    errCateg.style.display = 'none';
+
+    // Affiche le champ « établissement » uniquement pour les étudiants
+    formulaire.querySelectorAll('input[name="categorie"]').forEach(function(radio){
+      radio.addEventListener('change', function(){
+        blocEtudiant.hidden = (document.querySelector('input[name="categorie"]:checked').value !== 'etudiant');
+      });
+    });
+
+    function afficherStatut(type, texte){
+      statut.className = 'asa-statut asa-statut--' + type;
+      statut.innerHTML = texte;
+      statut.hidden = false;
+      statut.scrollIntoView({ behavior:'smooth', block:'center' });
+    }
+
+    function marquerErreur(element, enErreur){
+      var conteneur = element.closest('[data-champ]');
+      if (conteneur) conteneur.classList.toggle('est-invalide', enErreur);
+      if (enErreur) element.setAttribute('aria-invalid', 'true');
+      else element.removeAttribute('aria-invalid');
+    }
+
+    function valider(){
+      var premierFautif = null;
+
+      // Champs texte, e-mail, listes déroulantes
+      formulaire.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(champ){
+        if (champ.type === 'checkbox' || champ.type === 'radio') return;
+        var valeur = (champ.value || '').trim();
+        var invalide = (valeur === '') || !champ.checkValidity();
+        marquerErreur(champ, invalide);
+        if (invalide && !premierFautif) premierFautif = champ;
+      });
+
+      // Catégorie (boutons radio)
+      var categorie = formulaire.querySelector('input[name="categorie"]:checked');
+      var categManque = !categorie;
+      errCateg.style.display = categManque ? 'block' : 'none';
+      if (categManque && !premierFautif) premierFautif = formulaire.querySelector('input[name="categorie"]');
+
+      // Consentement
+      var consent = document.getElementById('consentement');
+      var consentManque = !consent.checked;
+      blocConsent.classList.toggle('est-invalide', consentManque);
+      errConsent.style.display = consentManque ? 'block' : 'none';
+      if (consentManque && !premierFautif) premierFautif = consent;
+
+      return premierFautif;
+    }
+
+    // Nettoie l'erreur dès correction
+    formulaire.addEventListener('input', function(e){
+      if (e.target.closest('[data-champ]')) marquerErreur(e.target, false);
+      if (e.target.name === 'categorie') errCateg.style.display = 'none';
+      if (e.target.id === 'consentement' && e.target.checked){
+        blocConsent.classList.remove('est-invalide');
+        errConsent.style.display = 'none';
+      }
+    });
+
+    formulaire.addEventListener('submit', function(e){
+      e.preventDefault();
+      statut.hidden = true;
+
+      var fautif = valider();
+      if (fautif){
+        afficherStatut('ko', 'Le formulaire est incomplet. Les champs concernés sont signalés en rouge.');
+        if (fautif.focus) fautif.focus();
+        return;
+      }
+
+      var texteInitial = bouton.textContent;
+      bouton.disabled = true;
+      bouton.textContent = 'Envoi en cours…';
+
+      fetch(URL_ADHESION, { method:'POST', body: new FormData(formulaire) })
+        .then(function(r){ return r.json(); })
+        .then(function(res){
+          if (res && res.ok){
+            formulaire.reset();
+            blocEtudiant.hidden = true;
+            document.getElementById('ouvertureLe').value = Date.now();
+            afficherStatut('ok',
+              '<strong>Demande envoyée.</strong> Le bureau va la traiter et vous ' +
+              'recontactera par e-mail pour finaliser votre adhésion et le règlement ' +
+              'de la cotisation. Pensez à vérifier vos courriers indésirables.');
+          } else {
+            throw new Error(res && res.erreur ? res.erreur : 'reponse_invalide');
+          }
+        })
+        .catch(function(err){
+          console.error('Échec de l\'envoi :', err);
+          afficherStatut('ko',
+            '<strong>L\'envoi a échoué.</strong> Écrivez-nous directement à ' +
+            '<a href="mailto:contact@senegalais-amiens.fr">contact@senegalais-amiens.fr</a> ' +
+            'en attendant que nous corrigions le problème.');
+        })
+        .finally(function(){
+          bouton.disabled = false;
+          bouton.textContent = texteInitial;
+        });
+    });
+  })();
+  </script>
+</body>
+</html>

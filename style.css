@@ -1,478 +1,817 @@
-/*  ----- VARIABLES ----/**/
-:root {
-  --asa-color: #00853F;
-  --asa-color-two: #10a9e6;
+/* =============================================================
+   ASA — Feuille de style unique du site
+   Association des Sénégalais d'Amiens
+   -------------------------------------------------------------
+   Ce fichier remplace l'ancien style.css. Il regroupe :
+     1. les jetons (variables) de la charte
+     2. les garde-fous globaux (débordement, logo)
+     3. les composants communs à toutes les pages
+        (nav, boutons, sections, en-tête interne, fil d'Ariane, footer)
+     4. les composants spécifiques à chaque page
+
+   Chaque page peut donc supprimer entièrement son bloc <style>
+   et ne garder que : <link rel="stylesheet" href="/style-v2.css">
+
+   Les couleurs sont les couleurs officielles du drapeau sénégalais
+   fournies par l'ASA.
+   ============================================================= */
+
+
+/* =============================================================
+   1. JETONS DE STYLE
+   ============================================================= */
+:root{
+  --asa-vert:        #00853F;   /* vert du drapeau */
+  --asa-jaune:       #FDEF42;   /* jaune du drapeau */
+  --asa-rouge:       #E31B23;   /* rouge du drapeau */
+
+  --asa-vert-nuit:   #043B22;   /* fonds sombres, dérivé du vert */
+  --asa-vert-fonce:  #046B33;   /* survol des boutons verts */
+  --asa-jaune-sombre:#E8D400;   /* survol des boutons jaunes / jaune lisible sur clair */
+  --asa-sable:       #FAF7EF;   /* fond clair, chaleureux */
+  --asa-encre:       #14261C;   /* texte principal */
+  --asa-gris:        #5B6B61;   /* texte secondaire */
+
+  --asa-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --asa-texte:   "Karla", system-ui, -apple-system, sans-serif;
 }
-/* --- FIN VARIABLES ----*/
 
-/*--------------------- PAGE FORMULAIRE D'ADHESION --------------------------------------*/
 
-body {
-  font-family: Roboto,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #e2e8f0 ;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
+/* =============================================================
+   2. GARDE-FOUS GLOBAUX
+   ============================================================= */
+
+/* Anti-débordement horizontal sur mobile.
+   « clip » et non « hidden » : hidden sur html/body casserait la
+   navbar sticky-top de Bootstrap, clip ne la casse pas. */
+html{ overflow-x: clip; }
+body{ overflow-x: clip; max-width: 100%; }
+
+/* Aucun média ne dépasse la largeur de son conteneur. */
+img, svg, video, iframe{ max-width: 100%; }
+
+/* Les images de contenu conservent leur proportion... */
+.asa-section img,
+.asa-hero img,
+.asa-entete img{ height: auto; }
+
+/* ...mais les logos sont pilotés en hauteur, largeur automatique.
+   CORRECTIF du logo invisible : un « height:auto » global écrasait
+   les attributs height="46"/height="52" des balises <img> des logos. */
+.navbar-brand img{ height: 46px; width: auto; }
+.asa-footer img{ height: 52px; width: auto; }
+
+/* Aucun mot long (URL, adresse e-mail) ne doit élargir la page. */
+h1, h2, h3, p, li, dd, a{ overflow-wrap: break-word; }
+
+
+/* =============================================================
+   3. BASE TYPOGRAPHIQUE
+   ============================================================= */
+body{
+  font-family: var(--asa-texte);
+  color: var(--asa-encre);
+  background: var(--asa-sable);
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4,.asa-display{
+  font-family: var(--asa-display);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.1;
 }
 
-.mon-titre {
-  font-family: 'Comic Sans MS', Roboto, Montserrat, sans-serif;
-  color: #00853F;
-  font-weight: bold!important;
+/* Focus clavier visible partout (accessibilité) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline: 3px solid var(--asa-jaune);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-@media (min-width: 992px) {
-  .mon-image {
-    width: 50%; /* ou une taille fixe comme 300px */
-    height: auto;
+/* Lien d'évitement clavier */
+.asa-skip{
+  position:absolute; left:-999px; top:0; z-index:2000;
+  background:var(--asa-vert-nuit); color:#fff;
+  padding:.75rem 1.25rem; border-radius:0 0 .5rem 0;
+}
+.asa-skip:focus{ left:0; }
+
+
+/* =============================================================
+   4. SIGNATURE GRAPHIQUE — la bande tricolore
+   ============================================================= */
+.asa-bande{
+  height:6px; width:100%;
+  background: linear-gradient(to right,
+    var(--asa-vert) 0 33.34%, var(--asa-jaune) 33.34% 66.67%, var(--asa-rouge) 66.67% 100%);
+}
+.asa-bande--fine{ height:4px; width:64px; border-radius:2px; }
+
+
+/* =============================================================
+   5. NAVIGATION
+   ============================================================= */
+.asa-nav{ background:#fff; border-bottom:1px solid rgba(20,38,28,.08); }
+.asa-nav .nav-link{
+  font-weight:500; color:var(--asa-encre);
+  padding-inline:.9rem; position:relative;
+}
+.asa-nav .nav-link:hover{ color:var(--asa-vert); }
+.asa-nav .nav-link[aria-current="page"]{ color:var(--asa-vert); font-weight:700; }
+.asa-nav .nav-link[aria-current="page"]::after{
+  content:""; position:absolute; left:.9rem; right:.9rem; bottom:.15rem;
+  height:2px; background:var(--asa-jaune);
+}
+
+
+/* =============================================================
+   6. BOUTONS
+   ============================================================= */
+.asa-btn{
+  display:inline-block; font-weight:700; text-decoration:none; text-align:center;
+  padding:.85rem 1.5rem; border-radius:999px; border:2px solid transparent;
+  transition: transform .15s ease, background-color .15s ease, color .15s ease;
+}
+.asa-btn:hover{ transform: translateY(-2px); }
+.asa-btn--jaune{ background:var(--asa-jaune); color:var(--asa-encre); }
+.asa-btn--jaune:hover{ background:var(--asa-jaune-sombre); color:var(--asa-encre); }
+.asa-btn--ghost{ border-color: rgba(255,255,255,.55); color:#fff; }
+.asa-btn--ghost:hover{ background:#fff; color: var(--asa-vert-nuit); }
+.asa-btn--vert{ background:var(--asa-vert); color:#fff; }
+.asa-btn--vert:hover{ background:var(--asa-vert-fonce); color:#fff; }
+.asa-btn--vertline{ border-color:var(--asa-vert); color:var(--asa-vert); }
+.asa-btn--vertline:hover{ background:var(--asa-vert); color:#fff; }
+/* Sur très petit écran, les boutons passent en pleine largeur */
+@media (max-width: 400px){ .asa-btn{ display:block; width:100%; } }
+
+
+/* =============================================================
+   7. SECTIONS ET TITRES COURANTS
+   ============================================================= */
+.asa-section{ padding-block: clamp(2.75rem, 7vw, 5.5rem); }
+.asa-section--blanc{ background:#fff; }
+.asa-section--vert{ background: var(--asa-vert-nuit); color:#fff; }
+
+.asa-eyebrow{
+  font-size:.78rem; text-transform:uppercase; letter-spacing:.16em;
+  font-weight:700; color:var(--asa-vert); margin-bottom:.75rem;
+}
+.asa-section--vert .asa-eyebrow{ color: var(--asa-jaune); }
+
+.asa-h2{ font-size: clamp(1.6rem, 4.2vw, 2.5rem); margin-bottom:1rem; }
+.asa-chapo{ color:var(--asa-gris); font-size:1.05rem; line-height:1.75; max-width:62ch; }
+.asa-section--vert .asa-chapo{ color: rgba(255,255,255,.82); }
+
+
+/* =============================================================
+   8. EN-TÊTE DE PAGE INTERNE + FIL D'ARIANE
+   (qui-sommes-nous, agenda, mentions-légales, annuaire, statuts)
+   ============================================================= */
+.asa-entete{
+  background: radial-gradient(120% 120% at 12% 0%, #0A6135 0%, var(--asa-vert-nuit) 65%);
+  color:#fff; padding-block: clamp(2.5rem, 6vw, 4.25rem);
+}
+.asa-entete h1{ font-size: clamp(1.75rem, 5vw, 3.1rem); margin-bottom:.9rem; max-width:22ch; }
+.asa-entete p{ color: rgba(255,255,255,.85); max-width:58ch; line-height:1.65; margin:0; }
+
+.asa-fil{ font-size:.88rem; }
+.asa-fil ol{ list-style:none; display:flex; flex-wrap:wrap; gap:.4rem; padding:0; margin:0 0 1.5rem; }
+.asa-fil a{ color: rgba(255,255,255,.75); text-decoration:none; }
+.asa-fil a:hover{ color: var(--asa-jaune); }
+.asa-fil li[aria-current]{ color: rgba(255,255,255,.5); }
+
+
+/* =============================================================
+   9. PIED DE PAGE
+   ============================================================= */
+.asa-footer{ background:var(--asa-encre); color:rgba(255,255,255,.7); }
+.asa-footer a{ color:rgba(255,255,255,.85); text-decoration:none; }
+.asa-footer a:hover{ color:var(--asa-jaune); text-decoration:underline; }
+.asa-footer h2{
+  font-size:.8rem; text-transform:uppercase; letter-spacing:.14em;
+  color:var(--asa-jaune); font-weight:700; margin-bottom:.9rem;
+}
+.asa-footer ul{ list-style:none; padding:0; margin:0; }
+.asa-footer li{ margin-bottom:.45rem; font-size:.95rem; }
+
+
+/* =============================================================
+   10. UTILITAIRES PARTAGÉS
+   ============================================================= */
+
+/* Apparition progressive au défilement (piloté par le JS de chaque page) */
+.asa-reveal{ opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.asa-reveal.est-visible{ opacity:1; transform:none; }
+
+/* Marqueur « à remplir » : entoure les contenus fictifs de gabarit.
+   À SUPPRIMER de vos pages en même temps que les contenus concernés. */
+.asa-remplir{
+  background:#FFF7E0; color:#6B5200; border:1px dashed #D9A400;
+  border-radius:.35rem; padding:0 .3rem; font-style:normal; font-weight:700;
+}
+
+/* Encadré « à compléter » : consigne visible tant qu'une info manque. */
+.asa-a-completer{
+  background:#FFF7E0; border:1.5px dashed #D9A400; border-radius:.6rem;
+  padding:.85rem 1.1rem; margin:1.25rem 0;
+  font-size:.92rem; line-height:1.6; color:#6B5200;
+}
+
+/* Appel à l'action de fin de page (bloc vert arrondi) */
+.asa-cta{ background: var(--asa-vert); color:#fff; border-radius:1.25rem; padding: clamp(1.75rem, 5vw, 3.25rem); }
+.asa-cta h2{ font-size: clamp(1.5rem, 3.6vw, 2.25rem); }
+
+/* Réglages « mouvement réduit » : respecte les préférences système */
+@media (prefers-reduced-motion: reduce){
+  .asa-reveal{ opacity:1; transform:none; transition:none; }
+  .asa-btn:hover,
+  .asa-action:hover,
+  .asa-personne:hover,
+  .asa-prochain:hover{ transform:none; }
+  .asa-spinner{ animation:none; }
+}
+
+
+/* =============================================================
+   11. ACCUEIL (index)
+   ============================================================= */
+
+/* Héro */
+.asa-hero{
+  background: radial-gradient(130% 100% at 10% 0%, #0A6135 0%, var(--asa-vert-nuit) 65%);
+  color:#fff;
+}
+.asa-hero__inner{ padding-block: clamp(3rem, 9vw, 6.5rem); }
+.asa-hero h1{ font-size: clamp(2.05rem, 7vw, 4.1rem); max-width:17ch; margin-bottom:1.25rem; }
+.asa-hero h1 span{ color: var(--asa-jaune); }
+.asa-hero__chapo{ font-size: clamp(1rem, 2.2vw, 1.25rem); line-height:1.65; max-width:54ch; color: rgba(255,255,255,.87); }
+
+/* Chiffres clés */
+.asa-chiffres{ background: var(--asa-encre); color:#fff; }
+.asa-chiffres .row{ --bs-gutter-y: 1.5rem; }
+.asa-chiffre{ text-align:center; }
+.asa-chiffre strong{
+  display:block; font-family:var(--asa-display); font-weight:800;
+  font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--asa-jaune); line-height:1;
+}
+.asa-chiffre span{ display:block; font-size:.88rem; color:rgba(255,255,255,.75); margin-top:.4rem; line-height:1.35; }
+
+/* Cartes d'action */
+.asa-action{
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1rem; padding:1.6rem 1.5rem; height:100%;
+  display:flex; flex-direction:column; gap:.6rem;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.asa-action:hover{ transform: translateY(-3px); box-shadow: 0 16px 32px -24px rgba(4,59,34,.5); }
+.asa-action__puce{
+  width:2.6rem; height:2.6rem; border-radius:.7rem; flex:0 0 auto;
+  display:grid; place-items:center; background:var(--asa-vert); color:#fff;
+  font-family:var(--asa-display); font-weight:800; font-size:1.05rem; margin-bottom:.3rem;
+}
+.asa-action--jaune .asa-action__puce{ background:var(--asa-jaune); color:var(--asa-encre); }
+.asa-action--rouge .asa-action__puce{ background:var(--asa-rouge); color:#fff; }
+.asa-action h3{ font-size:1.12rem; font-weight:600; margin:0; }
+.asa-action p{ color:var(--asa-gris); font-size:.97rem; line-height:1.65; margin:0; }
+
+/* Aperçu agenda (accueil) */
+.asa-evenement{
+  display:flex; gap:1.1rem; align-items:flex-start;
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1rem; padding:1.25rem; height:100%;
+}
+.asa-date{
+  flex:0 0 auto; width:4.1rem; text-align:center;
+  background:var(--asa-sable); border-radius:.7rem;
+  padding:.6rem .3rem; line-height:1.1;
+}
+.asa-date b{ display:block; font-family:var(--asa-display); font-size:1.5rem; font-weight:800; color:var(--asa-vert); }
+.asa-date span{ display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--asa-gris); margin-top:.15rem; }
+.asa-evenement h3{ font-size:1.05rem; font-weight:600; margin:0 0 .35rem; }
+.asa-evenement p{ font-size:.93rem; color:var(--asa-gris); line-height:1.55; margin:0; }
+.asa-evenement__lieu{ font-size:.85rem; color:var(--asa-vert); font-weight:600; margin-top:.4rem !important; }
+
+/* Étiquettes « temps forts » */
+.asa-etiquettes{ display:flex; flex-wrap:wrap; gap:.5rem; padding:0; margin:1.25rem 0 0; list-style:none; }
+.asa-etiquettes li{
+  background:#fff; border:1px solid rgba(20,38,28,.12);
+  border-radius:999px; padding:.4rem .95rem; font-size:.9rem; font-weight:500;
+}
+
+/* Liste d'avantages (section adhésion, sur fond vert) */
+.asa-avantages{ list-style:none; padding:0; margin:1.5rem 0 0; }
+.asa-avantages li{
+  display:flex; gap:.8rem; align-items:flex-start;
+  padding:.7rem 0; font-size:1rem; line-height:1.6; color: rgba(255,255,255,.88);
+}
+.asa-avantages li::before{ content:"\2726"; flex:0 0 auto; color:var(--asa-jaune); line-height:1.6; }
+
+/* Cartes « s'impliquer » */
+.asa-impliquer{
+  background:#fff; border-radius:1rem; padding:1.6rem 1.5rem; height:100%;
+  border-top:5px solid var(--asa-vert);
+}
+.asa-impliquer--jaune{ border-top-color: var(--asa-jaune); }
+.asa-impliquer--rouge{ border-top-color: var(--asa-rouge); }
+.asa-impliquer h3{ font-size:1.1rem; font-weight:600; margin-bottom:.5rem; }
+.asa-impliquer p{ color:var(--asa-gris); font-size:.96rem; line-height:1.65; margin-bottom:1rem; }
+
+
+/* =============================================================
+   12. QUI SOMMES-NOUS
+   ============================================================= */
+
+/* Valeurs */
+.asa-valeur{
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1rem; padding:1.5rem; height:100%;
+  border-top:5px solid var(--asa-vert);
+}
+.asa-valeur--jaune{ border-top-color: var(--asa-jaune); }
+.asa-valeur--rouge{ border-top-color: var(--asa-rouge); }
+.asa-valeur h3{ font-size:1.1rem; font-weight:600; margin-bottom:.5rem; }
+.asa-valeur p{ color:var(--asa-gris); font-size:.96rem; line-height:1.65; margin:0; }
+
+/* Frise de l'histoire */
+.asa-frise{ list-style:none; padding:0; margin:0; }
+.asa-frise li{
+  position:relative; padding-left:2.25rem; padding-bottom:2rem;
+  border-left:2px solid rgba(20,38,28,.14); margin-left:.45rem;
+}
+.asa-frise li:last-child{ border-left-color:transparent; padding-bottom:0; }
+.asa-frise li::before{
+  content:""; position:absolute; left:-.5rem; top:.2rem;
+  width:.9rem; height:.9rem; border-radius:50%;
+  background:var(--asa-vert); border:3px solid var(--asa-sable);
+}
+.asa-frise b{ display:block; font-family:var(--asa-display); font-size:1.05rem;
+              font-weight:700; color:var(--asa-vert-nuit); margin-bottom:.25rem; }
+.asa-frise p{ color:var(--asa-gris); font-size:.97rem; line-height:1.65; margin:0; }
+
+/* Cartes du bureau (fonctionnent sans photo grâce au monogramme).
+   Pour une photo : <img src="…" alt=""> dans .asa-personne__portrait,
+   format carré 400x400, visage centré. */
+.asa-personne{
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1rem; padding:1.6rem 1.25rem; height:100%; text-align:center;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.asa-personne:hover{ transform: translateY(-3px); box-shadow: 0 16px 32px -24px rgba(4,59,34,.5); }
+.asa-personne__portrait{
+  width:5.5rem; height:5.5rem; margin:0 auto 1rem;
+  border-radius:50%; overflow:hidden; display:grid; place-items:center;
+  background:var(--asa-vert-nuit); color:#fff;
+  font-family:var(--asa-display); font-weight:800; font-size:1.6rem;
+  letter-spacing:.02em; border:3px solid var(--asa-jaune);
+}
+.asa-personne__portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
+.asa-personne--v2 .asa-personne__portrait{ background:var(--asa-vert); border-color:#fff; }
+.asa-personne--v3 .asa-personne__portrait{ background:var(--asa-rouge); border-color:var(--asa-jaune); }
+.asa-personne__role{
+  display:inline-block; font-size:.72rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.11em;
+  color:var(--asa-vert); background:rgba(0,133,63,.09);
+  border-radius:999px; padding:.25rem .7rem; margin-bottom:.6rem;
+}
+.asa-personne h3{ font-size:1.06rem; font-weight:600; margin:0 0 .45rem; }
+.asa-personne p{ font-size:.92rem; color:var(--asa-gris); line-height:1.55; margin:0; }
+
+/* Conseil d'administration (traitement plus léger que le bureau) */
+.asa-admin{
+  display:flex; gap:.9rem; align-items:center;
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:.85rem; padding:.9rem 1rem; height:100%;
+}
+.asa-admin__mono{
+  flex:0 0 auto; width:2.9rem; height:2.9rem; border-radius:50%;
+  display:grid; place-items:center; overflow:hidden;
+  background:var(--asa-sable); color:var(--asa-vert-nuit);
+  font-family:var(--asa-display); font-weight:800; font-size:.92rem;
+  border:2px solid var(--asa-vert);
+}
+.asa-admin__mono img{ width:100%; height:100%; object-fit:cover; display:block; }
+.asa-admin__nom{ font-family:var(--asa-display); font-weight:600; font-size:.99rem; display:block; line-height:1.25; }
+.asa-admin__note{ font-size:.82rem; color:var(--asa-gris); display:block; margin-top:.15rem; }
+.asa-admin__badge{
+  display:inline-block; font-size:.66rem; font-weight:800;
+  text-transform:uppercase; letter-spacing:.09em;
+  background:var(--asa-jaune); color:var(--asa-encre);
+  border-radius:999px; padding:.15rem .5rem; margin-top:.3rem;
+}
+
+/* Commissions (sur fond vert) */
+.asa-commission{
+  display:flex; gap:1rem; align-items:flex-start;
+  padding:1.15rem 0; border-top:1px solid rgba(255,255,255,.14);
+}
+.asa-commission:last-of-type{ border-bottom:1px solid rgba(255,255,255,.14); }
+.asa-commission__puce{
+  flex:0 0 auto; width:2.2rem; height:2.2rem; border-radius:.6rem;
+  background:var(--asa-jaune); color:var(--asa-encre);
+  display:grid; place-items:center; font-weight:800; font-size:.9rem;
+  font-family:var(--asa-display);
+}
+.asa-commission h3{ font-size:1.02rem; font-weight:600; margin:0 0 .25rem; color:#fff; }
+.asa-commission p{ font-size:.94rem; line-height:1.6; margin:0; color:rgba(255,255,255,.78); }
+
+/* Encadré explicatif (bureau vs conseil) */
+.asa-note{
+  background:var(--asa-sable); border-left:4px solid var(--asa-vert);
+  border-radius:0 .6rem .6rem 0; padding:1rem 1.2rem;
+  font-size:.95rem; line-height:1.65; color:#2A3B32;
+}
+.asa-note p:last-child{ margin-bottom:0; }
+
+/* Liens vers les documents (transparence) */
+.asa-document-lien{
+  display:flex; gap:1rem; align-items:center;
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:.9rem; padding:1.1rem 1.25rem; height:100%;
+  text-decoration:none; color:inherit;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.asa-document-lien:hover{ border-color:var(--asa-vert); transform:translateY(-2px); color:inherit; }
+.asa-document-lien__type{
+  flex:0 0 auto; font-size:.68rem; font-weight:800; letter-spacing:.08em;
+  background:var(--asa-vert); color:#fff; border-radius:.4rem; padding:.35rem .5rem;
+}
+.asa-document-lien b{ display:block; font-family:var(--asa-display); font-size:1rem; font-weight:600; }
+.asa-document-lien span{ font-size:.88rem; color:var(--asa-gris); }
+
+
+/* =============================================================
+   13. STATUTS ET MENTIONS LÉGALES (pages « document »)
+   ============================================================= */
+
+/* Sommaire latéral collant */
+.asa-sommaire{
+  position: sticky; top: 90px;
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1rem; padding:1.4rem 1.25rem;
+  max-height: calc(100vh - 120px); overflow-y:auto;
+}
+.asa-sommaire h2{ font-size:.78rem; text-transform:uppercase; letter-spacing:.16em; color:var(--asa-vert); margin-bottom:1rem; }
+.asa-sommaire ol{ list-style:none; padding:0; margin:0; }
+.asa-sommaire > ol > li{ margin-bottom:1rem; }
+.asa-sommaire .asa-titre-partie{ font-family:var(--asa-display); font-weight:600; font-size:.9rem; display:block; margin-bottom:.4rem; color:var(--asa-encre); }
+.asa-sommaire ol ol{ border-left:2px solid rgba(20,38,28,.1); padding-left:.8rem; }
+.asa-sommaire ol ol li{ margin-bottom:.15rem; }
+.asa-sommaire a{
+  display:block; font-size:.9rem; line-height:1.4; padding:.22rem 0;
+  color:var(--asa-gris); text-decoration:none;
+  border-left:2px solid transparent; margin-left:-.82rem; padding-left:.8rem;
+}
+.asa-sommaire a:hover{ color:var(--asa-vert); }
+.asa-sommaire a.est-actif{ color:var(--asa-vert); font-weight:700; border-left-color:var(--asa-vert); }
+
+/* Corps du document */
+.asa-document{ background:#fff; border-radius:1.25rem; overflow:hidden; border:1px solid rgba(20,38,28,.09); }
+.asa-document__corps{ padding: clamp(1.5rem, 4vw, 3rem); }
+
+.asa-partie{ margin-top:3.25rem; scroll-margin-top:100px; }
+.asa-partie:first-of-type{ margin-top:0; }
+.asa-partie > h2{
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  padding-bottom:.7rem; margin-bottom:1.75rem;
+  border-bottom:3px solid var(--asa-jaune);
+}
+.asa-partie > h2 .asa-numero-partie{
+  display:block; font-family:var(--asa-texte); font-weight:700;
+  font-size:.74rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--asa-vert); margin-bottom:.4rem;
+}
+
+.asa-article{ margin-bottom:2.25rem; scroll-margin-top:100px; }
+.asa-article h3{ font-size:1.1rem; font-weight:600; margin-bottom:.75rem; display:flex; align-items:baseline; gap:.6rem; }
+.asa-article h3 .asa-numero{
+  flex:0 0 auto; font-family:var(--asa-texte); font-weight:700;
+  font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+  color:#fff; background:var(--asa-vert);
+  padding:.2rem .55rem; border-radius:999px; position:relative; top:-.1rem;
+}
+.asa-article h4{
+  font-family:var(--asa-texte); font-weight:700; font-size:.95rem;
+  color:var(--asa-vert-nuit); margin:1.35rem 0 .5rem;
+}
+.asa-article p, .asa-article li{ font-size:1rem; line-height:1.72; color:#2A3B32; }
+.asa-article p{ margin-bottom:.85rem; }
+.asa-article ul{ padding-left:1.15rem; margin-bottom:.9rem; }
+.asa-article ul li{ margin-bottom:.4rem; }
+.asa-article ul li::marker{ color:var(--asa-vert); }
+
+/* Règle chiffrée mise en avant */
+.asa-cle{
+  background:var(--asa-sable); border-left:4px solid var(--asa-jaune);
+  border-radius:0 .6rem .6rem 0; padding:.9rem 1.1rem; margin:1.1rem 0;
+  font-size:.95rem; line-height:1.6;
+}
+.asa-cle strong{ color:var(--asa-vert-nuit); }
+.asa-cle p:last-child{ margin-bottom:0; }
+
+/* Signature de fin de document */
+.asa-signature{
+  margin-top:3rem; padding-top:1.75rem;
+  border-top:1px solid rgba(20,38,28,.14);
+  font-size:.95rem; color:var(--asa-gris); line-height:1.7;
+}
+
+/* Actions (télécharger / imprimer) */
+.asa-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.75rem; }
+.asa-actions button{ cursor:pointer; font-family:var(--asa-texte); }
+
+/* Fiche d'identité (mentions légales) */
+.asa-fiche{ margin:0; }
+.asa-fiche > div{
+  display:grid; grid-template-columns: 13rem 1fr; gap:.5rem 1.25rem;
+  padding:.8rem 0; border-top:1px solid rgba(20,38,28,.1);
+}
+.asa-fiche > div:last-child{ border-bottom:1px solid rgba(20,38,28,.1); }
+.asa-fiche dt{ font-weight:700; font-size:.92rem; color:var(--asa-vert-nuit); }
+.asa-fiche dd{ margin:0; font-size:.97rem; line-height:1.6; color:#2A3B32; }
+.asa-fiche a{ color:var(--asa-vert); }
+@media (max-width: 575.98px){
+  .asa-fiche > div{ grid-template-columns:1fr; gap:.15rem; }
+}
+
+/* Date de mise à jour */
+.asa-maj{ font-size:.9rem; color:var(--asa-gris); margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid rgba(20,38,28,.12); }
+
+/* Impression : le document seul, en noir sur blanc */
+@media print{
+  .asa-nav, .asa-footer, .asa-sommaire, .asa-actions,
+  .asa-skip, .asa-fil, .asa-bande{ display:none !important; }
+  body{ background:#fff; color:#000; font-size:11pt; }
+  .asa-entete{ background:#fff !important; color:#000 !important; padding-block:0; }
+  .asa-entete h1{ font-size:20pt; }
+  .asa-entete p{ color:#000 !important; }
+  .asa-document{ border:none; }
+  .asa-document__corps{ padding:0; }
+  .asa-section{ padding-block:0; }
+  .asa-article{ break-inside: avoid; }
+  .asa-partie > h2{ break-after: avoid; border-bottom:1pt solid #000; }
+  .asa-article h3 .asa-numero{ background:none !important; color:#000 !important; padding:0; }
+  .asa-cle{ background:none; border-left:2pt solid #000; }
+  a{ color:#000; text-decoration:none; }
+}
+
+
+/* =============================================================
+   14. AGENDA
+   ============================================================= */
+
+/* Prochain rendez-vous (daté) */
+.asa-prochain{
+  display:flex; gap:1.15rem; align-items:flex-start;
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1rem; padding:1.35rem; height:100%;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.asa-prochain:hover{ transform:translateY(-3px); box-shadow:0 16px 32px -24px rgba(4,59,34,.5); }
+.asa-prochain__date{
+  flex:0 0 auto; width:4.3rem; text-align:center;
+  background:var(--asa-vert-nuit); color:#fff;
+  border-radius:.75rem; padding:.65rem .3rem; line-height:1.1;
+}
+.asa-prochain__date b{ display:block; font-family:var(--asa-display); font-size:1.6rem; font-weight:800; color:var(--asa-jaune); }
+.asa-prochain__date span{ display:block; font-size:.7rem; text-transform:uppercase; letter-spacing:.09em; margin-top:.15rem; color:rgba(255,255,255,.8); }
+.asa-prochain h3{ font-size:1.08rem; font-weight:600; margin:.15rem 0 .4rem; }
+.asa-prochain p{ font-size:.94rem; color:var(--asa-gris); line-height:1.6; margin:0; }
+.asa-prochain__infos{ font-size:.86rem; color:var(--asa-vert); font-weight:600; margin-top:.55rem !important; }
+
+/* Rendez-vous récurrent */
+.asa-rdv{
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1rem; padding:1.5rem 1.4rem; height:100%;
+  display:flex; flex-direction:column; border-top:5px solid var(--asa-vert);
+}
+.asa-rdv[data-cat="fetes"]{ border-top-color:var(--asa-jaune); }
+.asa-rdv[data-cat="sport"]{ border-top-color:var(--asa-rouge); }
+.asa-rdv[data-cat="culture"]{ border-top-color:var(--asa-vert); }
+.asa-rdv[data-cat="solidarite"]{ border-top-color:var(--asa-vert-nuit); }
+.asa-rdv[data-cat="vie"]{ border-top-color:#8AA398; }
+.asa-rdv__periode{
+  display:inline-block; align-self:flex-start;
+  font-size:.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.1em;
+  background:var(--asa-sable); color:var(--asa-vert-nuit);
+  border-radius:999px; padding:.28rem .7rem; margin-bottom:.75rem;
+}
+.asa-rdv h3{ font-size:1.1rem; font-weight:600; margin:0 0 .5rem; }
+.asa-rdv p{ color:var(--asa-gris); font-size:.96rem; line-height:1.65; margin:0; }
+.asa-rdv__cat{
+  margin-top:auto; padding-top:1rem;
+  font-size:.78rem; font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--asa-vert);
+}
+
+/* Barre de filtres */
+.asa-filtres{ display:flex; flex-wrap:wrap; gap:.5rem; padding:0; margin:0 0 2rem; list-style:none; }
+.asa-filtre{
+  font-family:var(--asa-texte); font-size:.92rem; font-weight:600;
+  background:#fff; color:var(--asa-encre);
+  border:1.5px solid rgba(20,38,28,.14); border-radius:999px;
+  padding:.5rem 1.1rem; cursor:pointer;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.asa-filtre:hover{ border-color:var(--asa-vert); color:var(--asa-vert); }
+.asa-filtre[aria-pressed="true"]{ background:var(--asa-vert); border-color:var(--asa-vert); color:#fff; }
+
+/* Masquage par le filtre (porté par la colonne) */
+.est-masque{ display:none !important; }
+
+/* Cartes « participer » */
+.asa-proposer{
+  background:#fff; border-radius:1rem; padding:1.6rem 1.5rem; height:100%;
+  border-left:5px solid var(--asa-vert);
+}
+.asa-proposer h3{ font-size:1.08rem; font-weight:600; margin-bottom:.5rem; }
+.asa-proposer p{ color:var(--asa-gris); font-size:.96rem; line-height:1.65; margin:0; }
+
+
+/* =============================================================
+   15. AGENDA ET ANNUAIRE — état vide / chargement / erreur
+   ============================================================= */
+.asa-etat{
+  background:#fff; border:2px dashed rgba(20,38,28,.16);
+  border-radius:1rem; padding:2.5rem 1.5rem; text-align:center;
+}
+.asa-etat--erreur{ border-style:solid; border-color:var(--asa-rouge); background:#FDECEC; }
+.asa-etat h2, .asa-etat h3{ font-size:1.2rem; font-weight:600; margin-bottom:.6rem; }
+.asa-etat p{ color:var(--asa-gris); font-size:.98rem; line-height:1.65; max-width:48ch; margin:0 auto 1.25rem; }
+.asa-etat--erreur p{ color:#8C1116; }
+.asa-etat[hidden]{ display:none; }
+
+/* Indicateur de chargement */
+.asa-spinner{
+  width:2rem; height:2rem; margin:0 auto 1rem;
+  border:3px solid rgba(0,133,63,.2); border-top-color:var(--asa-vert);
+  border-radius:50%; animation: asa-tourne .8s linear infinite;
+}
+@keyframes asa-tourne{ to{ transform: rotate(360deg); } }
+
+/* Bloc « état vide » de l'agenda (aucune date programmée) */
+.asa-vide{
+  background:#fff; border:2px dashed rgba(20,38,28,.16);
+  border-radius:1rem; padding:2.5rem 1.5rem; text-align:center;
+}
+.asa-vide h3{ font-size:1.2rem; font-weight:600; margin-bottom:.6rem; }
+.asa-vide p{ color:var(--asa-gris); font-size:.98rem; line-height:1.65; max-width:46ch; margin:0 auto 1.25rem; }
+
+
+/* =============================================================
+   16. ANNUAIRE
+   ============================================================= */
+.asa-recherche{
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1rem; padding:1.25rem;
+  position:sticky; top:80px; z-index:5;
+  box-shadow: 0 10px 24px -22px rgba(4,59,34,.6);
+}
+.asa-recherche label{ display:block; font-weight:600; font-size:.88rem; margin-bottom:.35rem; }
+.asa-recherche input, .asa-recherche select{
+  width:100%; font-family:var(--asa-texte); font-size:1rem;
+  color:var(--asa-encre); background:#fff;
+  border:1.5px solid rgba(20,38,28,.18); border-radius:.6rem; padding:.65rem .8rem;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.asa-recherche input:focus, .asa-recherche select:focus{
+  border-color:var(--asa-vert); box-shadow:0 0 0 3px rgba(0,133,63,.14); outline:none;
+}
+.asa-compteur{ font-size:.92rem; color:var(--asa-gris); font-weight:600; margin:1.25rem 0 1.5rem; }
+.asa-compteur strong{ color:var(--asa-vert-nuit); }
+
+.asa-asso{
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1rem; padding:1.4rem; height:100%;
+  display:flex; flex-direction:column; border-top:4px solid var(--asa-vert);
+}
+.asa-asso h3{ font-size:1.08rem; font-weight:600; margin:0 0 .5rem; line-height:1.3; }
+.asa-asso__lieu{ display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.9rem; }
+.asa-asso__tag{
+  font-size:.75rem; font-weight:700; letter-spacing:.04em;
+  background:var(--asa-sable); color:var(--asa-vert-nuit);
+  border-radius:999px; padding:.22rem .65rem;
+}
+.asa-asso__tag--dept{ background:rgba(0,133,63,.1); color:var(--asa-vert); }
+.asa-asso__contacts{ list-style:none; padding:0; margin:0 0 .9rem; }
+.asa-asso__contacts li{ display:flex; gap:.6rem; font-size:.9rem; line-height:1.5; padding:.3rem 0; color:var(--asa-gris); }
+.asa-asso__contacts b{
+  flex:0 0 5.4rem; font-weight:700; font-size:.78rem;
+  text-transform:uppercase; letter-spacing:.06em; color:var(--asa-encre); padding-top:.1rem;
+}
+.asa-asso__contacts a{ color:var(--asa-vert); font-weight:500; word-break:break-word; }
+.asa-asso__contacts .asa-vide-valeur{ color:#9AA8A0; }
+.asa-asso__maj{ margin-top:auto; padding-top:.85rem; border-top:1px solid rgba(20,38,28,.09); font-size:.8rem; color:#8A9992; }
+
+/* Encart « ajouter son association » */
+.asa-encart{ background:var(--asa-vert-nuit); color:#fff; border-radius:1.25rem; padding: clamp(1.75rem, 5vw, 2.75rem); }
+.asa-encart h2{ font-size: clamp(1.4rem, 3.2vw, 2rem); margin-bottom:.75rem; }
+.asa-encart p{ color:rgba(255,255,255,.85); line-height:1.7; max-width:56ch; margin-bottom:1.5rem; }
+
+
+/* =============================================================
+   17. CONTACT (formulaire)
+   ============================================================= */
+.asa-moyen{ display:flex; gap:1rem; padding:1.15rem 0; border-top:1px solid rgba(20,38,28,.12); }
+.asa-moyen:last-of-type{ border-bottom:1px solid rgba(20,38,28,.12); }
+.asa-moyen__pastille{
+  flex:0 0 auto; width:2.4rem; height:2.4rem; border-radius:50%;
+  background: var(--asa-vert); color:#fff;
+  display:grid; place-items:center; font-weight:700; font-size:.95rem;
+}
+.asa-moyen h3{ font-size:1.02rem; font-weight:600; margin:0 0 .2rem; }
+.asa-moyen p{ margin:0; font-size:.95rem; color:var(--asa-gris); line-height:1.55; }
+.asa-moyen a{ color: var(--asa-vert); font-weight:500; }
+
+.asa-formulaire{
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:1.25rem; box-shadow: 0 18px 40px -28px rgba(4,59,34,.45); overflow:hidden;
+}
+.asa-formulaire__corps{ padding: clamp(1.5rem, 4vw, 2.5rem); }
+
+.asa-champ{ margin-bottom:1.15rem; }
+.asa-champ label{ display:block; font-weight:600; font-size:.93rem; margin-bottom:.4rem; }
+.asa-champ .asa-obligatoire{ color: var(--asa-rouge); }
+.asa-champ .asa-aide{ display:block; font-weight:400; font-size:.84rem; color:var(--asa-gris); margin-top:.15rem; }
+.asa-champ input, .asa-champ select, .asa-champ textarea{
+  width:100%; font-family: var(--asa-texte); font-size:1rem;
+  color: var(--asa-encre); background:#fff;
+  border:1.5px solid rgba(20,38,28,.18); border-radius:.6rem; padding:.7rem .85rem;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.asa-champ textarea{ min-height: 9rem; resize: vertical; }
+.asa-champ input:hover, .asa-champ select:hover, .asa-champ textarea:hover{ border-color: rgba(20,38,28,.34); }
+.asa-champ input:focus, .asa-champ select:focus, .asa-champ textarea:focus{
+  border-color: var(--asa-vert); box-shadow: 0 0 0 3px rgba(0,133,63,.14); outline: none;
+}
+.asa-champ.est-invalide input,
+.asa-champ.est-invalide select,
+.asa-champ.est-invalide textarea{ border-color: var(--asa-rouge); }
+.asa-erreur{ display:none; color: var(--asa-rouge); font-size:.85rem; margin-top:.35rem; font-weight:500; }
+.asa-champ.est-invalide .asa-erreur{ display:block; }
+
+.asa-consentement{
+  display:flex; gap:.7rem; align-items:flex-start;
+  background: var(--asa-sable); border-radius:.75rem; padding:.9rem 1rem; margin-bottom:1.25rem;
+}
+.asa-consentement input{ width:1.15rem; height:1.15rem; margin-top:.15rem; flex:0 0 auto; accent-color: var(--asa-vert); }
+.asa-consentement label{ font-size:.9rem; line-height:1.5; font-weight:400; margin:0; }
+.asa-consentement a{ color: var(--asa-vert); }
+.asa-consentement.est-invalide{ outline:1.5px solid var(--asa-rouge); }
+
+/* Pot de miel anti-robots : invisible pour un humain */
+.asa-pot-de-miel{ position:absolute !important; left:-9999px !important; width:1px; height:1px; overflow:hidden; }
+
+.asa-envoyer{ cursor:pointer; font-size:1rem; }
+.asa-envoyer[disabled]{ opacity:.6; cursor:progress; transform:none; }
+
+.asa-statut{ border-radius:.75rem; padding:1rem 1.15rem; font-size:.95rem; line-height:1.55; margin-bottom:1.25rem; }
+.asa-statut[hidden]{ display:none; }
+.asa-statut--ok{ background:#E8F5EE; border:1.5px solid var(--asa-vert); color:#04502A; }
+.asa-statut--ko{ background:#FDECEC; border:1.5px solid var(--asa-rouge); color:#8C1116; }
+.asa-statut a{ color: inherit; font-weight:700; }
+
+
+/* =============================================================
+   18. PAGE 404
+   ============================================================= */
+.asa-404{ display:flex; align-items:center; padding-block: clamp(2.5rem, 8vw, 5rem); }
+.asa-404__nombre{
+  font-family: var(--asa-display); font-weight: 800;
+  font-size: clamp(5rem, 20vw, 11rem); line-height: .85; letter-spacing: -.05em;
+  margin: 0 0 1rem; color: var(--asa-vert);
+}
+@supports (background-clip: text) or (-webkit-background-clip: text){
+  .asa-404__nombre{
+    background: linear-gradient(105deg, var(--asa-vert) 0 32%, var(--asa-jaune-sombre) 44% 56%, var(--asa-rouge) 68% 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
   }
 }
-
-.form-container {
-  justify-content: space-between;
-  padding-bottom: 5rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  width: 95%;
-  max-width: 800px;
-  color: #2c3e50;
+.asa-404 h1{ font-size: clamp(1.6rem, 4.5vw, 2.5rem); margin-bottom:1rem; }
+.asa-404__texte{ color: var(--asa-gris); font-size:1.05rem; line-height:1.75; max-width:52ch; }
+.asa-404__actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.75rem; }
+.asa-pistes{ list-style:none; padding:0; margin:0; }
+.asa-pistes li + li{ margin-top:.6rem; }
+.asa-piste{
+  display:flex; gap:1rem; align-items:center;
+  background:#fff; border:1px solid rgba(20,38,28,.09);
+  border-radius:.85rem; padding:.95rem 1.1rem;
+  text-decoration:none; color:inherit;
+  transition: border-color .15s ease, transform .15s ease;
 }
-
-
-label {
-  display: block;
-  margin-bottom: 7px;
-  font-weight: bold!important;
+.asa-piste:hover{ border-color:var(--asa-vert); transform:translateX(3px); color:inherit; }
+.asa-piste__fleche{
+  flex:0 0 auto; width:2.1rem; height:2.1rem; border-radius:.55rem;
+  background:var(--asa-sable); color:var(--asa-vert);
+  display:grid; place-items:center; font-weight:800; font-size:1rem;
 }
-
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="file"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  box-sizing: border-box;
+.asa-piste b{ display:block; font-family:var(--asa-display); font-size:1rem; font-weight:600; }
+.asa-piste span{ font-size:.88rem; color:var(--asa-gris); line-height:1.4; }
+.asa-404__aide{
+  margin-top:1.75rem; padding-top:1.25rem; border-top:1px solid rgba(20,38,28,.12);
+  font-size:.92rem; color:var(--asa-gris); line-height:1.65;
 }
-
-textarea {
-  resize: vertical;
-}
-
-
-.btn-submit {
-  background-color: #30cfd0;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
-
-.btn-submit:hover {
-  background-color: #2ba3a5;
-}
-.copyright {
-  color: #8E9A9E;
-  border: none;
-  padding: 12px;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none; /* Chrome, Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* Internet Explorer/Edge */
-}
-
-/*--------------------- FIN PAGE FORMULAIRE D'ADHESION --------------------------------------*/
-
-
-/*  --------*/
-.confirmation-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #e2e8f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: white;
-  }
-
-  .confirmation-container {
-    background: rgba(255, 255, 255, 0.9);
-    color: #333;
-    border-radius: 10px;
-    padding: 20px;
-    width: 90%;
-    max-width: 550px!important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-
-  .confirmation-container img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  .confirmation-container h1 {
-    font-size: 24px;
-    margin: 10px 0;
-  }
-
-  .confirmation-container p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .confirmation-container .mbutton {
-    margin-top: 20px;
-    display: inline-block;
-    text-decoration: none;
-    background-color: #30cfd0;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-
-  .confirmation-container .mbutton:hover {
-    background-color: #2ba3a5;
-  }
-
-  .btn-custom {
-    font-size: 0.5rem;
-    padding: 0.25rem 0.5rem;
-}
-
-/*--Confirmation.html style---*/
-.copyright {
-  color: #8E9A9E;
-  border: none;
-  padding: 12px;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none; /* Chrome, Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* Internet Explorer/Edge */
-}
-
-
-
-/*--Formulaire style---*/
-
-.index-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: #333;
-  }
-  
-  .form-container {
-    background: white;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 600px;
-  }
-  
-  .form-container h2 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 25px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="tel"],
-  input[type="email"],
-  input[type="file"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    box-sizing: border-box;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  .form-check {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .btn-submit {
-    background-color: #30cfd0;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-submit:hover {
-    background-color: #2ba3a5;
-  }
-  
-
-/* style.css pour Mention légale style titre */
-/* On définit les compteurs */
-.niveauBody {
-  counter-reset: h2;
-}
-
-/* ---- H2 = 1., 2., 3. ---- */
-.niveauH2 {
-  counter-reset: h3; /* reset des sous-niveaux à chaque nouveau h2 */
-}
-.niveauH2::before {
-  counter-increment: h2; /* incrémente h2 */
-  content: counter(h2) ". "; /* affiche 1. */
-}
-
-/* ---- H3 = 1.1., 2.1., etc ---- */
-.niveauH3 {
-  counter-reset: h4; /* reset du niveau suivant */
-}
-.niveauH3::before {
-  counter-increment: h3; /* incrémente h3 */
-  content: counter(h2) "." counter(h3) ". "; /* affiche 1.1. */
-}
-
-/* ---- H4 = 1.1.1., 2.1.1., etc ---- */
-.niveauH4 {
-  counter-reset: h5;
-}
-.niveauH4::before {
-  counter-increment: h4;
-  content: counter(h2) "." counter(h3) "." counter(h4) ". "; /* affiche 1.1.1. */
-}
-
-
-/* Style optionnel */
-.niveauH2, .niveauH3, .niveauH4 {
-  color: var(--asa-color)
-}
-
-.niveauH2 {
-  margin-top: 25px;
-}
-/* FIN style.css pour Mention légale style titre */
-
-
-/* -----   style.css pour page 404 --------------------------- */
-.corps-404 {
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 50px;
-  flex: 1;               /* Cette partie prend tout l’espace restant */
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* Centrage horizontal */
-  justify-content: center; /* Centrage vertical */
-  text-align: center;
-}
-.h1-404 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 3em;
-  color: var(--asa-color);
-}
-.retour-404 {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: var(--asa-color);
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-html, body {
-  height: 100%;          /* Important : le body doit occuper tout l’écran */
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1; /* ← Cela force le main à occuper tout l’espace libre */
-}
-
-/* -------- FIN style.css pour page 404-------------------------- */
-
-/* idex occuper toute la hauteur*/
-.corps-index {
-  flex: 1;               /* Cette partie prend tout l’espace restant */
-  display: flex;
-  flex-direction: column;
-}
-/* ----  style.css pour page  MENTIONS LEGALES -----  */
-
-/* Bandeau header */
-.about-header {
-  background: url('/asa/img/logotype-asa-1200x630.png') center/cover no-repeat;
-  height: 35vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
-
-.about-header h1 {
-  font-size: 3rem;
-}
-
-.about-header p {
-  font-size: 1.25rem;
-}
-
-/* FIN style.css pour page MENTIONS LEGALES -----  */
-
-
-
-/* ------ Style des point ------*/
-/*disc (par défaut, rond plein), circle (cercle vide), square (carré plein)et none (pas de puce) */
-ul {
-  list-style-type: square; /* met des carrés à la place des puces rondes */
-}
-
-/* ------ FIN Style des point ------*/
-
-
-/* ------  Style des  ------*/
-
-.bg-page {
-  background: #d5dbe2;
-}
-
-/* -----*/
-
-.bg-header {
-  background-color: var(--asa-color);
-}
-
-/*---------------- ACCORDEON -----------------------*/
-
-.accordion-body a {
-  word-wrap: break-word;      /* ancienne syntaxe */
-  overflow-wrap: break-word;  /* syntaxe moderne */
-  display: inline-block;
-  max-width: 100%;
-}
-
-
-/*--------- LES LIENS INTERNES avec classe .internal-link -------- */
-
-.internal-link {
-  color: var(--asa-color);
-  text-decoration: none;
-}
-
-.internal-link:hover {
-  color: var(--asa-color-two);
-  text-decoration: underline !important;            /* soulignement */
-  -webkit-text-decoration-color: var(--asa-color-two) !important;
-  text-decoration-color: var(--asa-color-two) !important;
-  text-underline-offset: 0.375em !important;
-}
-
-/* Survol : changer couleur du texte + icône */
-.external-link:hover::after {
-  background-color:var(--asa-color-two);
-}
-
-/*--------- FIN LES LIENS INTERNES avec classe .internal-link -------- */
-
-/* ===============================
-   ICÔNE POUR LES LIENS AVEC CLASSE .external-link
-   =============================== */
-
-.external-link {
-  position: relative;
-  color: var(--asa-color);
-  text-decoration: none;
-}
-
-.external-link:hover {
-  color: var(--asa-color-two);
-  text-decoration: underline !important;            /* soulignement */
-  -webkit-text-decoration-color: var(--asa-color-two) !important;
-  text-decoration-color: var(--asa-color-two) !important;
-  text-underline-offset: 0.375em !important;
-}
-
-/* Ajout automatique d'une icône après le texte */
-.external-link::after {
-  --icon-size: 0.9rem;         /* Taille de l’icône */
-  --icon-color: currentColor;  /* Même couleur que le texte */
-  content: "";                 /* Obligatoire pour afficher le pseudo-élément */
-  display: inline-block;
-  width: var(--icon-size);
-  height: var(--icon-size);
-  margin-left: 0.3rem;
-  background-color: var(--icon-color);
-
-  /* Icône SVG du lien externe (inline base64 pour éviter les fichiers externes) */
-  -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="black" stroke-width="2" d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6Zm11-3v8h-2V6.4l-7.8 7.8-1.4-1.4L17.6 5H13V3h8Z"/></svg>');
-  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="black" stroke-width="2" d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6Zm11-3v8h-2V6.4l-7.8 7.8-1.4-1.4L17.6 5H13V3h8Z"/></svg>');
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  vertical-align: middle;
-}
-
-/* Survol : changer couleur du texte + icône */
-.external-link:hover::after {
-  background-color:var(--asa-color-two);
-}
-/* FIN ===============================
-   ICÔNE POUR LES LIENS AVEC CLASSE .external-link
-   =============================== */
-
-
-
-/* ----- Style pour l'affichage des PDF dans statuts.html ----- */
-
-/* Un peu de style pour que le PDF prenne toute la place disponible */
-.pdf-container {
-  width: 100%;
-  height: 100vh; /* 100% de la hauteur de l'écran */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-embed {
-    border: 1px solid #ccc;
-}
+.asa-404__aide a{ color:var(--asa-vert); font-weight:600; }

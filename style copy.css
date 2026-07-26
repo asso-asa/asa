@@ -1,0 +1,478 @@
+/*  ----- VARIABLES ----/**/
+:root {
+  --asa-color: #00853F;
+  --asa-color-two: #10a9e6;
+}
+/* --- FIN VARIABLES ----*/
+
+/*--------------------- PAGE FORMULAIRE D'ADHESION --------------------------------------*/
+
+body {
+  font-family: Roboto,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #e2e8f0 ;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.mon-titre {
+  font-family: 'Comic Sans MS', Roboto, Montserrat, sans-serif;
+  color: #00853F;
+  font-weight: bold!important;
+}
+
+@media (min-width: 992px) {
+  .mon-image {
+    width: 50%; /* ou une taille fixe comme 300px */
+    height: auto;
+  }
+}
+
+.form-container {
+  justify-content: space-between;
+  padding-bottom: 5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  max-width: 800px;
+  color: #2c3e50;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: bold!important;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+.btn-submit {
+  background-color: #30cfd0;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #2ba3a5;
+}
+.copyright {
+  color: #8E9A9E;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+}
+
+/*--------------------- FIN PAGE FORMULAIRE D'ADHESION --------------------------------------*/
+
+
+/*  --------*/
+.confirmation-body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+  }
+
+  .confirmation-container {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 550px!important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .confirmation-container img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .confirmation-container h1 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .confirmation-container p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .confirmation-container .mbutton {
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #30cfd0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .confirmation-container .mbutton:hover {
+    background-color: #2ba3a5;
+  }
+
+  .btn-custom {
+    font-size: 0.5rem;
+    padding: 0.25rem 0.5rem;
+}
+
+/*--Confirmation.html style---*/
+.copyright {
+  color: #8E9A9E;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+}
+
+
+
+/*--Formulaire style---*/
+
+.index-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #333;
+  }
+  
+  .form-container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="file"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .form-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .btn-submit {
+    background-color: #30cfd0;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #2ba3a5;
+  }
+  
+
+/* style.css pour Mention légale style titre */
+/* On définit les compteurs */
+.niveauBody {
+  counter-reset: h2;
+}
+
+/* ---- H2 = 1., 2., 3. ---- */
+.niveauH2 {
+  counter-reset: h3; /* reset des sous-niveaux à chaque nouveau h2 */
+}
+.niveauH2::before {
+  counter-increment: h2; /* incrémente h2 */
+  content: counter(h2) ". "; /* affiche 1. */
+}
+
+/* ---- H3 = 1.1., 2.1., etc ---- */
+.niveauH3 {
+  counter-reset: h4; /* reset du niveau suivant */
+}
+.niveauH3::before {
+  counter-increment: h3; /* incrémente h3 */
+  content: counter(h2) "." counter(h3) ". "; /* affiche 1.1. */
+}
+
+/* ---- H4 = 1.1.1., 2.1.1., etc ---- */
+.niveauH4 {
+  counter-reset: h5;
+}
+.niveauH4::before {
+  counter-increment: h4;
+  content: counter(h2) "." counter(h3) "." counter(h4) ". "; /* affiche 1.1.1. */
+}
+
+
+/* Style optionnel */
+.niveauH2, .niveauH3, .niveauH4 {
+  color: var(--asa-color)
+}
+
+.niveauH2 {
+  margin-top: 25px;
+}
+/* FIN style.css pour Mention légale style titre */
+
+
+/* -----   style.css pour page 404 --------------------------- */
+.corps-404 {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+  flex: 1;               /* Cette partie prend tout l’espace restant */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Centrage horizontal */
+  justify-content: center; /* Centrage vertical */
+  text-align: center;
+}
+.h1-404 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 3em;
+  color: var(--asa-color);
+}
+.retour-404 {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--asa-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+html, body {
+  height: 100%;          /* Important : le body doit occuper tout l’écran */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* ← Cela force le main à occuper tout l’espace libre */
+}
+
+/* -------- FIN style.css pour page 404-------------------------- */
+
+/* idex occuper toute la hauteur*/
+.corps-index {
+  flex: 1;               /* Cette partie prend tout l’espace restant */
+  display: flex;
+  flex-direction: column;
+}
+/* ----  style.css pour page  MENTIONS LEGALES -----  */
+
+/* Bandeau header */
+.about-header {
+  background: url('/asa/img/logotype-asa-1200x630.png') center/cover no-repeat;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.about-header h1 {
+  font-size: 3rem;
+}
+
+.about-header p {
+  font-size: 1.25rem;
+}
+
+/* FIN style.css pour page MENTIONS LEGALES -----  */
+
+
+
+/* ------ Style des point ------*/
+/*disc (par défaut, rond plein), circle (cercle vide), square (carré plein)et none (pas de puce) */
+ul {
+  list-style-type: square; /* met des carrés à la place des puces rondes */
+}
+
+/* ------ FIN Style des point ------*/
+
+
+/* ------  Style des  ------*/
+
+.bg-page {
+  background: #d5dbe2;
+}
+
+/* -----*/
+
+.bg-header {
+  background-color: var(--asa-color);
+}
+
+/*---------------- ACCORDEON -----------------------*/
+
+.accordion-body a {
+  word-wrap: break-word;      /* ancienne syntaxe */
+  overflow-wrap: break-word;  /* syntaxe moderne */
+  display: inline-block;
+  max-width: 100%;
+}
+
+
+/*--------- LES LIENS INTERNES avec classe .internal-link -------- */
+
+.internal-link {
+  color: var(--asa-color);
+  text-decoration: none;
+}
+
+.internal-link:hover {
+  color: var(--asa-color-two);
+  text-decoration: underline !important;            /* soulignement */
+  -webkit-text-decoration-color: var(--asa-color-two) !important;
+  text-decoration-color: var(--asa-color-two) !important;
+  text-underline-offset: 0.375em !important;
+}
+
+/* Survol : changer couleur du texte + icône */
+.external-link:hover::after {
+  background-color:var(--asa-color-two);
+}
+
+/*--------- FIN LES LIENS INTERNES avec classe .internal-link -------- */
+
+/* ===============================
+   ICÔNE POUR LES LIENS AVEC CLASSE .external-link
+   =============================== */
+
+.external-link {
+  position: relative;
+  color: var(--asa-color);
+  text-decoration: none;
+}
+
+.external-link:hover {
+  color: var(--asa-color-two);
+  text-decoration: underline !important;            /* soulignement */
+  -webkit-text-decoration-color: var(--asa-color-two) !important;
+  text-decoration-color: var(--asa-color-two) !important;
+  text-underline-offset: 0.375em !important;
+}
+
+/* Ajout automatique d'une icône après le texte */
+.external-link::after {
+  --icon-size: 0.9rem;         /* Taille de l’icône */
+  --icon-color: currentColor;  /* Même couleur que le texte */
+  content: "";                 /* Obligatoire pour afficher le pseudo-élément */
+  display: inline-block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  margin-left: 0.3rem;
+  background-color: var(--icon-color);
+
+  /* Icône SVG du lien externe (inline base64 pour éviter les fichiers externes) */
+  -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="black" stroke-width="2" d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6Zm11-3v8h-2V6.4l-7.8 7.8-1.4-1.4L17.6 5H13V3h8Z"/></svg>');
+  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="black" stroke-width="2" d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6Zm11-3v8h-2V6.4l-7.8 7.8-1.4-1.4L17.6 5H13V3h8Z"/></svg>');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  vertical-align: middle;
+}
+
+/* Survol : changer couleur du texte + icône */
+.external-link:hover::after {
+  background-color:var(--asa-color-two);
+}
+/* FIN ===============================
+   ICÔNE POUR LES LIENS AVEC CLASSE .external-link
+   =============================== */
+
+
+
+/* ----- Style pour l'affichage des PDF dans statuts.html ----- */
+
+/* Un peu de style pour que le PDF prenne toute la place disponible */
+.pdf-container {
+  width: 100%;
+  height: 100vh; /* 100% de la hauteur de l'écran */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+embed {
+    border: 1px solid #ccc;
+}
