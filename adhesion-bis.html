@@ -70,7 +70,9 @@ permalink: /adhesion-bis
       transition: border-color .15s ease, background-color .15s ease;
     }
     .asa-choix label:hover{ border-color:var(--asa-vert); }
-    .asa-choix input{ margin-top:.15rem; flex:0 0 auto; accent-color:var(--asa-vert); }
+    /* width:auto + padding:0 : annule la mise en forme des champs texte
+       héritée de .asa-champ input, qui rendrait le radio pleine largeur. */
+    .asa-choix input{ margin-top:.15rem; flex:0 0 auto; width:auto; min-width:0; padding:0; accent-color:var(--asa-vert); }
     .asa-choix label:has(input:checked){ border-color:var(--asa-vert); background:rgba(0,133,63,.05); }
     .asa-choix__texte b{ display:block; font-family:var(--asa-display); font-weight:600; font-size:.98rem; }
     .asa-choix__texte span{ font-size:.88rem; color:var(--asa-gris); line-height:1.5; }
@@ -449,7 +451,7 @@ permalink: /adhesion-bis
      Le justificatif est lu en base64 et envoyé comme champ texte, ce qui
      évite toute requête préliminaire CORS et le recours à google.script.run. */
 
-  var URL_ADHESION = 'https://script.google.com/macros/s/AKfycbw82p5wQV4wzXEFWJdvAoGAGK-pSjYB_LkqreUBCtTV-1JXyfvlpNoGhxWvKkxpUvx2Uw/exec';
+  var URL_ADHESION = 'https://script.google.com/macros/s/REMPLACER_PAR_TON_ID_DE_DEPLOIEMENT/exec';
   var TAILLE_MAX = 5 * 1024 * 1024;
   var TYPES_OK = ['application/pdf', 'image/jpeg', 'image/png'];
 
