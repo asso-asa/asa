@@ -628,6 +628,31 @@ textarea:focus-visible{
 /* Masquage par le filtre (porté par la colonne) */
 .est-masque{ display:none !important; }
 
+/* Liste chronologique des événements à venir (alimentée par la collection) */
+.asa-liste-evenements{ list-style:none; padding:0; margin:0; border-top:1px solid rgba(20,38,28,.1); }
+.asa-evt{
+  display:flex; gap:1.5rem; align-items:baseline;
+  padding:1.5rem 0; border-bottom:1px solid rgba(20,38,28,.1);
+}
+.asa-evt__date{ flex:0 0 auto; width:6.5rem; margin:0; }
+.asa-evt__date b{
+  display:block; font-family:var(--asa-display); font-weight:800;
+  font-size:2rem; line-height:1; color:var(--asa-vert);
+}
+.asa-evt__date span{ display:block; font-size:.82rem; color:var(--asa-gris); margin-top:.2rem; }
+.asa-evt__corps{ flex:1 1 auto; }
+.asa-evt__corps h3{ font-size:1.25rem; font-weight:600; margin:0 0 .35rem; line-height:1.25; }
+.asa-evt__corps h3 a{ color:var(--asa-encre); text-decoration:none; }
+.asa-evt__corps h3 a:hover{ color:var(--asa-vert); text-decoration:underline; }
+.asa-evt__corps p{ font-size:.96rem; color:var(--asa-gris); line-height:1.6; margin:0 0 .35rem; }
+.asa-evt__infos{ font-size:.88rem; color:var(--asa-vert) !important; font-weight:600; }
+@media (max-width: 575.98px){
+  .asa-evt{ flex-direction:column; gap:.5rem; }
+  .asa-evt__date{ display:flex; align-items:baseline; gap:.5rem; width:auto; }
+  .asa-evt__date b{ font-size:1.5rem; }
+  .asa-evt__date span{ margin-top:0; }
+}
+
 /* Cartes « participer » */
 .asa-proposer{
   background:#fff; border-radius:1rem; padding:1.6rem 1.5rem; height:100%;
@@ -742,7 +767,10 @@ textarea:focus-visible{
 .asa-champ label{ display:block; font-weight:600; font-size:.93rem; margin-bottom:.4rem; }
 .asa-champ .asa-obligatoire{ color: var(--asa-rouge); }
 .asa-champ .asa-aide{ display:block; font-weight:400; font-size:.84rem; color:var(--asa-gris); margin-top:.15rem; }
-.asa-champ input, .asa-champ select, .asa-champ textarea{
+/* Radios et cases à cocher EXCLUS : sinon ils passeraient en largeur 100 %
+   et casseraient la mise en page (cartes de choix, radios en ligne…). */
+.asa-champ input:not([type="radio"]):not([type="checkbox"]),
+.asa-champ select, .asa-champ textarea{
   width:100%; font-family: var(--asa-texte); font-size:1rem;
   color: var(--asa-encre); background:#fff;
   border:1.5px solid rgba(20,38,28,.18); border-radius:.6rem; padding:.7rem .85rem;

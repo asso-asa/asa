@@ -25,3 +25,19 @@ defaults:
       path: "documents" # Cible tout le contenu du dossier documents
     values:
       sitemap: false    # Exclut du sitemap
+
+
+# 1. Déclaration de la collection "evenements"
+collections:
+  evenements:
+    output: true                       # chaque fichier devient une page
+    permalink: /evenements/:name/      # ex. fete-independance.md -> /evenements/fete-independance/
+
+# 2. Layout appliqué automatiquement à tous les événements
+#    (évite de répéter "layout: evenement" dans chaque fichier)
+defaults:
+  - scope:
+      path: ""
+      type: evenements
+    values:
+      layout: evenement

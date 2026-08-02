@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {%- comment -%}
+      =====================================================================
+      LAYOUT DE BASE — squelette commun à tout le site.
+      Les pages qui l'utilisent (via "layout: base" ou un layout qui en
+      hérite) n'ont plus besoin de recopier le <head>, la navigation ni
+      le pied de page. Elles fournissent seulement leurs valeurs via le
+      front matter : title, description, permalink, etc.
+      Variables reconnues (toutes facultatives sauf title) :
+        title        -> <title> et og:title
+        description  -> meta description / og
+        image        -> og:image (par défaut : le logotype)
+        robots       -> ex. "noindex, follow" (par défaut : "index, follow")
+        active       -> "accueil" | "association" | "agenda" | "annuaire"
+                        | "contact"  (surligne l'entrée de menu)
+      =====================================================================
+    {%- endcomment -%}
+
+    {%- assign titre = page.title | default: "Association des Sénégalais d'Amiens (ASA)" -%}
+    {%- assign desc = page.description | default: "L'Association des Sénégalais d'Amiens : accueil, entraide, culture et solidarité dans la Somme, l'Oise et l'Aisne." -%}
+    {%- assign img = page.image | default: "https://senegalais-amiens.fr/img/logotype-asa-1200x630.png" -%}
+    {%- assign url_abs = page.url | absolute_url -%}
+
+    <title>{{ titre }}</title>
+    <meta name="description" content="{{ desc | strip_html | truncate: 180 }}">
+    <meta name="robots" content="{{ page.robots | default: 'index, follow' }}">
+    <link rel="canonical" href="{{ url_abs }}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.png" type="image/png"/>
+    <link rel="icon" href="/img/favicon-32x32.png" sizes="32x32" type="image/png"/>
+    <link rel="icon" href="/img/favicon-16x16.png" sizes="16x16" type="image/png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo-asa-180x180.png">
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#00853F">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#043B22">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="ASA · Association des Sénégalais d'Amiens">
+    <meta property="og:title" content="{{ titre }}">
+    <meta property="og:description" content="{{ desc | strip_html | truncate: 180 }}">
+    <meta property="og:image" content="{{ img }}">
+    <meta property="og:image:alt" content="Logotype de l'Association des Sénégalais d'Amiens">
+    <meta property="og:url" content="{{ url_abs }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ titre }}">
+    <meta name="twitter:description" content="{{ desc | strip_html | truncate: 180 }}">
+    <meta name="twitter:image" content="{{ img }}">
+
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style-v2.css">
+
+    {%- comment -%} Bloc <head> optionnel propre à une page, injecté via un bloc Liquid nommé {%- endcomment -%}
+    {%- if page.head_extra -%}{{ page.head_extra }}{%- endif -%}
+</head>
+<body>
+
+  <a class="asa-skip" href="#contenu">Aller au contenu principal</a>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar navbar-expand-lg asa-nav sticky-top" aria-label="Navigation principale">
+    <div class="container">
+      <a class="navbar-brand py-2" href="/">
+        <img src="/img/logo-asa-asso.svg" alt="Association des Sénégalais d'Amiens — accueil" height="46">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navPrincipale" aria-controls="navPrincipale"
+              aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navPrincipale">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link"{% if page.active == "accueil" %} aria-current="page"{% endif %} href="/">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link"{% if page.active == "association" %} aria-current="page"{% endif %} href="/qui-sommes-nous/">L'association</a></li>
+          <li class="nav-item"><a class="nav-link"{% if page.active == "agenda" %} aria-current="page"{% endif %} href="/agenda/">Agenda</a></li>
+          <li class="nav-item"><a class="nav-link"{% if page.active == "annuaire" %} aria-current="page"{% endif %} href="/annuaire/">Annuaire</a></li>
+          <li class="nav-item"><a class="nav-link"{% if page.active == "contact" %} aria-current="page"{% endif %} href="/contact">Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="asa-btn asa-btn--vert" href="/adhesion">Adhérer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="contenu">
+    {{ content }}
+  </main>
+
+  <!-- ===================== PIED DE PAGE ===================== -->
+  <footer class="asa-footer">
+    <div class="asa-bande"></div>
+    <div class="container pt-5 pb-4">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <img src="/img/logo-asa-asso.svg" alt="" height="52" class="mb-3">
+          <p style="font-size:.95rem; line-height:1.6; max-width:38ch;">
+            Association des Sénégalais d'Amiens — association loi 1901,
+            siège social à Amiens (80). Somme, Oise et Aisne.
+          </p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2>L'association</h2>
+          <ul>
+            <li><a href="/qui-sommes-nous/">Qui sommes-nous</a></li>
+            <li><a href="/statuts/">Statuts</a></li>
+            <li><a href="/adhesion">Adhésion</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2>Informations</h2>
+          <ul>
+            <li><a href="/agenda/">Agenda</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/mentions-legales/">Mentions légales</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h2>Nous écrire</h2>
+          <ul>
+            <li><a href="mailto:contact@senegalais-amiens.fr">contact@senegalais-amiens.fr</a></li>
+            <li><a href="https://instagram.com/association.senegalais.amiens" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com/association.senegalais.amiens" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mb-0 pt-4 mt-4" style="border-top:1px solid rgba(255,255,255,.12); font-size:.9rem;">
+        © <span id="annee">2026</span> ASA • Association des Sénégalais d'Amiens
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/script.js"></script>
+  <script>
+    var annee = document.getElementById('annee');
+    if (annee) annee.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

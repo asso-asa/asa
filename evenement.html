@@ -1,0 +1,68 @@
+---
+layout: base
+active: agenda
+---
+{%- comment -%}
+  =====================================================================
+  LAYOUT D'UNE PAGE D'ÉVÉNEMENT.
+  Hérite de "base" (nav + footer + head communs). Ici on ne décrit QUE
+  le contenu propre à un événement. Les infos viennent du front matter
+  du fichier de l'événement (titre, date, lieu, resume), et le texte
+  libre écrit sous le front matter s'affiche via {{ content }}.
+
+  Un événement sans page dédiée (page_dediee non défini) reçoit
+  quand même une URL ; on la met alors en noindex pour éviter d'indexer
+  une fiche vide.
+  =====================================================================
+{%- endcomment -%}
+
+{%- assign mois_fr = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
+{%- assign m = page.date | date: "%-m" | minus: 1 -%}
+{%- assign heure = page.date | date: "%H:%M" -%}
+
+<header class="asa-entete">
+  <div class="container">
+    <nav class="asa-fil" aria-label="Fil d'Ariane">
+      <ol>
+        <li><a href="/">Accueil</a></li>
+        <li aria-hidden="true">&rsaquo;</li>
+        <li><a href="/agenda/">Agenda</a></li>
+        <li aria-hidden="true">&rsaquo;</li>
+        <li aria-current="page">{{ page.titre }}</li>
+      </ol>
+    </nav>
+    <div class="asa-bande asa-bande--fine mb-4"></div>
+    <h1>{{ page.titre }}</h1>
+    <p>
+      <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
+        {{ page.date | date: "%-d" }} {{ mois_fr[m] }} {{ page.date | date: "%Y" }}
+        {%- if heure != "00:00" %} à {{ page.date | date: "%Hh%M" }}{% endif -%}
+      </time>
+      {%- if page.lieu %} · {{ page.lieu }}{% endif -%}
+    </p>
+  </div>
+</header>
+
+<article class="asa-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+
+        {%- if page.resume -%}
+        <p class="asa-chapo mb-4">{{ page.resume }}</p>
+        {%- endif -%}
+
+        {%- comment -%} Le texte libre écrit dans le fichier de l'événement {%- endcomment -%}
+        <div class="asa-evt-contenu">
+          {{ content }}
+        </div>
+
+        <div class="asa-actions mt-4">
+          <a class="asa-btn asa-btn--vertline" href="/agenda/">← Retour à l'agenda</a>
+          <a class="asa-btn asa-btn--vert" href="/contact">Nous poser une question</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</article>
