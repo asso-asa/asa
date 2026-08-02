@@ -25,11 +25,3 @@ defaults:
       path: "documents" # Cible tout le contenu du dossier documents
     values:
       sitemap: false    # Exclut du sitemap
-  - scope:
-      path: "agenda-test.html" # Cible un fichier spécifique
-    values:
-      sitemap: false
-  - scope:
-      path: "adhesion-confirmation.html"
-    values:
-      sitemap: false
