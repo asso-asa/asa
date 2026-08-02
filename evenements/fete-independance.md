@@ -1,6 +1,6 @@
 ---
 titre: "Fête de l'indépendance du Sénégal"
-date: 2026-04-04 18:00 # 2026-08-10 15:00
+date: 2026-08-10 15:00 # 2026-08-10 15:00
 lieu: "Maison de quartier, Amiens"
 resume: "Une soirée pour célébrer le 4 avril : musique, cuisine du pays et rencontres. Ouverte à tous, adhérents ou non."
 page_dediee: true  
