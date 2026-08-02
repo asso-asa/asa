@@ -1,9 +1,17 @@
 # Standard Jekyll / GitHub Pages
 url: "https://senegalais-amiens.fr" # Le domaine racine
-baseurl: "/"                   # Le nom du dossier du projet (sans slash à la fin)
+baseurl: "/"                   # Le nom du dossier du projet
 
-title: "ASA l'Association"
-description: "ASA - Association des Sénégalais d'Amiens."
+# Configuration de la langue (SEO)
+lang: "fr_FR"
+locale: "fr_FR"
+
+# Informations SEO du site
+title: "ASA - Association des Sénégalais d'Amiens"
+description: "Site officiel de l'Association des Sénégalais d'Amiens (ASA)."
+
+# Personnalisation des titres générés par jekyll-seo-tag
+title_separator: "|"
 
 plugins:
   - jekyll-sitemap
