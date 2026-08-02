@@ -16,3 +16,13 @@ title_separator: "|"
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag # plugin officiel SEO de GitHub Pages.
+
+
+# Exclusion globale pour le plugin jekyll-sitemap
+sitemap:
+  exclude:
+    - "/agenda-test.html"      # Une page spécifique
+    - "/documents*"       # Tout un dossier
+    - "/mentions-legales/"     # Une URL spécifique
+    - "*.json"                 # Tous les fichiers JSON
+    - "404.html"               # La page d'erreur 404 (il l'est par défaut)
