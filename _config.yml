@@ -26,3 +26,18 @@ sitemap:
     - "/attestation-confirmation.html"     # Une URL spécifique
     - "*.json"                 # Tous les fichiers JSON
     - "404.html"               # La page d'erreur 404 (il l'est par défaut)
+
+# Application de "sitemap: false" en masse
+defaults:
+  - scope:
+      path: "documents" # Cible tout le contenu du dossier documents
+    values:
+      sitemap: false    # Exclut du sitemap
+  - scope:
+      path: "agenda-test.html" # Cible un fichier spécifique
+    values:
+      sitemap: false
+  - scope:
+      path: "adhesion-confirmation"
+    values:
+      sitemap: false
