@@ -1,8 +1,8 @@
 ---
-titre: "Titre de l'événement"
-date: 2026-01-01 18:00    # format AAAA-MM-JJ HH:MM (l'heure est facultative)
-lieu: "Nom du lieu, ville"
-resume: "Une phrase qui décrit l'événement : ce qui se passe, à qui c'est ouvert."
+titre: "La Grande rencontre du Nord"
+date: 2026-08-16 11:30    # format AAAA-MM-JJ HH:MM (l'heure est facultative)
+lieu: " Plage de Dunkerque | 11h30 - 20h30"
+resume: "Une nouvelle Grande Rencontre placée sous le signe de la convivialité et du partage."
 
 # Page dédiée ? Mettre true UNIQUEMENT si tu écris du contenu ci-dessous.
 # - true  : le titre devient cliquable dans l'agenda et mène à cette page.
