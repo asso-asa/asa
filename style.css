@@ -32,8 +32,14 @@
   --asa-encre:       #14261C;   /* texte principal */
   --asa-gris:        #5B6B61;   /* texte secondaire */
 
-  --asa-display: "Bricolage Grotesque", system-ui, sans-serif;
-  --asa-texte:   "Karla", system-ui, -apple-system, sans-serif;
+  /*--asa-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --asa-texte:   "Karla", system-ui, -apple-system, sans-serif; */
+
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+  --asa-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --asa-texte:   "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
 }
 
 
