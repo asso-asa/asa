@@ -7,3 +7,4 @@ description: "ASA - Association des Sénégalais d'Amiens."
 
 plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag # plugin officiel SEO de GitHub Pages.
