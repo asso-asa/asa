@@ -1,6 +1,6 @@
 # Standard Jekyll / GitHub Pages
 url: "https://senegalais-amiens.fr" # Le domaine racine
-baseurl: "/"                   # Le nom du dossier du projet
+baseurl: ""                   # Le nom du dossier du projet
 
 # Configuration de la langue (SEO)
 lang: "fr_FR"
@@ -17,25 +17,18 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag # plugin officiel SEO de GitHub Pages.
 
-
-# Exclusion globale pour le plugin jekyll-sitemap
-# Application de "sitemap: false" en masse
-defaults:
-  - scope:
-      path: "documents" # Cible tout le contenu du dossier documents
-    values:
-      sitemap: false    # Exclut du sitemap
-
-
-# 1. Déclaration de la collection "evenements"
+# Déclaration de la collection "evenements"
 collections:
   evenements:
-    output: true                       # chaque fichier devient une page
-    permalink: /evenements/:name/      # ex. fete-independance.md -> /evenements/fete-independance/
+    output: true
+    permalink: /evenements/:name/
 
-# 2. Layout appliqué automatiquement à tous les événements
-#    (évite de répéter "layout: evenement" dans chaque fichier)
+# UN SEUL bloc defaults, avec toutes les règles à la suite
 defaults:
+  - scope:
+      path: "documents"
+    values:
+      sitemap: false
   - scope:
       path: ""
       type: evenements
