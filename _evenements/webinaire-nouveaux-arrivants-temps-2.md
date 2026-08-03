@@ -10,16 +10,24 @@ resume: "Vous avez décroché votre admission dans un établissement à Amiens e
 page_dediee: true
 ---
 
+<!--![Affiche du webinaire ASA](/img/747625356_17947845651216774_567430767909425252_n.jpg)-->
+
 Vous avez décroché votre admission dans un établissement à Amiens et vous préparez votre départ depuis le Sénégal ? L'ASA organise une session en ligne pour vous guider pas à pas dans cette transition importante.
 
-## Au programme
+## 🗓️ Informations pratiques
 
-- Un buffet de spécialités sénégalaises préparé par les bénévoles
-- De la musique et de la danse
-- Un temps d'accueil pour les nouveaux arrivants
+* **Date :** Lundi 10 août 2026
+* **Heure :** 11h00 – 12h00 GMT
+* **Lieu :** En ligne via Google Meet 
 
-## Infos pratiques
+## 🎯 Au programme
 
-- **Entrée libre**, participation au chapeau pour le buffet.
-- Vous pouvez apporter un plat à partager : dites-le-nous via le
-  [formulaire de contact](/contact).
+<!-- Remplacez les éléments ci-dessous par le programme exact de ce Temps 2 -->
+- Thème 1 : Démarches administratives
+- Thème 2 : Préparation du voyage
+- Session de Questions / Réponses avec les membres de l'association
+
+---
+
+**Pour nous rejoindre en ligne :**
+[Cliquez ici pour accéder au Google Meet](https://meet.google.com/jzx-iohr-jea) <!-- Remplacez le # par le vrai lien Google Meet -->
