@@ -7,7 +7,7 @@ resume: "Deuxième édition de notre grand rassemblement inter-associations à l
 # Page dédiée ? Mettre true UNIQUEMENT si tu écris du contenu ci-dessous.   
 # - true  : le titre devient cliquable dans l'agenda et mène à cette page.  
 # - absent ou false : l'événement s'affiche dans la liste, sans lien.       
-page_dediee: false
+page_dediee: true
 ---
 
 <!--
