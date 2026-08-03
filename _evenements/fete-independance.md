@@ -1,6 +1,6 @@
 ---
 titre: "Fête de l'indépendance du Sénégal"
-date: 2026-04-04 15:00 # format AAAA-MM-JJ HH:MM (l'heure est facultative)
+date: 2027-04-04 15:00 # format AAAA-MM-JJ HH:MM (l'heure est facultative)
 lieu: "Maison de quartier, Amiens"
 resume: "Une soirée pour célébrer le 4 avril : musique, cuisine du pays et rencontres. Ouverte à tous, adhérents ou non."
 page_dediee: true  
