@@ -32,14 +32,8 @@
   --asa-encre:       #14261C;   /* texte principal */
   --asa-gris:        #5B6B61;   /* texte secondaire */
 
-  /*--asa-display: "Bricolage Grotesque", system-ui, sans-serif;
-  --asa-texte:   "Karla", system-ui, -apple-system, sans-serif; */
-
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
-  --asa-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-  --asa-texte:   "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-
+  --asa-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --asa-texte:   "Karla", system-ui, -apple-system, sans-serif;
 }
 
 
@@ -203,6 +197,24 @@ textarea:focus-visible{
 }
 .asa-footer ul{ list-style:none; padding:0; margin:0; }
 .asa-footer li{ margin-bottom:.45rem; font-size:.95rem; }
+
+/* Contacts avec icône (e-mail, WhatsApp) */
+.asa-footer__contacts{ list-style:none; padding:0; margin:0 0 1.15rem; }
+.asa-footer__contacts li{ margin-bottom:.55rem; }
+.asa-footer__contacts a{ display:inline-flex; align-items:center; gap:.6rem; font-size:.95rem; line-height:1.3; }
+.asa-footer__contacts svg{ flex:0 0 auto; width:1.15rem; height:1.15rem; fill:currentColor; opacity:.9; }
+
+/* Rangée d'icônes réseaux sociaux (boutons ronds) */
+.asa-footer__reseaux{ display:flex; gap:.6rem; }
+.asa-footer__reseaux a{
+  width:2.4rem; height:2.4rem; border-radius:50%;
+  display:grid; place-items:center; text-decoration:none;
+  background:rgba(255,255,255,.08);
+  transition: background-color .15s ease, transform .15s ease;
+}
+.asa-footer__reseaux a:hover{ background:var(--asa-jaune); transform:translateY(-2px); text-decoration:none; }
+.asa-footer__reseaux svg{ width:1.2rem; height:1.2rem; fill:rgba(255,255,255,.9); transition:fill .15s ease; }
+.asa-footer__reseaux a:hover svg{ fill:var(--asa-encre); }
 
 
 /* =============================================================
