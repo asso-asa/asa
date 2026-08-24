@@ -12,14 +12,8 @@ permalink: /adhesion/
     <meta name="description" content="Rejoignez l'Association des Sénégalais d'Amiens : formulaire d'adhésion en ligne pour la communauté sénégalaise de la Somme, l'Oise et l'Aisne.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://senegalais-amiens.fr/adhesion/">
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WX4SP4P6');</script>
-    <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager retiré : dépose des cookies avant tout consentement,
+         en contradiction avec la politique de confidentialité. -->
 
     <link rel="icon" href="/favicon.png" type="image/png"/>
     <link rel="icon" href="/img/favicon-32x32.png" sizes="32x32" type="image/png"/>
@@ -36,7 +30,7 @@ permalink: /adhesion/
     <meta property="og:description" content="Formulaire d'adhésion en ligne pour la communauté sénégalaise d'Amiens.">
     <meta property="og:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
     <meta property="og:image:alt" content="Logotype de l'Association des Sénégalais d'Amiens">
-    <meta property="og:url" content="https://senegalais-amiens.fr/adhesion">
+    <meta property="og:url" content="https://senegalais-amiens.fr/adhesion/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
 
@@ -54,7 +48,7 @@ permalink: /adhesion/
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 
-    <!-- CSS propre à la page adhésion (le reste vient de style-v2.css) -->
+    <!-- CSS propre à la page adhésion (le reste vient de style.css) -->
     <style>
     .asa-groupe{ border:none; padding:0; margin:0 0 2rem; }
     .asa-groupe > legend{
@@ -101,14 +95,34 @@ permalink: /adhesion/
 
     .asa-aide-bloc{ font-size:.86rem; color:var(--asa-gris); line-height:1.55; }
     .asa-aide-bloc ul{ padding-left:1.15rem; margin:.4rem 0 0; }
+
+    /* Fenêtre de confirmation (pop-up) affichée après un envoi réussi */
+    .asa-modale{
+      position:fixed; inset:0; z-index:3000;
+      display:grid; place-items:center; padding:1.5rem;
+      background:rgba(4,27,15,.55); backdrop-filter:blur(2px);
+      animation:asa-fond .2s ease;
+    }
+    .asa-modale[hidden]{ display:none; }
+    .asa-modale__carte{
+      background:#fff; border-radius:1.25rem; max-width:26rem; width:100%;
+      padding:2.25rem 1.75rem; text-align:center;
+      box-shadow:0 30px 60px -20px rgba(4,27,15,.5);
+      animation:asa-surgit .25s cubic-bezier(.2,.8,.2,1);
+    }
+    .asa-modale__check{
+      width:4rem; height:4rem; margin:0 auto 1.25rem; border-radius:50%;
+      background:var(--asa-vert); display:grid; place-items:center;
+    }
+    .asa-modale__check svg{ width:2.2rem; height:2.2rem; fill:#fff; }
+    .asa-modale__carte h2{ font-size:1.4rem; margin-bottom:.6rem; }
+    .asa-modale__carte p{ color:var(--asa-gris); font-size:1rem; line-height:1.6; margin-bottom:1.5rem; }
+    @keyframes asa-fond{ from{ opacity:0; } to{ opacity:1; } }
+    @keyframes asa-surgit{ from{ opacity:0; transform:translateY(12px) scale(.97); } to{ opacity:1; transform:none; } }
+    @media (prefers-reduced-motion: reduce){ .asa-modale, .asa-modale__carte{ animation:none; } }
     </style>
 </head>
 <body>
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WX4SP4P6"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <a class="asa-skip" href="#contenu">Aller au contenu principal</a>
 
@@ -484,6 +498,23 @@ permalink: /adhesion/
   </footer>
 
 
+  <!-- Fenetre de confirmation, affichee apres un envoi reussi -->
+  <div class="asa-modale" id="modaleSucces" role="dialog" aria-modal="true"
+       aria-labelledby="modaleTitre" aria-describedby="modaleTexte" hidden>
+    <div class="asa-modale__carte">
+      <div class="asa-modale__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      </div>
+      <h2 id="modaleTitre">Demande envoyée&nbsp;!</h2>
+      <p id="modaleTexte">
+        Merci, votre demande d'adhésion a bien été reçue. Le bureau va vérifier
+        votre dossier et vous recontactera par e-mail ou WhatsApp.
+        <strong>Inutile de renvoyer le formulaire.</strong>
+      </p>
+      <button type="button" class="asa-btn asa-btn--vert" id="modaleFermer">J'ai compris</button>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/script.js"></script>
 
@@ -501,6 +532,29 @@ permalink: /adhesion/
     var bouton  = document.getElementById('boutonEnvoyer');
     var statut  = document.getElementById('statut');
     var fichier = document.getElementById('justificatif');
+
+    // --- Fenetre de confirmation (pop-up) ---
+    var modale = document.getElementById('modaleSucces');
+    var modaleFermer = document.getElementById('modaleFermer');
+    var dernierFocus = null;
+
+    function ouvrirModale(){
+      dernierFocus = document.activeElement;
+      modale.hidden = false;
+      document.body.style.overflow = 'hidden';   // bloque le defilement de l'arriere-plan
+      modaleFermer.focus();
+      document.addEventListener('keydown', escFerme);
+    }
+    function fermerModale(){
+      modale.hidden = true;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', escFerme);
+      if (dernierFocus && dernierFocus.focus) dernierFocus.focus();
+    }
+    function escFerme(e){ if (e.key === 'Escape') fermerModale(); }
+
+    modaleFermer.addEventListener('click', fermerModale);
+    modale.addEventListener('click', function(e){ if (e.target === modale) fermerModale(); });
 
     var annee = document.getElementById('annee');
     if (annee) annee.textContent = new Date().getFullYear();
@@ -584,7 +638,7 @@ permalink: /adhesion/
           blocEtudiant.hidden = true;
           majUrgence();
           document.getElementById('ouvertureLe').value = Date.now();
-          afficher('ok', '<strong>Demande envoyée.</strong> Le bureau va vérifier votre dossier et vous recontactera pour finaliser votre adhésion.');
+          ouvrirModale();
         } else {
           throw new Error(res && res.erreur ? res.erreur : 'reponse_invalide');
         }
