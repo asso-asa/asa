@@ -584,7 +584,16 @@ permalink: /adhesion/
     form.querySelectorAll('input[name="statut"]').forEach(function(r){
       r.addEventListener('change', function(){
         var v = (document.querySelector('input[name="statut"]:checked') || {}).value;
-        blocEtudiant.hidden = (v !== 'Étudiant·e');
+        var estEtudiant = (v === 'Étudiant·e');
+        
+        blocEtudiant.hidden = !estEtudiant;
+        
+        // Vider les champs si l'utilisateur change d'avis et ne sélectionne plus étudiant
+        if (!estEtudiant) {
+          document.getElementById('etablissement').value = '';
+          document.getElementById('filiere').value = '';
+          document.getElementById('niveau').value = '';
+        }
       });
     });
 
