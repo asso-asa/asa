@@ -338,7 +338,7 @@ permalink: /adhesion/
                         </p>
                         <div class="asa-radios">
                           <label><input type="radio" name="primoArrivant" value="Oui"> Oui</label>
-                          <label><input type="radio" name="primoArrivant" value="Non" checked> Non</label>
+                          <label><input type="radio" name="primoArrivant" value="Non"> Non</label>
                         </div>
                       </div>
                     </div>
@@ -603,7 +603,9 @@ permalink: /adhesion/
           document.getElementById('etablissement').value = '';
           document.getElementById('filiere').value = '';
           document.getElementById('niveau').value = '';
-          document.querySelector('input[name="primoArrivant"][value="Non"]').checked = true;
+          document.querySelectorAll('input[name="primoArrivant"]').forEach(function(btn) {
+            btn.checked = false;
+          });
         }
       });
     });
