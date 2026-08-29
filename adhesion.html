@@ -317,7 +317,7 @@ permalink: /adhesion/
                         <label for="filiere">Filière</label>
                         <input type="text" id="filiere" name="filiere" maxlength="120">
                       </div>
-                      <div class="asa-champ mb-0">
+                      <div class="asa-champ">
                         <label for="niveau">Année / Niveau</label>
                         <select id="niveau" name="niveau">
                           <option value="">— Choisir le niveau —</option>
@@ -330,6 +330,19 @@ permalink: /adhesion/
                           <option value="Autre">Autre</option>
                         </select>
                       </div>
+                      <!-- Nouvelle question primo-arrivant -->
+                      <div class="asa-champ mb-0">
+                        <label>Êtes-vous étudiant·e primo-arrivant·e ?</label>
+                        <p class="asa-aide-bloc mb-2" style="margin-top:-0.25rem;">
+                          (Admis·e cette année dans un établissement situé en France en provenance du Sénégal)
+                        </p>
+                        <div class="asa-radios">
+                          <label><input type="radio" name="primoArrivant" value="Oui"> Oui</label>
+                          <label><input type="radio" name="primoArrivant" value="Non" checked> Non</label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
                     </div>
                   </fieldset>
 
@@ -593,6 +606,7 @@ permalink: /adhesion/
           document.getElementById('etablissement').value = '';
           document.getElementById('filiere').value = '';
           document.getElementById('niveau').value = '';
+          document.querySelector('input[name="primoArrivant"][value="Non"]').checked = true;
         }
       });
     });
@@ -602,9 +616,16 @@ permalink: /adhesion/
     function majUrgence(){
       var oui = (document.querySelector('input[name="hasUrgence"]:checked') || {}).value === 'Oui';
       blocUrgence.hidden = !oui;
+      
+      // Vider les champs si l'utilisateur sélectionne "Non"
+      if (!oui) {
+        document.getElementById('urgenceNom').value = '';
+        document.getElementById('urgenceTel').value = '';
+      }
     }
     form.querySelectorAll('input[name="hasUrgence"]').forEach(function(r){ r.addEventListener('change', majUrgence); });
     majUrgence();
+
 
     function fichierValide(){
       var f = fichier.files && fichier.files[0];
