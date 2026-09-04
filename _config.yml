@@ -7,7 +7,7 @@ lang: "fr_FR"
 locale: "fr_FR"
 
 # Informations SEO du site
-title: "ASA - Association des Sénégalais d'Amiens"
+title: "ASSOCIATION DES SENEGALAIS D'AMIENS"
 description: "Site officiel de l'Association des Sénégalais d'Amiens (ASA)."
 
 # Personnalisation des titres générés par jekyll-seo-tag
