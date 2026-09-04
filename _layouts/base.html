@@ -28,7 +28,7 @@
 
     <title>{{ titre }}</title>
     <meta name="description" content="{{ desc | strip_html | truncate: 180 }}">
-    <meta name="robots" content="{{ page.robots | default: 'index, follow' }}">
+    <meta name="robots" content="{{ page.robots | default: 'noindex, follow' }}">
     <link rel="canonical" href="{{ url_abs }}">
 
     <!-- Favicon -->
