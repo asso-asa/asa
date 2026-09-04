@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Validation d'appartenance du domaine"
 permalink: /validation-google/
 # Permet d'exclure cette page du fichier sitemap.xml pour la garder masquée
