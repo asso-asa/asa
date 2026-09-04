@@ -1,6 +1,7 @@
 # =============================================================
 # robots.txt — senegalais-amiens.fr
-# Association des Sénégalais d'Amiens (ASA)
+# Organisation : ASSOCIATION DES SENEGALAIS D'AMIENS
+# ID de l'association : W802000059
 #
 # =============================================================
 
