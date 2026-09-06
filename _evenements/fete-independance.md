@@ -20,4 +20,4 @@ tous ensemble.
 
 - **Entrée libre**, participation au chapeau pour le buffet.
 - Vous pouvez apporter un plat à partager : dites-le-nous via le
-  [formulaire de contact](/contact).
+  [formulaire de contact](/contact/).
