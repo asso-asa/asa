@@ -161,7 +161,18 @@ permalink: /annuaire/
       border-radius:1rem; padding:1.25rem;
       position:sticky; top:80px; z-index:5;
       box-shadow: 0 10px 24px -22px rgba(4,59,34,.6);
+      /* Nouvelles propriétés pour animer l'apparition/disparition */
+      transition: transform 0.3s ease-in-out, border-color .15s ease, box-shadow .15s ease;
+      will-change: transform;
     }
+
+    /* Classe ajoutée dynamiquement par JavaScript pour cacher la barre */
+    .asa-recherche.masque{
+      transform: translateY(-150%);
+      pointer-events: none; /* Empêche de cliquer accidentellement dessus pendant qu'elle est invisible */
+    }
+
+
     .asa-recherche label{ display:block; font-weight:600; font-size:.88rem; margin-bottom:.35rem; }
     .asa-recherche input, .asa-recherche select{
       width:100%; font-family:var(--asa-texte); font-size:1rem;
@@ -561,7 +572,7 @@ permalink: /annuaire/
 
       elements.forEach(function(item){
         var contacts = ''
-          + ligneContact('Présidence', echapper(item.Presidence))
+          + ligneContact('Président·e', echapper(item.Presidence))
           + (item.Email
               ? ligneContact('E-mail',
                   '<a href="mailto:' + echapper(item.Email) + '">' + echapper(item.Email) + '</a>')
@@ -689,6 +700,35 @@ permalink: /annuaire/
       filtrer();
       champRecherche.focus();
     });
+
+
+    /* -------------------------------------------------------------
+       Gestion de l'affichage de la barre de recherche au défilement
+       ------------------------------------------------------------- */
+    var conteneurRecherche = document.querySelector('.asa-recherche');
+    var dernierScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    window.addEventListener('scroll', function() {
+      var scrollActuel = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Si on est tout en haut de la page (ou très proche), on force l'affichage
+      if (scrollActuel <= 100) {
+        conteneurRecherche.classList.remove('masque');
+      }
+      // Si on défile vers le bas, on ajoute la classe pour masquer
+      else if (scrollActuel > dernierScroll) {
+        conteneurRecherche.classList.add('masque');
+      }
+      // Si on défile vers le haut, on retire la classe pour afficher
+      else {
+        conteneurRecherche.classList.remove('masque');
+      }
+
+      // Mise à jour de la position pour la prochaine itération (évite les bugs liés au scroll élastique d'iOS)
+      dernierScroll = scrollActuel <= 0 ? 0 : scrollActuel;
+    }, { passive: true }); // passive: true optimise les performances de défilement du navigateur
+
+
 
     charger();
   })();
