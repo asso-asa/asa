@@ -17,8 +17,8 @@ permalink: /nous-rejoindre/
     <!-- End Google Tag Manager -->
 
     <!-- ============================ SEO ============================ -->
-    <title>Postes bénévoles à pourvoir — Association des Sénégalais d'Amiens</title>
-    <meta name="description" content="Neuf postes bénévoles ouverts à l'ASA : bureau, conseil d'administration et commissions. Fiches de poste détaillées et candidature par e-mail.">
+    <title>Postes bénévoles à pourvoir - Association des Sénégalais d'Amiens</title>
+    <meta name="description" content="Des postes bénévoles ouverts à l'ASA : bureau, conseil d'administration et commissions. Fiches de poste détaillées et candidature par e-mail.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://senegalais-amiens.fr/nous-rejoindre/">
 
@@ -36,8 +36,8 @@ permalink: /nous-rejoindre/
 
     <!-- ======================== Open Graph ========================= -->
     <meta property="og:site_name" content="ASA · Association des Sénégalais d'Amiens">
-    <meta property="og:title" content="Votre bureau recrute — postes bénévoles 2026">
-    <meta property="og:description" content="Neuf postes ouverts au bureau, au conseil d'administration et dans les commissions de l'ASA.">
+    <meta property="og:title" content="Votre bureau recrute - postes bénévoles 2026">
+    <meta property="og:description" content="Des postes ouverts au bureau, au conseil d'administration et dans les commissions de l'ASA.">
     <meta property="og:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
     <meta property="og:image:alt" content="Logotype de l'Association des Sénégalais d'Amiens">
     <meta property="og:image:width" content="1200">
@@ -47,8 +47,8 @@ permalink: /nous-rejoindre/
     <meta property="og:locale" content="fr_FR">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Votre bureau recrute — postes bénévoles 2026">
-    <meta name="twitter:description" content="Neuf postes ouverts au bureau, au conseil d'administration et dans les commissions de l'ASA.">
+    <meta name="twitter:title" content="Votre bureau recrute - postes bénévoles 2026">
+    <meta name="twitter:description" content="Des postes ouverts au bureau, au conseil d'administration et dans les commissions de l'ASA.">
     <meta name="twitter:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
 
     <link rel="manifest" href="/manifest.json">
@@ -60,203 +60,6 @@ permalink: /nous-rejoindre/
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-
-    <style>
-    /* =============================================================
-       1. JETONS DE STYLE
-       Couleurs officielles du drapeau sénégalais fournies par l'ASA.
-       ============================================================= */
-    :root{
-      --asa-vert:      #00853F;
-      --asa-jaune:     #FDEF42;
-      --asa-rouge:     #E31B23;
-
-      --asa-vert-nuit:   #043B22;  /* fonds sombres, dérivé du vert */
-      --asa-vert-fonce:  #046B33;  /* survol des boutons verts */
-      --asa-jaune-sombre:#E8D400;  /* survol des boutons jaunes */
-      --asa-sable:       #FAF7EF;
-      --asa-encre:       #14261C;
-      --asa-gris:        #5B6B61;
-
-      --asa-display: "Bricolage Grotesque", system-ui, sans-serif;
-      --asa-texte:   "Karla", system-ui, -apple-system, sans-serif;
-    }
-
-    /* =============================================================
-       2. GARDE-FOUS CONTRE LE DÉBORDEMENT HORIZONTAL SUR MOBILE
-       On utilise « clip » et non « hidden » : hidden sur html/body
-       casserait la navbar sticky-top de Bootstrap, clip ne la casse pas.
-       ============================================================= */
-    html{ overflow-x: clip; }
-    body{ overflow-x: clip; max-width: 100%; }
-    /* Garde-fou : rien ne dépasse la largeur du conteneur */
-    img, svg, video, iframe{ max-width: 100%; }
-
-    /* Images de contenu : le ratio est préservé */
-    .asa-section img, .asa-hero img, .asa-entete img{ height: auto; }
-
-    /* Logos : la hauteur est imposée, la largeur suit */
-    .navbar-brand img{ height: 46px; width: auto; }
-    .asa-footer img{ height: 52px; width: auto; }
-    /* Aucun mot long (URL, adresse e-mail) ne doit pouvoir élargir la page */
-    h1, h2, h3, p, li, dd, a{ overflow-wrap: break-word; }
-
-    body{ font-family: var(--asa-texte); color: var(--asa-encre); background: var(--asa-sable); -webkit-font-smoothing: antialiased; }
-    h1,h2,h3,h4{ font-family: var(--asa-display); font-weight:800; letter-spacing:-.02em; line-height:1.1; }
-
-    .asa-skip{ position:absolute; left:-999px; top:0; z-index:2000; background:var(--asa-vert-nuit); color:#fff; padding:.75rem 1.25rem; border-radius:0 0 .5rem 0; }
-    .asa-skip:focus{ left:0; }
-
-    /* --- Signature : la bande tricolore --- */
-    .asa-bande{
-      height:6px; width:100%;
-      background: linear-gradient(to right,
-        var(--asa-vert) 0 33.34%, var(--asa-jaune) 33.34% 66.67%, var(--asa-rouge) 66.67% 100%);
-    }
-    .asa-bande--fine{ height:4px; width:64px; border-radius:2px; }
-
-    /* --- Navigation --- */
-    .asa-nav{ background:#fff; border-bottom:1px solid rgba(20,38,28,.08); }
-    .asa-nav .nav-link{ font-weight:500; color:var(--asa-encre); padding-inline:.9rem; position:relative; }
-    .asa-nav .nav-link:hover{ color:var(--asa-vert); }
-    .asa-nav .nav-link[aria-current="page"]{ color:var(--asa-vert); font-weight:700; }
-    .asa-nav .nav-link[aria-current="page"]::after{ content:""; position:absolute; left:.9rem; right:.9rem; bottom:.15rem; height:2px; background:var(--asa-jaune); }
-
-    /* --- Boutons --- */
-    .asa-btn{ display:inline-block; font-weight:700; text-decoration:none; text-align:center;
-              padding:.85rem 1.5rem; border-radius:999px; border:2px solid transparent;
-              transition: transform .15s ease, background-color .15s ease, color .15s ease; }
-    .asa-btn:hover{ transform: translateY(-2px); }
-    .asa-btn--jaune{ background:var(--asa-jaune); color:var(--asa-encre); }
-    .asa-btn--jaune:hover{ background:var(--asa-jaune-sombre); color:var(--asa-encre); }
-    .asa-btn--ghost{ border-color: rgba(255,255,255,.55); color:#fff; }
-    .asa-btn--ghost:hover{ background:#fff; color: var(--asa-vert-nuit); }
-    .asa-btn--vert{ background:var(--asa-vert); color:#fff; }
-    .asa-btn--vert:hover{ background:var(--asa-vert-fonce); color:#fff; }
-    .asa-btn--vertline{ border-color:var(--asa-vert); color:var(--asa-vert); }
-    .asa-btn--vertline:hover{ background:var(--asa-vert); color:#fff; }
-    /* Sur très petit écran, les boutons passent en pleine largeur */
-    @media (max-width: 400px){ .asa-btn{ display:block; width:100%; } }
-
-    /* --- Sections --- */
-    .asa-section{ padding-block: clamp(2.75rem, 7vw, 5.5rem); }
-    .asa-section--blanc{ background:#fff; }
-    .asa-section--vert{ background: var(--asa-vert-nuit); color:#fff; }
-    .asa-eyebrow{ font-size:.78rem; text-transform:uppercase; letter-spacing:.16em; font-weight:700; color:var(--asa-vert); margin-bottom:.75rem; }
-    .asa-section--vert .asa-eyebrow{ color: var(--asa-jaune); }
-    .asa-h2{ font-size: clamp(1.6rem, 4.2vw, 2.5rem); margin-bottom:1rem; }
-    .asa-chapo{ color:var(--asa-gris); font-size:1.05rem; line-height:1.75; max-width:62ch; }
-    .asa-section--vert .asa-chapo{ color: rgba(255,255,255,.82); }
-
-    /* --- Héro --- */
-    .asa-hero{
-      background: radial-gradient(130% 100% at 10% 0%, #0A6135 0%, var(--asa-vert-nuit) 65%);
-      color:#fff;
-    }
-    .asa-hero__inner{ padding-block: clamp(3rem, 9vw, 6.5rem); }
-    .asa-hero h1{ font-size: clamp(2.05rem, 7vw, 4.1rem); max-width:17ch; margin-bottom:1.25rem; }
-    .asa-hero h1 span{ color: var(--asa-jaune); }
-    .asa-hero__chapo{ font-size: clamp(1rem, 2.2vw, 1.25rem); line-height:1.65; max-width:54ch; color: rgba(255,255,255,.87); }
-
-    /* --- Chiffres clés --- */
-    .asa-chiffres{ background: var(--asa-encre); color:#fff; }
-    .asa-chiffres .row{ --bs-gutter-y: 1.5rem; }
-    .asa-chiffre{ text-align:center; }
-    .asa-chiffre strong{
-      display:block; font-family:var(--asa-display); font-weight:800;
-      font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--asa-jaune); line-height:1;
-    }
-    .asa-chiffre span{ display:block; font-size:.88rem; color:rgba(255,255,255,.75); margin-top:.4rem; line-height:1.35; }
-
-    /* --- Cartes d'action --- */
-    .asa-action{
-      background:#fff; border:1px solid rgba(20,38,28,.09);
-      border-radius:1rem; padding:1.6rem 1.5rem; height:100%;
-      display:flex; flex-direction:column; gap:.6rem;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .asa-action:hover{ transform: translateY(-3px); box-shadow: 0 16px 32px -24px rgba(4,59,34,.5); }
-    .asa-action__puce{
-      width:2.6rem; height:2.6rem; border-radius:.7rem; flex:0 0 auto;
-      display:grid; place-items:center; background:var(--asa-vert); color:#fff;
-      font-family:var(--asa-display); font-weight:800; font-size:1.05rem; margin-bottom:.3rem;
-    }
-    .asa-action--jaune .asa-action__puce{ background:var(--asa-jaune); color:var(--asa-encre); }
-    .asa-action--rouge .asa-action__puce{ background:var(--asa-rouge); color:#fff; }
-    .asa-action h3{ font-size:1.12rem; font-weight:600; margin:0; }
-    .asa-action p{ color:var(--asa-gris); font-size:.97rem; line-height:1.65; margin:0; }
-
-    /* --- Agenda --- */
-    .asa-evenement{
-      display:flex; gap:1.1rem; align-items:flex-start;
-      background:#fff; border:1px solid rgba(20,38,28,.09);
-      border-radius:1rem; padding:1.25rem; height:100%;
-    }
-    .asa-date{
-      flex:0 0 auto; width:4.1rem; text-align:center;
-      background:var(--asa-sable); border-radius:.7rem;
-      padding:.6rem .3rem; line-height:1.1;
-    }
-    .asa-date b{ display:block; font-family:var(--asa-display); font-size:1.5rem; font-weight:800; color:var(--asa-vert); }
-    .asa-date span{ display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--asa-gris); margin-top:.15rem; }
-    .asa-evenement h3{ font-size:1.05rem; font-weight:600; margin:0 0 .35rem; }
-    .asa-evenement p{ font-size:.93rem; color:var(--asa-gris); line-height:1.55; margin:0; }
-    .asa-evenement__lieu{ font-size:.85rem; color:var(--asa-vert); font-weight:600; margin-top:.4rem !important; }
-
-    /* --- Temps forts de l'année (étiquettes) --- */
-    .asa-etiquettes{ display:flex; flex-wrap:wrap; gap:.5rem; padding:0; margin:1.25rem 0 0; list-style:none; }
-    .asa-etiquettes li{
-      background:#fff; border:1px solid rgba(20,38,28,.12);
-      border-radius:999px; padding:.4rem .95rem; font-size:.9rem; font-weight:500;
-    }
-
-    /* --- Adhésion : liste d'avantages --- */
-    .asa-avantages{ list-style:none; padding:0; margin:1.5rem 0 0; }
-    .asa-avantages li{
-      display:flex; gap:.8rem; align-items:flex-start;
-      padding:.7rem 0; font-size:1rem; line-height:1.6;
-      color: rgba(255,255,255,.88);
-    }
-    .asa-avantages li::before{ content:"\2726"; flex:0 0 auto; color:var(--asa-jaune); line-height:1.6; }
-
-    /* --- S'impliquer --- */
-    .asa-impliquer{
-      background:#fff; border-radius:1rem; padding:1.6rem 1.5rem; height:100%;
-      border-top:5px solid var(--asa-vert);
-    }
-    .asa-impliquer--jaune{ border-top-color: var(--asa-jaune); }
-    .asa-impliquer--rouge{ border-top-color: var(--asa-rouge); }
-    .asa-impliquer h3{ font-size:1.1rem; font-weight:600; margin-bottom:.5rem; }
-    .asa-impliquer p{ color:var(--asa-gris); font-size:.96rem; line-height:1.65; margin-bottom:1rem; }
-
-    /* --- Appel final --- */
-    .asa-cta{ background: var(--asa-vert); color:#fff; border-radius:1.25rem; padding: clamp(1.75rem, 5vw, 3.25rem); }
-    .asa-cta h2{ font-size: clamp(1.5rem, 3.6vw, 2.25rem); }
-
-    /* --- Pied de page --- */
-    .asa-footer{ background:var(--asa-encre); color:rgba(255,255,255,.7); }
-    .asa-footer a{ color:rgba(255,255,255,.85); text-decoration:none; }
-    .asa-footer a:hover{ color:var(--asa-jaune); text-decoration:underline; }
-    .asa-footer h2{ font-size:.8rem; text-transform:uppercase; letter-spacing:.14em; color:var(--asa-jaune); font-weight:700; margin-bottom:.9rem; }
-    .asa-footer ul{ list-style:none; padding:0; margin:0; }
-    .asa-footer li{ margin-bottom:.45rem; font-size:.95rem; }
-
-    a:focus-visible, button:focus-visible{ outline:3px solid var(--asa-jaune); outline-offset:3px; border-radius:2px; }
-
-    /* --- Marqueur « à remplir » : à supprimer avec les contenus fictifs --- */
-    .asa-remplir{
-      background:#FFF7E0; color:#6B5200; border:1px dashed #D9A400;
-      border-radius:.35rem; padding:0 .3rem; font-style:normal; font-weight:700;
-    }
-
-    /* --- Apparition au défilement --- */
-    .asa-reveal{ opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
-    .asa-reveal.est-visible{ opacity:1; transform:none; }
-    @media (prefers-reduced-motion: reduce){
-      .asa-reveal{ opacity:1; transform:none; transition:none; }
-      .asa-btn:hover, .asa-action:hover{ transform:none; }
-    }
-    </style>
 
     <style>
     /* =============================================================
