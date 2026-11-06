@@ -12,7 +12,7 @@ sitemap: false
 Le nom de domaine **senegalais-amiens.fr** est la propriété exclusive et officielle de l'**ASSOCIATION DES SENEGALAIS D'AMIENS**.
 
 *   **Identifiant de l'association (RNA) :** W802000059
-*   **Siège social :** Les 4 Chênes, Apt 17, 54 rue du Général Friant, 80000 AMIENS, France.
+*   **Siège social :** 23 RUE ALBERT CAMUS 80080 AMIENS, France.
 
 Pour vérifier l'existence légale de notre structure, veuillez consulter la publication officielle sur le site du gouvernement français (Journal Officiel) :
 [https://annuaire-entreprises.data.gouv.fr/entreprise/association-des-senegalais-d-amiens-807826474](#)
