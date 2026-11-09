@@ -30,22 +30,10 @@ Dans l'esprit de solidarité du Ramadan, l'Association des Sénégalais d'Amiens
 * **Lieu :** Amiens (Lieu à confirmer)
 
 *Les détails concernant les inscriptions ou la cagnotte solidaire seront communiqués très prochainement !*
-```Voici des propositions de résumés très courts, parfaits pour la balise `resume` de votre fichier, à copier entre les guillemets :
 
-**Option 1 (Directe et rassembleuse - 126 caractères)**
-`"L'ASA vous invite à sa grande rupture collective du jeûne. Un moment de partage et de convivialité ouvert à toutes et tous."`
 
-**Option 2 (Axée sur la solidarité étudiante et familiale - 120 caractères)**
-`"Rupture collective du jeûne organisée par l'ASA. Venez partager un moment de solidarité en famille ou entre étudiants."`
+![Affiche officielle du Grand Ndoggou 2027](/img/groupe-hommes-femmes-reunion-association.webp)
 
-**Option 3 (Ultra-courte - 115 caractères)**
-`"Grand Ndoggou de l'ASA : une rupture du jeûne collective, solidaire et conviviale, ouverte à toute la communauté."`
 
-Pensez également à modifier le reste de votre fichier (à partir de la ligne 20), car le contenu actuel ("LA GRANDE RENCONTRE DU NORD est de retour !!!!", "plage de Dunkerque"[cite: 11]) est resté calqué sur votre précédent événement.
-
-![Affiche officielle de la Grande Rencontre du Nord 2026](/img/groupe-hommes-femmes-reunion-association.webp)
-
----
-
-**🇸🇳 Venez nombreux, en famille ou entre amis, pour partager ce moment fort !**
+**Venez nombreux, en famille ou entre amis, pour partager ce moment fort !**
 

@@ -449,53 +449,54 @@ permalink: /
           </div>
           <a class="asa-btn asa-btn--vertline" href="/agenda/">Tout l'agenda</a>
         </div>
+        <!--Les évenements trois max (automatique)-->
+        {%- assign mois_fr = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
+        {%- assign aujourdhui = site.time | date: "%Y-%m-%d" -%}
+        {%- assign a_venir = site.evenements | sort: "date" -%}
 
+        {%- assign nb_futurs = 0 -%}
+        {%- for e in a_venir -%}
+          {%- assign jour_e = e.date | date: "%Y-%m-%d" -%}
+          {%- if jour_e >= aujourdhui -%}{%- assign nb_futurs = nb_futurs | plus: 1 -%}{%- endif -%}
+        {%- endfor -%}
+
+        {%- if nb_futurs > 0 -%}
         <div class="row g-4">
-          <div class="col-lg-4 asa-reveal">
-            <article class="asa-evenement">
-              <p class="asa-date mb-0">
-                <b>16</b>
-                <span>août</span>
-              </p>
-              <div>
-                <h3>La Grande rencontre du Nord</h3>
-                <p>Une nouvelle Grande Rencontre placée sous le signe de la convivialité et du partage
-                   .</p>
-                <p class="asa-evenement__lieu">Lieu&nbsp;: Plage de Dunkerque | 11h30 - 20h30</p>
+          {%- assign nb_affiches = 0 -%}
+          {%- for e in a_venir -%}
+            {%- assign jour_e = e.date | date: "%Y-%m-%d" -%}
+            {%- if jour_e >= aujourdhui -%}
+              {%- assign m = e.date | date: "%-m" | minus: 1 -%}
+              <div class="col-lg-4 asa-reveal">
+                <article class="asa-evenement">
+                  <p class="asa-date mb-0">
+                    <b>{{ e.date | date: "%-d" }}</b>
+                    <span>{{ mois_fr[m] }}</span>
+                  </p>
+                  <div>
+                    <h3 style="line-height:1.3;">
+                      {%- if e.page_dediee -%}
+                        <a href="{{ e.url | relative_url }}" style="color:inherit; text-decoration:none;">{{ e.titre }}</a>
+                      {%- else -%}
+                        {{ e.titre }}
+                      {%- endif -%}
+                    </h3>
+                    {%- if e.resume -%}<p>{{ e.resume }}</p>{%- endif -%}
+                    {%- if e.lieu -%}<p class="asa-evenement__lieu">{{ e.lieu }}</p>{%- endif -%}
+                  </div>
+                </article>
               </div>
-            </article>
-          </div>
-          <div class="col-lg-4 asa-reveal">
-            <article class="asa-evenement">
-              <p class="asa-date mb-0">
-                <b>18</b>
-                <span>juillet</span>
-              </p>
-              <div>
-                <h3>Webinaire Nouveaux arrivants - Temps 1</h3>
-                <p>Vous avez décroché votre admission dans un établissement à Amiens 
-                  et vous préparez votre départ depuis le Sénégal ?
-                  L'ASA organise une session en ligne pour vous guider pas à pas dans cette transition importante.
-                </p>
-                <p class="asa-evenement__lieu">Lieu&nbsp;: Google Meet | 11h:00 – 12h:00 GMT</p>
-              </div>
-            </article>
-          </div>
-          <!---div class="col-lg-4 asa-reveal">
-            <article class="asa-evenement">
-              <p class="asa-date mb-0">
-                <b>00</b>
-                <span>mois</span>
-              </p>
-              <div>
-                <h3>Pique-nique</h3>
-                <p>Une phrase de description : de quoi il s'agit, à qui c'est
-                   ouvert, ce qu'il faut apporter.</p>
-                <p class="asa-evenement__lieu">Lieu&nbsp;: Parc Saint-Pierre, Amiens</p>
-              </div>
-            </article>
-          </div--->
+              {%- assign nb_affiches = nb_affiches | plus: 1 -%}
+              {%- if nb_affiches == 3 -%}{%- break -%}{%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
         </div>
+        {%- else -%}
+        <div class="asa-reveal" style="background:#fff; border:1px dashed rgba(20,38,28,.15); border-radius:1rem; padding:2rem; text-align:center;">
+          <p class="mb-0" style="color:var(--asa-gris); font-size:1.05rem;">Les prochains événements arrivent bientôt.</p>
+        </div>
+        {%- endif -%}
+        <!-- FIN Les évenements trois max (automatique)-->
 
         <div class="mt-5 asa-reveal">
           <h3 style="font-size:1.05rem; font-weight:600;">Nos temps forts de l'année</h3>

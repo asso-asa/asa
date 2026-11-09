@@ -21,7 +21,7 @@
 
     // Fenêtre de campagne (format AAAA-MM-JJ). Hors de cette période : rien.
     dateDebut: '2026-10-19',
-    dateFin:   '2026-12-01',
+    dateFin:   '2026-11-22',
 
     // Destination du bouton principal. À REMPLACER par l'URL réelle.
     urlCible: '/nous-rejoindre/',
