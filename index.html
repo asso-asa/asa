@@ -450,6 +450,7 @@ permalink: /
           <a class="asa-btn asa-btn--vertline" href="/agenda/">Tout l'agenda</a>
         </div>
         <!--Les évenements trois max (automatique)-->
+        <!--Ici pour agenda auto, Liquid est utilisé, le langage de templating de Jekyll, exactement comme sur votre page agenda.html.-->
         {%- assign mois_fr = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
         {%- assign aujourdhui = site.time | date: "%Y-%m-%d" -%}
         {%- assign a_venir = site.evenements | sort: "date" -%}
