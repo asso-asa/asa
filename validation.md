@@ -15,4 +15,4 @@ Le nom de domaine **senegalais-amiens.fr** est la propriété exclusive et offic
 *   **Siège social :** 23 RUE ALBERT CAMUS 80080 AMIENS, France.
 
 Pour vérifier l'existence légale de notre structure, veuillez consulter la publication officielle sur le site du gouvernement français (Journal Officiel) :
-[https://annuaire-entreprises.data.gouv.fr/entreprise/association-des-senegalais-d-amiens-807826474](#)
+[https://annuaire-entreprises.data.gouv.fr/entreprise/association-des-senegalais-d-amiens-807826474](https://annuaire-entreprises.data.gouv.fr/entreprise/association-des-senegalais-d-amiens-807826474)
