@@ -1,6 +1,6 @@
 ---
 titre: "Soirée d'intégration des nouveaux arrivants"
-date: 2026-12-01 19:00 # Date provisoire, à ajuster une fois fixée
+date: 2026-12-12 19:00 # Date provisoire, à ajuster une fois fixée
 lieu: "Amiens | Date exacte et lieu à venir"
 resume: "Vous venez de vous installer à Amiens ? Étudiants, professionnels ou familles, l'ASA vous souhaite la bienvenue lors de sa soirée d'intégration prévue en décembre."
 page_dediee: true
