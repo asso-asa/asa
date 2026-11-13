@@ -34,7 +34,7 @@ permalink: /agenda/
 
     <!-- ======================== Open Graph ========================= -->
     <meta property="og:site_name" content="ASA · Association des Sénégalais d'Amiens">
-    <meta property="og:title" content="Agenda — Association des Sénégalais d'Amiens">
+    <meta property="og:title" content="Agenda - Association des Sénégalais d'Amiens">
     <meta property="og:description" content="Fêtes, sport, culture et solidarité : tous les rendez-vous de la communauté sénégalaise d'Amiens.">
     <meta property="og:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
     <meta property="og:image:alt" content="Logotype de l'Association des Sénégalais d'Amiens">
@@ -43,7 +43,7 @@ permalink: /agenda/
     <meta property="og:locale" content="fr_FR">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Agenda — Association des Sénégalais d'Amiens">
+    <meta name="twitter:title" content="Agenda - Association des Sénégalais d'Amiens">
     <meta name="twitter:description" content="Fêtes, sport, culture et solidarité : tous les rendez-vous de la communauté sénégalaise d'Amiens.">
     <meta name="twitter:image" content="https://senegalais-amiens.fr/img/logotype-asa-1200x630.png">
 
@@ -59,7 +59,7 @@ permalink: /agenda/
 
     <style>
     /* =============================================================
-       BLOC COMMUN — identique aux autres pages.
+       BLOC COMMUN - identique aux autres pages.
        Destination finale : _layouts/default.html
        ============================================================= */
     :root{
@@ -258,7 +258,7 @@ permalink: /agenda/
   <nav class="navbar navbar-expand-lg asa-nav sticky-top" aria-label="Navigation principale">
     <div class="container">
       <a class="navbar-brand py-2" href="/">
-        <img src="/img/logo-asa-asso.svg" alt="Association des Sénégalais d'Amiens — accueil" height="46">
+        <img src="/img/logo-asa-asso.svg" alt="Association des Sénégalais d'Amiens - accueil" height="46">
       </a>
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
               data-bs-target="#navPrincipale" aria-controls="navPrincipale"
@@ -332,7 +332,7 @@ permalink: /agenda/
           =====================================================================
         {%- endcomment -%}
 
-        {%- assign mois_fr = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
+        {%- assign mois_fr = "janv.,févr.,mars,avril,mai,juin,juillet,août,sept.,oct.,nov.,déc." | split: "," -%}
         {%- assign aujourdhui = site.time | date: "%Y-%m-%d" -%}
         {%- assign a_venir = site.evenements | sort: "date" -%}
 
@@ -379,7 +379,7 @@ permalink: /agenda/
           <h3>Aucune date programmée pour le moment</h3>
           <p>Le prochain rendez-vous se prépare. Pour être prévenu dès qu'il est
              annoncé, suivez-nous sur les réseaux sociaux ou écrivez-nous.</p>
-          <a class="asa-btn asa-btn--vert" href="/contact">Être prévenu</a>
+          <a class="asa-btn asa-btn--vert" href="/contact/">Être prévenu</a>
         </div>
         {%- endif -%}
       </div>
@@ -413,7 +413,7 @@ permalink: /agenda/
           <!-- ---------- Accueil / convivialité ---------- -->
           <div class="col-md-6 col-xl-4 asa-reveal" data-categorie="fetes">
             <article class="asa-rdv" data-cat="fetes">
-              <span class="asa-rdv__periode">Septembre</span>
+              <span class="asa-rdv__periode">Décembre</span>
               <h3>Journée d'intégration</h3>
               <p>Le premier rendez-vous de l'année. On accueille les nouveaux
                  arrivants, on fait les présentations, on répond aux questions
@@ -470,7 +470,7 @@ permalink: /agenda/
 
           <div class="col-md-6 col-xl-4 asa-reveal" data-categorie="fetes">
             <article class="asa-rdv" data-cat="fetes">
-              <span class="asa-rdv__periode">Juin — juillet</span>
+              <span class="asa-rdv__periode">Juin - juillet</span>
               <h3>Pique-nique des familles</h3>
               <p>Une journée en plein air, dans un parc d'Amiens ou au bord de
                  l'eau. Chacun apporte un plat, les enfants jouent, les anciens
@@ -551,7 +551,7 @@ permalink: /agenda/
           <!-- ---------- Solidarité ---------- -->
           <div class="col-md-6 col-xl-4 asa-reveal" data-categorie="solidarite">
             <article class="asa-rdv" data-cat="solidarite">
-              <span class="asa-rdv__periode">Août — septembre</span>
+              <span class="asa-rdv__periode">Août - septembre</span>
               <h3>Opération rentrée scolaire</h3>
               <p>Collecte de fournitures et de cartables pour les familles de la
                  communauté, et pour une école partenaire au Sénégal. Chacun
@@ -622,8 +622,7 @@ permalink: /agenda/
             <div class="asa-proposer">
               <h3>Venir sans être adhérent</h3>
               <p>La grande majorité de nos rendez-vous sont ouverts à tous. Vous
-                 pouvez venir voir avant de décider si vous adhérez — c'est même
-                 conseillé.</p>
+                 pouvez venir voir avant de décider si vous adhérez.</p>
             </div>
           </div>
           <div class="col-md-4 asa-reveal">

@@ -36,8 +36,8 @@
     delaiMs: 1200,
 
     // Délai avant de représenter la modale à quelqu'un qui l'a déjà vue.
-    // 30 = elle revient au bout d'une demi-heure. 0 = plus jamais.
-    minutesAvantRelance: 30,
+    // 60 = elle revient au bout d'une heure. 0 = plus jamais.
+    minutesAvantRelance: 60,
 
     // Pages où la modale ne doit JAMAIS s'afficher (début d'URL, sensible à la casse).
     // On n'interrompt pas quelqu'un en train de remplir un formulaire.
