@@ -332,7 +332,7 @@ permalink: /agenda/
           =====================================================================
         {%- endcomment -%}
 
-        {%- assign mois_fr = "janv.,févr.,mars,avril,mai,juin,juillet,août,sept.,oct.,nov.,déc." | split: "," -%}
+        {%- assign mois_fr = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
         {%- assign aujourdhui = site.time | date: "%Y-%m-%d" -%}
         {%- assign a_venir = site.evenements | sort: "date" -%}
 
