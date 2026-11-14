@@ -1,6 +1,6 @@
 ---
-titre: "Soirée d'Anniversaire : L'ASA célèbre sa création !"
-date: 2026-12-19 19:00 # Date fixée au samedi le plus proche du 22 décembre
+titre: "Soirée d’anniversaire : l'ASA célèbre sa création !"
+date: 2026-12-26 19:00 # Date fixée au samedi le plus proche du 22 décembre
 lieu: "Amiens | Salle à confirmer"
 resume: "Le 22 décembre 2007 naissait l'ASA ! Venez célébrer nos années de solidarité, d'entraide et de partage lors d'une grande soirée festive qui réunira toutes les générations."
 page_dediee: true
