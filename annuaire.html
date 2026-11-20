@@ -559,6 +559,18 @@ permalink: /annuaire/
         '</a>');
     }
 
+        // Formate une date ISO (ex. "2026-07-25T22:00:00.000Z") en "20 avril 2026"
+        function formaterDateMaj(valeur) {
+          if (!valeur) return '';
+          var date = new Date(valeur);
+          if (Number.isNaN(date.getTime())) return String(valeur);
+          return date.toLocaleDateString('fr-FR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          });
+        }
+
     /* -------------------------------------------------------------
        Rendu de la liste.
        On construit un tableau de chaînes puis on affecte innerHTML
@@ -582,7 +594,7 @@ permalink: /annuaire/
                   '<a href="tel:' + echapper(String(item.Numero_de_telephone).replace(/\s/g, '')) + '">' +
                   echapper(item.Numero_de_telephone) + '</a>')
               : '')
-          + ligneLien('Site', item.Site_internet)
+          + ligneLien('Site web', item.Site_internet)
           + ligneLien('Instagram', item.Lien_Instagram, 'Voir le compte')
           + ligneLien('Facebook', item['Lien_Facebook_Page-Group'], 'Voir la page');
 
@@ -600,7 +612,7 @@ permalink: /annuaire/
               '</p>' +
               '<ul class="asa-asso__contacts">' + contacts + '</ul>' +
               (item.Date_de_derniere_Maj
-                ? '<p class="asa-asso__maj">Mise à jour : ' + echapper(item.Date_de_derniere_Maj) + '</p>'
+                ? '<p class="asa-asso__maj">Mise à jour : ' + echapper(formaterDateMaj(item.Date_de_derniere_Maj)) + '</p>'
                 : '') +
             '</article>' +
           '</div>'
